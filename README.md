@@ -1,25 +1,19 @@
 # Ember-collapsible-panel
 
-This README outlines the details of collaborating on this Ember addon.
+> **WIP** not ready!!!!!!1111
 
-## Installation
+```hbs
+{{#collapsible-panel is-open=boolean}}
+  {{#collapsible-panel-toggle}}
+  {{/collapsible-panel-toggle}}
+  {{#collapsible-panel-body}}
+  {{/collapsible-panel-body}}
+{{/collapsible-panel}}
+```
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+```hbs
+{{#collapsible-panels accordion=false }}
+  {{#collapsible-panel}} ... {{/collapsible-panel}}
+  {{#collapsible-panel}} ... {{/collapsible-panel}}
+{{/collapsible-panels}}
+```

@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+/*
+  Passed-in:
+    is-open. bind to panel's open/close state
+*/
 export default Ember.Component.extend({
 
   classNames: 'ted-panel',
@@ -9,7 +13,7 @@ export default Ember.Component.extend({
     'border:ted-panel-border'
   ],
 
-  open: Ember.computed.alias('isOpen'),
+  isOpen: Ember.computed.alias('is-open'),
 
   /*
     Hacky way to wire up this panel's toggle

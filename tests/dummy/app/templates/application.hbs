@@ -1,6 +1,8 @@
 <h2 id="title">Welcome to Ember.js</h2>
 
-{{#collapsible-panel}}
+<p>The panel is open: {{panelIsOpen}}</p>
+
+{{#collapsible-panel is-open=panelIsOpen}}
   {{#collapsible-panel-toggle}}
     <p>Click me!</p>
   {{/collapsible-panel-toggle}}
