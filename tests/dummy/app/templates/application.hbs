@@ -1,12 +1,15 @@
 <h2 id="title">Welcome to Ember.js</h2>
 
+<button {{action 'toggle'}}>Toggle the panel</button>
+
 <p>The panel is open: {{panelIsOpen}}</p>
+<p>The panel is collapsing: {{isCollapsing}}</p>
 
 {{#collapsible-panel is-open=panelIsOpen}}
   {{#collapsible-panel-toggle}}
     <p>Click me!</p>
   {{/collapsible-panel-toggle}}
-  {{#collapsible-panel-body}}
+  {{#collapsible-panel-body isCollapsing=isCollapsing}}
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>

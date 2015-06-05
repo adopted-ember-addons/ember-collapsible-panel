@@ -6,12 +6,8 @@ import Ember from 'ember';
 */
 export default Ember.Component.extend({
 
-  classNames: 'ted-panel',
-  classNameBindings: [
-    'isOpen:ted-panel-open',
-    'floating:ted-panel-floating',
-    'border:ted-panel-border'
-  ],
+  classNames: 'collapsible-panel',
+  classNameBindings: ['isOpen:collapsible-panel-open'],
 
   isOpen: Ember.computed.alias('is-open'),
 
@@ -20,12 +16,12 @@ export default Ember.Component.extend({
     and collapsible child components.
   */
   wireUpComponents: Ember.on('didInsertElement', function() {
-    var toggleId = this.$('.ted-panel-toggle')
-      .not(this.$('.ted-panel').find('.ted-panel-toggle'))
+    var toggleId = this.$('.collapsible-panel-toggle')
+      .not(this.$('.collapsible-panel').find('.collapsible-panel-toggle'))
       .attr('id');
 
-    var collapsibleId = this.$('.ted-panel-collapse')
-      .not(this.$('.ted-panel').find('.ted-panel-collapse'))
+    var collapsibleId = this.$('.collapsible-panel-body')
+      .not(this.$('.collapsible-panel').find('.collapsible-panel-body'))
       .attr('id');
 
     this.set('toggleComponent', Ember.View.views[toggleId]);
@@ -54,7 +50,7 @@ export default Ember.Component.extend({
   getSiblingPanels: function() {
     var panels = [];
 
-    this.$().siblings('.ted-panel').each(function(i, panel) {
+    this.$().siblings('.collapsible-panel').each(function(i, panel) {
       var panelId = Ember.$(panel).attr('id');
 
       panels.push(Ember.View.views[panelId]);
@@ -63,13 +59,13 @@ export default Ember.Component.extend({
     return Ember.A(panels);
   },
 
-  closeSiblingsOnOpen: Ember.observer('isOpen', function() {
-    var siblings = this.getSiblingPanels();
+  // closeSiblingsOnOpen: Ember.observer('isOpen', function() {
+  //   var siblings = this.getSiblingPanels();
 
-    if (this.get('isOpen') && siblings) {
-      siblings.setEach('isOpen', false);
-    }
-  }),
+  //   if (this.get('isOpen') && siblings) {
+  //     siblings.setEach('isOpen', false);
+  //   }
+  // }),
 
   actions: {
     closePanel: function() {

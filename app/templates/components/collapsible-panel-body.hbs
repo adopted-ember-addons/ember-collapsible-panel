@@ -1,3 +1,5 @@
-<div class="ted-panel-collapse-inner">
-  {{yield}}
-</div>
+{{#if isOpenOrCollapsing}}
+  <div class="collapsible-panel-body-inner">
+    {{yield}}
+  </div>
+{{/if}}
