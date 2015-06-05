@@ -1,0 +1,7 @@
+/*// $collapsible-panel-animation-toggle: 568px;*/
+
+@media only screen and (max-width: 568px) {
+  .collapsing {
+    transition: none;
+  }
+}
