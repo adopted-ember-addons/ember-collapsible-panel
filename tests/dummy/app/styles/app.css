@@ -1,9 +1,29 @@
-body {
+.Wrapper {
   margin: 20px auto;
   max-width: 700px;
 }
 
 .cp-Panel {
   border: 1px solid #ddd;
+}
+.cp-Panel-toggle {
+  display: block;
   padding: 1em;
+}
+  .cp-Panel-toggle:link {
+    text-decoration: none;
+  }
+  .cp-Panel-toggle:hover {
+    background-color: whitesmoke;
+  }
+
+.cp-Panel-body-inner {
+  padding: 1em;
+}
+
+/* No animation on mobile */
+@media only screen and (max-width: 568px) {
+  .collapsing {
+    transition: none;
+  }
 }
