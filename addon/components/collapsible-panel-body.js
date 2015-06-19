@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['collapsible-panel-body', 'collapse'],
-  classNameBindings: ['isOpen:collapsible-panel-body-open'],
+  classNames: ['cp-Panel-body', 'collapse'],
+  classNameBindings: ['isOpen:cp-is-open'],
 
   isOpen: Ember.computed.alias('panelComponent.isOpen'),
   isCollapsing: false,

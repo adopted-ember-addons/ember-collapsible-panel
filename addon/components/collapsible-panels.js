@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  classNames: 'collapsible-panels',
+  classNames: 'cp-Panels',
 
   wireUpComponents: Ember.on('didInsertElement', function() {
     /*
@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     */
     var panels = [];
 
-    this.$('.collapsible-panel').each(function(i, panel) {
+    this.$('.cp-Panel').each(function(i, panel) {
       var panelId = Ember.$(panel).attr('id');
 
       panels.push(Ember.View.views[panelId]);

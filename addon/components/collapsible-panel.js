@@ -6,8 +6,8 @@ import Ember from 'ember';
 */
 export default Ember.Component.extend({
 
-  classNames: 'collapsible-panel',
-  classNameBindings: ['isOpen:collapsible-panel-open'],
+  classNames: 'cp-Panel',
+  classNameBindings: ['isOpen:cp-is-open'],
 
   isOpen: Ember.computed.alias('is-open'),
 
@@ -16,12 +16,12 @@ export default Ember.Component.extend({
     and collapsible child components.
   */
   wireUpComponents: Ember.on('didInsertElement', function() {
-    var toggleId = this.$('.collapsible-panel-toggle')
-      .not(this.$('.collapsible-panel').find('.collapsible-panel-toggle'))
+    var toggleId = this.$('.cp-Panel-toggle')
+      .not(this.$('.cp-Panel').find('.cp-Panel-toggle'))
       .attr('id');
 
-    var collapsibleId = this.$('.collapsible-panel-body')
-      .not(this.$('.collapsible-panel').find('.collapsible-panel-body'))
+    var collapsibleId = this.$('.cp-Panel-body')
+      .not(this.$('.cp-Panel').find('.cp-Panel-body'))
       .attr('id');
 
     this.set('toggleComponent', Ember.View.views[toggleId]);
@@ -50,7 +50,7 @@ export default Ember.Component.extend({
   getSiblingPanels: function() {
     var panels = [];
 
-    this.$().siblings('.collapsible-panel').each(function(i, panel) {
+    this.$().siblings('.cp-Panel').each(function(i, panel) {
       var panelId = Ember.$(panel).attr('id');
 
       panels.push(Ember.View.views[panelId]);

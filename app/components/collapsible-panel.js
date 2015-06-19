@@ -1,3 +1,1 @@
-import CollapsiblePanel from 'ember-collapsible-panel/components/collapsible-panel';
-
-export default CollapsiblePanel;
+export { default } from 'ember-collapsible-panel/components/collapsible-panel';
