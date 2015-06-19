@@ -20,8 +20,8 @@ export default Ember.Component.extend({
     panel.register('collapsibleComponent', this);
 
     Ember.run.scheduleOnce('afterRender', this, function() {
-      this.$().toggleClass('in', this.get('isOpen'));
-      this.$().collapse({toggle: false});
+      // this.$().toggleClass('in', this.get('isOpen'));
+      // this.$().collapse({toggle: false});
       this.set('isCollapsing', false);
     });
   }),

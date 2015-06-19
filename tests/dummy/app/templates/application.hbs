@@ -11,7 +11,7 @@
   <p>The panel is open: {{panelIsOpen}}</p>
   <p>The panel is collapsing: {{isCollapsing}}</p>
 
-  {{#cp-panel is-open=panelIsOpen}}
+  {{#cp-panel register-as='x' _singlePanelIsOpen=panelIsOpen}}
     {{#cp-panel-toggle}}
       <p>Click me!</p>
     {{/cp-panel-toggle}}
@@ -33,7 +33,7 @@
     {{#cp-panel-body}}
 
       {{#cp-panels accordion=true}}
-{{!--         {{#cp-panel}}
+        {{#cp-panel}}
           {{#cp-panel-toggle}}
             <p>Child 1</p>
           {{/cp-panel-toggle}}
@@ -50,7 +50,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
           {{/cp-panel-body}}
         {{/cp-panel}}
- --}}      {{/cp-panels}}
+      {{/cp-panels}}
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
     {{/cp-panel-body}}

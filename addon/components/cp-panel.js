@@ -12,18 +12,32 @@ export default Ember.Component.extend({
 
   classNames: 'cp-Panel',
   classNameBindings: ['isOpen:cp-is-open'],
+  _singlePanelIsOpen: null,
 
-  isOpen: Ember.computed.alias('is-open'),
+  // isOpen: Ember.computed.alias('is-open'),
+
+  panelsWrapper: null,
+
+  isOpen: Ember.computed('panelsWrapper.openPanel', '_singlePanelIsOpen', function() {
+    var wrapper = this.get('panelsWrapper');
+
+    if (wrapper) {
+      return this.get('panelsWrapper.openPanel') === this;
+    } else {
+      return this.get('_singlePanelIsOpen');
+    }
+  }),
 
   setup: Ember.on('didInsertElement', function() {
     // Register with parent panels component
     var panelsWrapper = this.nearestWithProperty('_cpPanels');
     if (panelsWrapper) {
+      this.set('panelsWrapper', panelsWrapper);
       panelsWrapper.registerPanel(this);
     }
 
     // Set initial open state
-    this.set('isOpen', this.get('isOpen') || false);
+    // this.set('isOpen', this.get('isOpen') || false);
   }),
 
   teardown: Ember.on('willDestroyElement', function() {
@@ -50,13 +64,21 @@ export default Ember.Component.extend({
 
     // if (!isCollapsing) {
     // }
-    this.toggleProperty('isOpen');
+    var panelsWrapper = this.get('panelsWrapper');
+    if (panelsWrapper) {
+      panelsWrapper.togglePanel(this);
+    } else {
+      this.toggleProperty('_singlePanelIsOpen');
+    }
+    // } else {
+    //   this.toggleProperty('isOpen');
+    // }
   },
 
-  actions: {
-    closePanel: function() {
-      this.set('isOpen', false);
-    }
-  }
+  // actions: {
+  //   closePanel: function() {
+  //     this.set('isOpen', false);
+  //   }
+  // }
 
 });

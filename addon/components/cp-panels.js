@@ -8,6 +8,8 @@ export default Ember.Component.extend({
 
   panels: Ember.A(),
 
+  openPanel: null,
+
   registerPanel(instance) {
     this.get('panels').pushObject(instance);
   },
@@ -16,18 +18,24 @@ export default Ember.Component.extend({
     this.get('panels').removeObject(instance);
   },
 
-  updateStuff: Ember.observer('panels.@each.isOpen', function() {
-    debugger;
-    if (this.get('accordion')) {
-      if (this.get('alreadyOpen')) {
-        this.get('alreadyOpen')
-          .forEach(function(panel) {panel.set('isOpen', false);});
-      }
+  togglePanel(panel) {
+    var openPanel = this.get('openPanel');
 
-      var alreadyOpen = this.get('panels').filter( p => p.get('isOpen') );
+    this.set('openPanel', openPanel === panel ? null : panel);
+  }
 
-      this.set('alreadyOpen', alreadyOpen);
-    }
-  })
+  // updateStuff: Ember.observer('panels.@each.isOpen', function() {
+  //   debugger;
+  //   if (this.get('accordion')) {
+  //     if (this.get('alreadyOpen')) {
+  //       this.get('alreadyOpen')
+  //         .forEach(function(panel) {panel.set('isOpen', false);});
+  //     }
+
+  //     var alreadyOpen = this.get('panels').filter( p => p.get('isOpen') );
+
+  //     this.set('alreadyOpen', alreadyOpen);
+  //   }
+  // })
 
 });
