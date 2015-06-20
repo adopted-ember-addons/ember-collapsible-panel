@@ -5,3 +5,7 @@
     transition: none;
   }
 }
+
+.hide {
+  display: none;
+}

@@ -7,12 +7,13 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   _cpPanel: true,
-  panelComponent: null,
+  toggleComponent: null,
   collapsibleComponent: null,
 
   classNames: 'cp-Panel',
   classNameBindings: ['isOpen:cp-is-open'],
   _singlePanelIsOpen: null,
+  transition: true,
 
   // isOpen: Ember.computed.alias('is-open'),
 
@@ -69,6 +70,7 @@ export default Ember.Component.extend({
       panelsWrapper.togglePanel(this);
     } else {
       this.toggleProperty('_singlePanelIsOpen');
+      this.get('collapsibleComponent').toggle();
     }
     // } else {
     //   this.toggleProperty('isOpen');

@@ -14,7 +14,9 @@ export default Ember.Component.extend({
 
   isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
 
-  click: function() {
+  click: function(e) {
+    e.preventDefault();
+
     this.get('panelComponent').handleToggle();
   },
 

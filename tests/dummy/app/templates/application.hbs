@@ -11,7 +11,22 @@
   <p>The panel is open: {{panelIsOpen}}</p>
   <p>The panel is collapsing: {{isCollapsing}}</p>
 
-  {{#cp-panel register-as='x' _singlePanelIsOpen=panelIsOpen}}
+  {{#cp-panel _singlePanelIsOpen=panelIsOpen}}
+    {{#cp-panel-toggle}}
+      <p>Click me!</p>
+    {{/cp-panel-toggle}}
+    {{#cp-panel-body isCollapsing=isCollapsing}}
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
+      </div>
+    {{/cp-panel-body}}
+
+  {{/cp-panel}}
+
+  <h3>No transition</h3>
+
+  {{#cp-panel transition=false}}
     {{#cp-panel-toggle}}
       <p>Click me!</p>
     {{/cp-panel-toggle}}

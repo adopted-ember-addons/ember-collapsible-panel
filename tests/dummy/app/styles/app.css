@@ -1,3 +1,7 @@
+/*.closed {
+  height: 0;
+}
+*/
 .Wrapper {
   margin: 20px auto;
   max-width: 700px;
@@ -17,6 +21,14 @@
     background-color: whitesmoke;
   }
 
+.cp-Panel-body {
+  display: none;
+  /*overflow: hidden;*/
+/*
+  -webkit-transition: height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  -moz-transition: height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  transition: height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+*/}
 .cp-Panel-body-inner {
   padding: 1em;
 }
