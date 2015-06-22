@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
   _cpPanel: true,
   toggleComponent: null,
-  collapsibleComponent: null,
+  bodyComponent: null,
 
   classNames: 'cp-Panel',
   classNameBindings: ['isOpen:cp-is-open'],
@@ -20,13 +20,14 @@ export default Ember.Component.extend({
   panelsWrapper: null,
 
   isOpen: Ember.computed('panelsWrapper.openPanel', '_singlePanelIsOpen', function() {
-    var wrapper = this.get('panelsWrapper');
+    // var wrapper = this.get('panelsWrapper');
 
-    if (wrapper) {
-      return this.get('panelsWrapper.openPanel') === this;
-    } else {
-      return this.get('_singlePanelIsOpen');
-    }
+    // if (wrapper) {
+    //   return this.get('panelsWrapper.openPanel') === this;
+    // } else {
+    //   return this.get('_singlePanelIsOpen');
+    // }
+    return this.get('_singlePanelIsOpen');
   }),
 
   setup: Ember.on('didInsertElement', function() {
@@ -65,17 +66,26 @@ export default Ember.Component.extend({
 
     // if (!isCollapsing) {
     // }
+
     var panelsWrapper = this.get('panelsWrapper');
     if (panelsWrapper) {
+      // im part of a <panels> collection
       panelsWrapper.togglePanel(this);
+
+
     } else {
-      this.toggleProperty('_singlePanelIsOpen');
-      this.get('collapsibleComponent').toggle();
+      // im a lone panel
+      this.toggleBody();
     }
     // } else {
     //   this.toggleProperty('isOpen');
     // }
   },
+
+  toggleBody: function() {
+    this.toggleProperty('_singlePanelIsOpen');
+    this.get('bodyComponent').toggle();
+  }
 
   // actions: {
   //   closePanel: function() {

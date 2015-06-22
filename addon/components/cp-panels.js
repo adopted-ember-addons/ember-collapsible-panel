@@ -19,9 +19,10 @@ export default Ember.Component.extend({
   },
 
   togglePanel(panel) {
-    var openPanel = this.get('openPanel');
+    panel.toggleBody();
+    // var openPanel = this.get('openPanel');
 
-    this.set('openPanel', openPanel === panel ? null : panel);
+    // this.set('openPanel', openPanel === panel ? null : panel);
   }
 
   // updateStuff: Ember.observer('panels.@each.isOpen', function() {

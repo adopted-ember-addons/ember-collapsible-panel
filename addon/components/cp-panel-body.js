@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     // Register with component
     var panel = this.nearestWithProperty('_cpPanel');
     this.set('panelComponent', panel);
-    panel.register('collapsibleComponent', this);
+    panel.register('bodyComponent', this);
 
     // Ember.run.scheduleOnce('afterRender', this, function() {
     //   // this.$().toggleClass('in', this.get('isOpen'));
