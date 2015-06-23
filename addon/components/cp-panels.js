@@ -2,64 +2,44 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  _cpPanels: true,
-  accordion: false,
-
   classNames: 'cp-Panels',
-
+  accordion: false,
   panels: Ember.A(),
-
   openPanels: Ember.A(),
 
-  registerPanel(instance) {
-    this.get('panels').pushObject(instance);
+  _cpPanels: true,
+
+  registerPanel(panel) {
+    this.get('panels').pushObject(panel);
   },
 
-  unregisterPanel(instance) {
-    this.get('panels').removeObject(instance);
+  unregisterPanel(panel) {
+    if (this.get('openPanels').contains(panel)) {
+      this.get('openPanels').removeObject(panel);
+    }
+
+    this.get('panels').removeObject(panel);
   },
 
   togglePanel(panel) {
-    if (this.get('accordion')) {
-      this._accordionToggle(panel);
+    if (this.get('openPanels').contains(panel)) {
+      this._closePanel(panel);
     } else {
-      this._regularToggle(panel);
+      this._openPanel(panel);
     }
   },
 
-  _regularToggle(panel) {
+  _closePanel(panel) {
+    this.get('openPanels').removeObject(panel);
+  },
+
+  _openPanel(panel) {
     var openPanels = this.get('openPanels');
 
-    if (openPanels.contains(panel)) {
-      openPanels.removeObject(panel);
+    if (this.get('accordion')) {
+      openPanels.replace(0, 1, panel);
     } else {
       openPanels.pushObject(panel);
     }
-  },
-
-  _accordionToggle(panel) {
-    var openPanels = this.get('openPanels');
-
-    if (openPanels.contains(panel)) {
-      openPanels.removeObject(panel);
-    } else {
-      openPanels.popObject();
-      openPanels.addObject(panel);
-    }
   }
-
-  // updateStuff: Ember.observer('panels.@each.isOpen', function() {
-  //   debugger;
-  //   if (this.get('accordion')) {
-  //     if (this.get('alreadyOpen')) {
-  //       this.get('alreadyOpen')
-  //         .forEach(function(panel) {panel.set('isOpen', false);});
-  //     }
-
-  //     var alreadyOpen = this.get('panels').filter( p => p.get('isOpen') );
-
-  //     this.set('alreadyOpen', alreadyOpen);
-  //   }
-  // })
-
 });

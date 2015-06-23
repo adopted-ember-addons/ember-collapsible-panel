@@ -2,11 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  _cpPanelToggle: true,
-
   tagName: 'a',
   classNames: ['cp-Panel-toggle'],
   classNameBindings: ['isOpen:cp-is-open'],
+
+  _cpPanelToggle: true,
 
   // So taps register in iOS
   attributeBindings: ['href'],
