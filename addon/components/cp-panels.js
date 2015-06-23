@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
   panels: Ember.A(),
 
-  openPanel: null,
+  openPanels: Ember.A(),
 
   registerPanel(instance) {
     this.get('panels').pushObject(instance);
@@ -19,9 +19,14 @@ export default Ember.Component.extend({
   },
 
   togglePanel(panel) {
-    panel.toggleBody();
-    // var openPanel = this.get('openPanel');
+    // panel.toggleBody();
+    var openPanels = this.get('openPanels');
 
+    if (openPanels.contains(panel)) {
+      openPanels.removeObject(panel);
+    } else {
+      openPanels.pushObject(panel);
+    }
     // this.set('openPanel', openPanel === panel ? null : panel);
   }
 

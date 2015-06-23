@@ -19,15 +19,15 @@ export default Ember.Component.extend({
 
   panelsWrapper: null,
 
-  isOpen: Ember.computed('panelsWrapper.openPanel', '_singlePanelIsOpen', function() {
-    // var wrapper = this.get('panelsWrapper');
+  isOpen: Ember.computed('panelsWrapper.openPanels.[]', '_singlePanelIsOpen', function() {
+    var wrapper = this.get('panelsWrapper');
 
-    // if (wrapper) {
-    //   return this.get('panelsWrapper.openPanel') === this;
-    // } else {
-    //   return this.get('_singlePanelIsOpen');
-    // }
-    return this.get('_singlePanelIsOpen');
+    if (wrapper) {
+      return this.get('panelsWrapper.openPanels').contains(this);
+    } else {
+      return this.get('_singlePanelIsOpen');
+    }
+    // return this.get('_singlePanelIsOpen');
   }),
 
   setup: Ember.on('didInsertElement', function() {
@@ -75,17 +75,18 @@ export default Ember.Component.extend({
 
     } else {
       // im a lone panel
-      this.toggleBody();
+      this.toggleProperty('_singlePanelIsOpen');
+      // this.toggleBody();
     }
     // } else {
     //   this.toggleProperty('isOpen');
     // }
   },
 
-  toggleBody: function() {
-    this.toggleProperty('_singlePanelIsOpen');
-    this.get('bodyComponent').toggle();
-  }
+  // toggleBody: function() {
+  //   this.toggleProperty('_singlePanelIsOpen');
+  //   this.get('bodyComponent').toggle();
+  // }
 
   // actions: {
   //   closePanel: function() {
