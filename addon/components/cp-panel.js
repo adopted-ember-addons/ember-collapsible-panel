@@ -26,6 +26,11 @@ export default Ember.Component.extend({
       this.set('panelsWrapper', panelsWrapper);
       panelsWrapper.registerPanel(this);
     }
+
+    // Initial state
+    if (this.get('is-open')) {
+      this.set('_singlePanelIsOpen', true);
+    }
   }),
 
   // Unregister with parent panels component
