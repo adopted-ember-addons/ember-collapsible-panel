@@ -6,10 +6,7 @@
 
   <h3>Standard usage</h3>
 
-  <button {{action 'toggle'}}>Toggle the panel</button>
-
   <p>The panel is open: {{panelIsOpen}}</p>
-  <p>The panel is collapsing: {{isCollapsing}}</p>
 
   {{#cp-panel _singlePanelIsOpen=panelIsOpen}}
     {{#cp-panel-toggle}}
@@ -22,53 +19,6 @@
       </div>
     {{/cp-panel-body}}
 
-  {{/cp-panel}}
-
-  <h3>No transition</h3>
-
-  {{#cp-panel transition=false}}
-    {{#cp-panel-toggle}}
-      <p>Click me!</p>
-    {{/cp-panel-toggle}}
-    {{#cp-panel-body}}
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
-      </div>
-    {{/cp-panel-body}}
-
-  {{/cp-panel}}
-
-  <h3>Nested panels</h3>
-
-  {{#cp-panel}}
-    {{#cp-panel-toggle}}
-      <p>Parent</p>
-    {{/cp-panel-toggle}}
-    {{#cp-panel-body}}
-
-      {{#cp-panels accordion=true}}
-        {{#cp-panel}}
-          {{#cp-panel-toggle}}
-            <p>Child 1</p>
-          {{/cp-panel-toggle}}
-          {{#cp-panel-body}}
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
-          {{/cp-panel-body}}
-        {{/cp-panel}}
-
-        {{#cp-panel}}
-          {{#cp-panel-toggle}}
-            <p>Child 2</p>
-          {{/cp-panel-toggle}}
-          {{#cp-panel-body}}
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
-          {{/cp-panel-body}}
-        {{/cp-panel}}
-      {{/cp-panels}}
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
-    {{/cp-panel-body}}
   {{/cp-panel}}
 
 
@@ -102,5 +52,39 @@
 
     {{/cp-panel}}
   {{/cp-panels}}
+
+  <h3>Nested panels</h3>
+
+  <p>You can put sibling <pre>&lbrace;&lbrace;cp-panel&rbrace;&rbrace;s</pre> or a <pre>&lbrace;&lbrace;cp-panels&rbrace;&rbrace;</pre> wrapper in the body of a parent panel</p>
+
+  {{#cp-panel}}
+    {{#cp-panel-toggle}}
+      <p>Parent</p>
+    {{/cp-panel-toggle}}
+    {{#cp-panel-body}}
+
+      {{#cp-panels}}
+        {{#cp-panel}}
+          {{#cp-panel-toggle}}
+            <p>Child 1</p>
+          {{/cp-panel-toggle}}
+          {{#cp-panel-body}}
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
+          {{/cp-panel-body}}
+        {{/cp-panel}}
+
+        {{#cp-panel}}
+          {{#cp-panel-toggle}}
+            <p>Child 2</p>
+          {{/cp-panel-toggle}}
+          {{#cp-panel-body}}
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
+          {{/cp-panel-body}}
+        {{/cp-panel}}
+      {{/cp-panels}}
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
+    {{/cp-panel-body}}
+  {{/cp-panel}}
 
 </div>

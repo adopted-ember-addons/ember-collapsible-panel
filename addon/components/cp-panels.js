@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   _cpPanels: true,
+  accordion: false,
 
   classNames: 'cp-Panels',
 
@@ -19,7 +20,14 @@ export default Ember.Component.extend({
   },
 
   togglePanel(panel) {
-    // panel.toggleBody();
+    if (this.get('accordion')) {
+      this._accordionToggle(panel);
+    } else {
+      this._regularToggle(panel);
+    }
+  },
+
+  _regularToggle(panel) {
     var openPanels = this.get('openPanels');
 
     if (openPanels.contains(panel)) {
@@ -27,7 +35,17 @@ export default Ember.Component.extend({
     } else {
       openPanels.pushObject(panel);
     }
-    // this.set('openPanel', openPanel === panel ? null : panel);
+  },
+
+  _accordionToggle(panel) {
+    var openPanels = this.get('openPanels');
+
+    if (openPanels.contains(panel)) {
+      openPanels.removeObject(panel);
+    } else {
+      openPanels.popObject();
+      openPanels.addObject(panel);
+    }
   }
 
   // updateStuff: Ember.observer('panels.@each.isOpen', function() {
