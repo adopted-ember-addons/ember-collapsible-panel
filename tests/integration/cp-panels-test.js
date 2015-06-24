@@ -26,7 +26,5 @@ test('it can act as an accordion', function(assert) {
   $panel2.find('.cp-Panel-toggle').click();
 
   assert.ok(!$panel1.hasClass('cp-is-open'));
-  assert.ok(!$panel1.find('.cp-Panel-body').text().match('Panel A'));
-
   assert.ok($panel2.hasClass('cp-is-open'));
 });
