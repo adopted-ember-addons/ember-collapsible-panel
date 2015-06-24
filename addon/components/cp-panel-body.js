@@ -7,6 +7,7 @@ export default Ember.Component.extend({
 
   _cpPanelBody: true,
 
+  // liquidFireDetection: Ember.inject.service(),
   isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
 
   // Register with component
