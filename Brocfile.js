@@ -13,6 +13,6 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 var app = new EmberAddon();
 
-// app.import('/vendor/actual.js');
+app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
 
 module.exports = app.toTree();

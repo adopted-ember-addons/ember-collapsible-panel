@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Ember Collapsible Panel</h1>
+    <p>Zero dependencies! Hassle-free!</p>
+    <p class='text-muted text-right'><small>No purchase necessary.</small></p>
+  </div>
+
+  <section>
+    <h2>Installation</h2>
+
+    <p><pre>ember install ember-collapsible-panel</pre></p>
+  </section>
+
+  <section>
+    <h2>Usage</h2>
+
+    {{demo/standard-usage}}
+
+    {{demo/start-out-open}}
+
+    {{demo/accordion-usage}}
+
+    {{demo/nested-panels}}
+  </section>
+
+  <section>
+    <h2>Structure and styling</h2>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p>The class names of the structure of a panel are shown to the right.</p>
+        <p>Panel body content is only rendered if the panel is open.</p>
+        <p>The panel, toggle and body all get the `is-open` class when the panel is open. This is so you can style each piece based on the state of the panel - simple descendent selectors can get tricky since you can nest panels.</p>
+        <p>Finally, if you want to add padding to the body, target `.cp-Panel-body-inner`. Changing the height of the `.cp-Panel-body` itself will interfere with the animation.</p>
+      </div>
+      <div class="col-md-8">
+
+<pre>&lt;!-- closed panel --&gt;
+&lt;div class='cp-Panel'&gt;
+  &lt;a href='#' class='cp-Panel-toggle'&gt;
+  &lt;/a&gt;
+  &lt;div class='cp-Panel-body'&gt;
+    &lt;!-- content is not rendered --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- open panel --&gt;
+&lt;div class='cp-Panel <span class='highlight'>cp-is-open</span>'&gt;
+  &lt;a href='#' class='cp-Panel-toggle <span class='highlight'>cp-is-open</span>'&gt;
+  &lt;/a&gt;
+  &lt;div class='cp-Panel-body <span class='highlight'>cp-is-open</span>'&gt;
+    &lt;div class='cp-Panel-body-inner'&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>

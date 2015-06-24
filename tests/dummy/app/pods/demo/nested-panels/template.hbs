@@ -1,0 +1,51 @@
+<h3>Nested panels</h3>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>You can put sibling <code>cp-panel</code>s (or a <code>cp-panels</code> wrapper) in the body of a parent panel:</p>
+    <p>
+<pre>&lbrace;&lbrace;#cp-panel&rbrace;&rbrace;
+  &lbrace;&lbrace;#cp-panel-toggle&rbrace;&rbrace;
+    ...
+  &lbrace;&lbrace;/cp-panel-toggle&rbrace;&rbrace;
+  &lbrace;&lbrace;#cp-panel-body&rbrace;&rbrace;
+    &lbrace;&lbrace;#cp-panel&rbrace;&rbrace;
+      ...
+    &lbrace;&lbrace;/cp-panel&rbrace;&rbrace;
+  &lbrace;&lbrace;/cp-panel-body&rbrace;&rbrace;
+&lbrace;&lbrace;/cp-panel&rbrace;&rbrace;
+</pre>
+    </p>
+  </div>
+  <div class="col-md-8">
+    {{#cp-panel}}
+      {{#cp-panel-toggle}}
+        <p>Parent</p>
+      {{/cp-panel-toggle}}
+      {{#cp-panel-body}}
+
+        {{#cp-panels class='u-margin-bottom'}}
+          {{#cp-panel}}
+            {{#cp-panel-toggle}}
+              <p>Child 1</p>
+            {{/cp-panel-toggle}}
+            {{#cp-panel-body}}
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
+            {{/cp-panel-body}}
+          {{/cp-panel}}
+
+          {{#cp-panel}}
+            {{#cp-panel-toggle}}
+              <p>Child 2</p>
+            {{/cp-panel-toggle}}
+            {{#cp-panel-body}}
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
+            {{/cp-panel-body}}
+          {{/cp-panel}}
+        {{/cp-panels}}
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
+      {{/cp-panel-body}}
+    {{/cp-panel}}
+  </div>
+</div>
