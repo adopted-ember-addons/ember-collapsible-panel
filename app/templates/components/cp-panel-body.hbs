@@ -1,12 +1,17 @@
-{{#liquid-if isOpen use='crossFade'}}
-  <div class="cp-Panel-body-inner">
-    {{yield}}
-  </div>
-{{/liquid-if}}
+{{#if hasLiquidFire}}
 
-{{!-- {{#if isOpen}}
-  <div class="cp-Panel-body-inner">
-    {{yield}}
-  </div>
+  {{#liquid-if isOpen use='crossFade'}}
+    <div class="cp-Panel-body-inner">
+      {{yield}}
+    </div>
+  {{/liquid-if}}
+
+{{else}}
+
+  {{#if isOpen}}
+    <div class="cp-Panel-body-inner">
+      {{yield}}
+    </div>
+  {{/if}}
+
 {{/if}}
- --}}
