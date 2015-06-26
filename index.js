@@ -1,15 +1,20 @@
 /* jshint node: true */
 'use strict';
 
+var fs = require('fs');
+var path = require('path');
+
 module.exports = {
   name: 'ember-collapsible-panel',
 
-  included: function included(app) {
-    // app.import(app.bowerDirectory + '/bootstrap/js/transition.js');
-    // app.import(app.bowerDirectory + '/bootstrap/js/collapse.js');
-    // app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
-    app.import(app.bowerDirectory + '/jquery.actual/jquery.actual.js');
-    // app.import('/vendor/actual.js');
+  config: function (env, baseConfig) {
+    var configPath = path.join(this.root, 'config', 'environment.js');
+
+    if (fs.existsSync(configPath)) {
+      var configGenerator = require(configPath);
+
+      return configGenerator(env, baseConfig, this);
+    }
   }
 
 };

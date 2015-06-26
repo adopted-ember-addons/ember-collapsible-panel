@@ -1,4 +1,5 @@
 import Ember from 'ember';
+// import ENV from 'config/environment';
 
 export default Ember.Component.extend({
 
@@ -7,11 +8,8 @@ export default Ember.Component.extend({
 
   _cpPanelBody: true,
 
-  // liquidFireDetection: Ember.inject.service(),
-  hasLiquidFire: Ember.computed('', function() {
-    // return !!this.container.lookup('component:liquid-if');
-    return !!this.container.lookup('component:liquid-if');
-  }),
+  dependencyChecker: Ember.inject.service(),
+  hasLiquidFire: Ember.computed.readOnly('dependencyChecker.hasLiquidFire'),
 
   isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
 
