@@ -1,12 +1,59 @@
-/*.closed {
-  height: 0;
-}
+/*
+  Sample panel styles
 */
-/*.Wrapper {
-  margin: 20px auto;
-  max-width: 700px;
+.cp-Panel {
+  border: 1px solid #ddd;
 }
+.cp-Panel-toggle {
+  display: block;
+  padding: 1em;
+}
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+.cp-Panel-body-inner {
+  padding: 1em;
+}
+
+/*
+  Rest of docs styling
 */
+.Header {
+  padding-top: 10px;
+  background-color: white;
+  border-bottom: 1px solid #999;
+  /*box-shadow: 0 0 11px 6px rgba(0,0,0,0.08);*/
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+  .Header__ted-banner {
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: right;
+  }
+  .Header__ted-banner-link,
+  .Header__ted-banner-link:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  .Header__ted-banner-image {
+    height: 40px;
+    vertical-align: top;
+  }
+  .jumbotron .Header__subheading {
+    color: #888888;
+    font-weight: 200;
+    font-size: 44px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .jumbotron .Header__heading {
+    color: #E9280B;
+    font-weight: bold;
+    margin-top: 0;
+  }
 
 section {
   margin-bottom: 3em;
@@ -25,47 +72,19 @@ h3 {
   color: #555;
 }
 
-.highlight {
+.code-highlight {
   color: #337ab7;
 }
 
-.cp-Panel {
-  border: 1px solid #ddd;
-}
-.cp-Panel-toggle {
-  display: block;
-  padding: 1em;
-}
-  .cp-Panel-toggle:link {
-    text-decoration: none;
-  }
-  .cp-Panel-toggle:hover {
-    background-color: whitesmoke;
-  }
 
-/*.cp-Panel-body {
-  display: none;
-*/  /*overflow: hidden;*/
-
-/*  -webkit-transition: height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-  -moz-transition: height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-  transition: height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-*//*}*/
-.cp-Panel-body-inner {
-  padding: 1em;
-}
-
-/* No animation on mobile */
-@media only screen and (max-width: 568px) {
-  .collapsing {
-    transition: none;
-  }
-}
 
 .u-margin-top {
   margin-top: 1em;
 }
-
 .u-margin-bottom {
   margin-bottom: 1em;
+}
+
+pre {
+  word-wrap: normal;
 }

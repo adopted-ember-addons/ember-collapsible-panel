@@ -1,9 +1,17 @@
-<div class="container">
-  <div class="jumbotron u-margin-top">
-    <h1>Ember Collapsible Panel</h1>
-    <p>Zero dependencies! Hassle-free!</p>
-    <p class='text-muted text-right'><small>No purchase necessary.</small></p>
+<header class='Header jumbotron'>
+  <div class='Header__ted-banner container'>
+    <a href="https://github.com/tedconf" class='Header__ted-banner-link'>
+      <img class='Header__ted-banner-image' src='/assets/ted.png'> open source
+    </a>
   </div>
+  <div class="container">
+    <h1 class="Header__subheading">Ember</h1>
+    <h1 class="Header__heading">Collapsible Panel</h1>
+    <p>An unopinionated, zero-dependency panel and accordion</p>
+  </div>
+</header>
+
+<div class="container">
 
   <section>
     <h2>Installation</h2>
@@ -57,10 +65,10 @@
 &lt;/div&gt;
 
 &lt;!-- open panel --&gt;
-&lt;div class='cp-Panel <span class='highlight'>cp-is-open</span>'&gt;
-  &lt;a href='#' class='cp-Panel-toggle <span class='highlight'>cp-is-open</span>'&gt;
+&lt;div class='cp-Panel <span class='code-highlight'>cp-is-open</span>'&gt;
+  &lt;a href='#' class='cp-Panel-toggle <span class='code-highlight'>cp-is-open</span>'&gt;
   &lt;/a&gt;
-  &lt;div class='cp-Panel-body <span class='highlight'>cp-is-open</span>'&gt;
+  &lt;div class='cp-Panel-body <span class='code-highlight'>cp-is-open</span>'&gt;
     &lt;div class='cp-Panel-body-inner'&gt;
     &lt;/div&gt;
   &lt;/div&gt;

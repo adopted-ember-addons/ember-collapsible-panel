@@ -1,4 +1,11 @@
 # Ember-collapsible-panel
 
-> **WIP** not ready!!!!!!1111
+## Documentation
+
+The docs are simply this addon's dummy app. To deploy, run
+
+```
+git checkout master
+ember github-pages:commit --message "Initial gh-pages release"
+```
 
