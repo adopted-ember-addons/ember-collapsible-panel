@@ -22,25 +22,15 @@
   <section>
     <h2>Usage</h2>
 
-    <div class="Demo-section">{{demo/standard-usage}}</div>
+    <div class="Demo-section">{{demo/standard-usage animate=shouldAnimate}}</div>
 
-    <div class="Demo-section">{{demo/start-out-open}}</div>
+    <div class="Demo-section">{{demo/start-out-open animate=shouldAnimate}}</div>
 
-    <div class="Demo-section">{{demo/accordion-usage}}</div>
+    <div class="Demo-section">{{demo/accordion-usage animate=shouldAnimate}}</div>
 
-    <div class="Demo-section">{{demo/nested-panels}}</div>
-  </section>
+    <div class="Demo-section">{{demo/nested-panels animate=shouldAnimate}}</div>
 
-  <section>
-    <h2>Animations</h2>
-
-    <p>To animate your panels, install <a href="https://github.com/ef4/liquid-fire">Liquid Fire</a>:</p>
-    <pre>npm install liquid-fire</pre>
-
-    <p>Be sure to follow the installation instructions to get the right version for your app.</p>
-
-    <h3>Named transition</h3>
-    <p><code>cp-panel</code> uses the named liquid fire transition <code>cp-panel</code>. By default, this transition is the <code>crossFade</code> transition included in Liquid Fire. To override it,</p>
+    <div class="Demo-section">{{demo/animation-usage}}</div>
   </section>
 
   <section>
@@ -50,7 +40,7 @@
       <div class="col-md-4">
         <p>The class names of the structure of a panel are shown to the right.</p>
         <p>Panel body content is only rendered if the panel is open.</p>
-        <p>The panel, toggle and body all get the `is-open` class when the panel is open. This is so you can style each piece based on the state of the panel - descendent selectors can get tricky since you can nest panels.</p>
+        <p>The panel, toggle and body all get the `cp-is-open` class when the panel is open. This is so you can style each piece based on the state of the panel - descendent selectors can get tricky since you can nest panels.</p>
         <p>Finally, if you want to add padding to the body, target `.cp-Panel-body-inner`. Changing the height of the `.cp-Panel-body` itself will interfere with the animation.</p>
       </div>
       <div class="col-md-8">

@@ -1,0 +1,44 @@
+<h3>Animation</h3>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>To animate your panels, simply install <a href="https://github.com/ef4/liquid-fire">Liquid Fire</a>:</p>
+    <pre>npm install liquid-fire</pre>
+
+    <p>Be sure to follow the installation instructions to get the right version for your app.</p>
+    <p>Now, all your panels will animate.</p>
+
+    <p><strong>Toggle animation</strong></p>
+    <p>By default, all panels animate. Set <code>animate=false</code> on either a <code>cp-panel</code> or a <code>cp-panels</code> to disable animation.</p>
+      <p>
+<pre>&lbrace;&lbrace;#cp-panel animate=false&rbrace;&rbrace;
+  &lbrace;&lbrace;#cp-panel-toggle&rbrace;&rbrace;
+    &lt;p&gt;Click me!&lt;/p&gt;
+  &lbrace;&lbrace;/cp-panel-toggle&rbrace;&rbrace;
+
+  &lbrace;&lbrace;#cp-panel-body&rbrace;&rbrace;
+    &lt;p&gt;Lorem...&lt;/p&gt;
+  &lbrace;&lbrace;/cp-panel-body&rbrace;&rbrace;
+&lbrace;&lbrace;/cp-panel&rbrace;&rbrace;
+</pre>
+      </p>
+
+
+    <p><strong>Named transition</strong></p>
+    <p><code>cp-panel</code> uses the named liquid fire transition <code>cp-panel</code>. By default, this transition is the <code>crossFade</code> transition included in Liquid Fire. To override it,</p>
+  </div>
+  <div class="col-md-8">
+    {{#cp-panel open=true}}
+      {{#cp-panel-toggle}}
+        <p>Click me!</p>
+      {{/cp-panel-toggle}}
+      {{#cp-panel-body}}
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
+        </div>
+      {{/cp-panel-body}}
+
+    {{/cp-panel}}
+  </div>
+</div>

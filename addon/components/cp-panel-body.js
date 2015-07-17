@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   _cpPanelBody: true,
 
   dependencyChecker: Ember.inject.service(),
-  hasLiquidFire: Ember.computed.readOnly('dependencyChecker.hasLiquidFire'),
+  shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'panelComponent.shouldAnimate'),
 
   isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
 

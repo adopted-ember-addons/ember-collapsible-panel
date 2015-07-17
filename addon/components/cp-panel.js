@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   classNames: 'cp-Panel',
   classNameBindings: ['isOpen:cp-is-open'],
   panelsWrapper: null,
+  animate: null,
 
   _cpPanel: true,
   _singlePanelIsOpen: null,
@@ -19,6 +20,14 @@ export default Ember.Component.extend({
     }
   }),
 
+  shouldAnimate: Ember.computed('animate', 'panelsWrapper.animate', function() {
+    if (this.get('panelsWrapper')) {
+      return this.get('animate') !== null ? this.get('animate') : this.get('panelsWrapper.animate');
+    } else {
+      return this.get('animate') !== null ? this.get('animate') : true; // default for single panels
+    }
+  }),
+
   // Register with parent panels component
   setup: Ember.on('didInsertElement', function() {
     var panelsWrapper = this.nearestWithProperty('_cpPanels');
@@ -28,7 +37,7 @@ export default Ember.Component.extend({
     }
 
     // Initial state
-    if (this.get('is-open')) {
+    if (this.get('open')) {
       this.set('_singlePanelIsOpen', true);
     }
   }),

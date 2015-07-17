@@ -4,6 +4,7 @@ export default Ember.Component.extend({
 
   classNames: 'cp-Panels',
   accordion: false,
+  animate: true,
   panels: Ember.A(),
   openPanels: Ember.A(),
 

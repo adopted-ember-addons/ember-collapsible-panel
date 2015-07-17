@@ -20,7 +20,7 @@ test('it can toggle', function(assert) {
 
 test('it can start out open', function(assert) {
   this.render(hbs`
-    {{#cp-panel is-open=true}}
+    {{#cp-panel open=true}}
       {{cp-panel-toggle}}
       {{#cp-panel-body}}Hi!{{/cp-panel-body}}
     {{/cp-panel}}
