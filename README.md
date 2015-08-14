@@ -1,5 +1,7 @@
 # Ember-collapsible-panel
 
+[Interactive documentation](http://tedconf.github.io/ember-collapsible-panel/)
+
 ## Installation
 
 ```
