@@ -9,6 +9,7 @@ version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fur
 
 [Interactive documentation](http://tedconf.github.io/ember-collapsible-panel/)
 
+
 ## Installation
 
 ```
