@@ -6,13 +6,13 @@ export default Ember.Component.extend({
   classNames: ['cp-Panel-toggle'],
   classNameBindings: ['isOpen:cp-is-open'],
 
-  //_cpPanelToggle: true,
+  _cpPanelToggle: true,
 
-  //// So taps register in iOS
-  //attributeBindings: ['href'],
-  //href: '#',
+  // So taps register in iOS
+  attributeBindings: ['href'],
+  href: '#',
 
-  //isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
+  isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
 
   click: function(e) {
     e.preventDefault();
@@ -20,9 +20,9 @@ export default Ember.Component.extend({
   },
 
   registerWithPanel: Ember.on('didInsertElement', function() {
-    var panel = this.nearestWithProperty('_cpPanel');
-
-    this.set('panelComponent', panel);
-    panel.register('toggleComponent', this);
+    Ember.run.scheduleOnce('afterRender', () => {
+      var panel = this.nearestWithProperty('_cpPanel');
+      this.set('panelComponent', panel);
+    });
   })
 });

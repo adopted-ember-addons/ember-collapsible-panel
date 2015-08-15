@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('service:panel-state', 'Unit | Service | panel state', {
+moduleFor('service:panel-actions', 'Unit | Service | panel actions', {
   // Specify the other units that are required for this test.
   // needs: ['service:foo']
 });

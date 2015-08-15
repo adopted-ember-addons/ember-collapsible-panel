@@ -2,12 +2,17 @@ import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
+let panelActions;
+
 moduleForComponent('cp-panel', {
   integration: true,
 
+  setup() {
+    panelActions = this.container.lookup('service:panel-actions');
+  },
+
   teardown() {
-    const panelStore = this.container.lookup('service:panel-store');
-    panelStore.get('state').reset();
+    panelActions.get('state').reset();
   }
 });
 
@@ -58,8 +63,6 @@ test('it will open via binding', function(assert) {
 });
 
 test('it will open by a service call', function(assert) {
-  const panelStore = this.container.lookup('service:panel-store');
-
   this.render(hbs`
     {{#cp-panel name="test"}}
       {{#cp-panel-body}}Hi!{{/cp-panel-body}}
@@ -72,7 +75,7 @@ test('it will open by a service call', function(assert) {
   assert.equal($panel.find('.cp-Panel-body-inner').length, 0);
 
   Ember.run(() => {
-    panelStore.open('test');
+    panelActions.open('test');
   });
 
   // ok now its open
@@ -85,7 +88,6 @@ test('it will use a binding or the service, but never overwrite the binding', fu
   // a binding + a service, and then uses the service to open
   // the panel we wont overwrite the binding.
 
-  const panelStore = this.container.lookup('service:panel-store');
   this.set('openBinding', false);
 
   this.render(hbs`
@@ -101,7 +103,7 @@ test('it will use a binding or the service, but never overwrite the binding', fu
 
   // use the service to open the panel
   Ember.run(() => {
-    panelStore.open('test');
+    panelActions.open('test');
   });
 
   // binding doesnt change
@@ -137,8 +139,6 @@ test('it will use a binding or a toggle, but never overwrite the binding', funct
 });
 
 test('it will have two panels with the same name used a shared state', function(assert) {
-  const panelStore = this.container.lookup('service:panel-store');
-
   this.render(hbs`
     {{#cp-panel name="test" class="panel1"}}
       {{#cp-panel-body}}Hi 1!{{/cp-panel-body}}
@@ -156,7 +156,7 @@ test('it will have two panels with the same name used a shared state', function(
 
   // use the service to open both panels
   Ember.run(() => {
-    panelStore.open('test');
+    panelActions.open('test');
   });
 
   // and both panels are now open

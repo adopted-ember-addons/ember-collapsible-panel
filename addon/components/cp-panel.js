@@ -6,27 +6,20 @@ export default Ember.Component.extend({
     ':cp-Panel',
     'isOpen:cp-is-open:cp-is-closed',
   ],
-  panelsWrapper: null,
-  animate: null,
 
   _cpPanel: true,
-
-  _setup: Ember.on('init', function() {
-    const binding = Ember.Binding.from('open').to('panelState.isOpen').oneWay();
-    binding.connect(this);
-  }),
 
   // allow caller to overwrite this property
   name: Ember.computed.oneWay('elementId'),
 
-  panelStore: Ember.inject.service(),
+  panelActions: Ember.inject.service(),
 
   panelState: Ember.computed('nane', function() {
     const name = this.get('name');
-    return this.get(`panelStore.state.${name}`);
+    return this.get(`panelActions.state.${name}`);
   }),
 
-  //isOpen: Ember.computed.readOnly('panelState.isOpen'),
+  group: Ember.computed.readOnly('panelState.group'),
 
   isOpen: Ember.computed('open', 'panelState.isOpen', function() {
     return this.get('open') || this.get('panelState.isOpen');
@@ -34,11 +27,27 @@ export default Ember.Component.extend({
 
   isClosed: Ember.computed.not('isOpen'),
 
-  register(type, instance) {
-    this.set(type, instance);
-  },
+  panelsWrapper: null,
+  animate: null,
+
+  _setup: Ember.on('init', function() {
+    const binding = Ember.Binding.from('open').to('panelState.isOpen').oneWay();
+    binding.connect(this);
+  }),
+
+  // Register with parent panels component
+  _afterInsert: Ember.on('didInsertElement', function() {
+    Ember.run.scheduleOnce('afterRender', () => {
+      var group = this.nearestWithProperty('_cpPanels');
+      if (group) {
+        this.get('panelState').set('group', group);
+      }
+    });
+  }),
+
+  shouldAnimate: Ember.computed.or('animate', 'group.animate'),
 
   handleToggle: function() {
-    this.get('panelStore').toggle(this.get('name'));
+    this.get('panelActions').toggle(this.get('name'));
   }
 });

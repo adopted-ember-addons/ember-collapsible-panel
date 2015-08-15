@@ -7,21 +7,17 @@ export default Ember.Component.extend({
 
   panelComponent: null,
 
-  //_cpPanelBody: true,
+  _cpPanelBody: true,
 
-  //dependencyChecker: Ember.inject.service(),
-  //shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'panelComponent.shouldAnimate'),
+  dependencyChecker: Ember.inject.service(),
+  shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'panelComponent.shouldAnimate'),
 
   isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
-  //isOpen: true,
 
-  // Register with component
   registerWithPanel: Ember.on('didInsertElement', function() {
     Ember.run.scheduleOnce('afterRender', () => {
       const panel = this.nearestWithProperty('_cpPanel');
-
       this.set('panelComponent', panel);
-      panel.register('bodyComponent', this);
     });
   })
 });
