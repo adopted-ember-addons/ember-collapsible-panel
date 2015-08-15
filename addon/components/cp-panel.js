@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   classNameBindings: ['isOpen:cp-is-open'],
   panelsWrapper: null,
   animate: null,
+  transitionName: 'cp-panel',
 
   _cpPanel: true,
   _singlePanelIsOpen: null,

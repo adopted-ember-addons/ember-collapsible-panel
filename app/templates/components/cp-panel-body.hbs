@@ -1,6 +1,6 @@
 {{#if shouldAnimate}}
 
-  {{#liquid-if isOpen use='crossFade'}}
+  {{#liquid-if isOpen use=transitionName}}
     <div class="cp-Panel-body-inner">
       {{yield}}
     </div>
