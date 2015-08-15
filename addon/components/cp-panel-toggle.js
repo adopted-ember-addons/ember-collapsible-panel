@@ -6,17 +6,16 @@ export default Ember.Component.extend({
   classNames: ['cp-Panel-toggle'],
   classNameBindings: ['isOpen:cp-is-open'],
 
-  _cpPanelToggle: true,
+  //_cpPanelToggle: true,
 
-  // So taps register in iOS
-  attributeBindings: ['href'],
-  href: '#',
+  //// So taps register in iOS
+  //attributeBindings: ['href'],
+  //href: '#',
 
-  isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
+  //isOpen: Ember.computed.readOnly('panelComponent.isOpen'),
 
   click: function(e) {
     e.preventDefault();
-
     this.get('panelComponent').handleToggle();
   },
 

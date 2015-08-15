@@ -1,7 +1,7 @@
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('cp-panel', {
+moduleForComponent('cp-panels', {
   integration: true
 });
 
