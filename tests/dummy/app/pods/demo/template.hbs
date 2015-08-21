@@ -22,13 +22,19 @@
   <section>
     <h2>Usage</h2>
 
-    <div class="Demo-section">{{demo/standard-usage animate=shouldAnimate}}</div>
+    <div class="Demo-section">{{demo/basic-usage animate=shouldAnimate}}</div>
 
     <div class="Demo-section">{{demo/start-out-open animate=shouldAnimate}}</div>
+
+    <div class="Demo-section">{{demo/two-way-binding animate=shouldAnimate}}</div>
+
+    <div class="Demo-section">{{demo/one-way-binding animate=shouldAnimate}}</div>
 
     <div class="Demo-section">{{demo/accordion-usage animate=shouldAnimate}}</div>
 
     <div class="Demo-section">{{demo/nested-panels animate=shouldAnimate}}</div>
+
+    <div class="Demo-section">{{demo/programmatic-control animate=shouldAnimate}}</div>
 
     <div class="Demo-section">{{demo/animation-usage}}</div>
   </section>
@@ -42,6 +48,9 @@
         <p>Panel body content is only rendered if the panel is open.</p>
         <p>The panel, toggle and body all get the `cp-is-open` class when the panel is open. This is so you can style each piece based on the state of the panel - descendent selectors can get tricky since you can nest panels.</p>
         <p>Finally, if you want to add padding to the body, target `.cp-Panel-body-inner`. Changing the height of the `.cp-Panel-body` itself will interfere with the animation.</p>
+        <p><strong>Sample styling</strong></p>
+        <p>Here's the styling used for the panels in this site:</p>
+        <p>{{code-snippet name='panel-styles.css'}}</p>
       </div>
       <div class="col-md-8">
 

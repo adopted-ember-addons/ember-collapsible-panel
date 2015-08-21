@@ -1,6 +1,7 @@
 /*
   Sample panel styles
 */
+/* BEGIN-SNIPPET panel-styles */
 .cp-Panel {
   border: 1px solid #ddd;
 }
@@ -17,6 +18,7 @@
 .cp-Panel-body-inner {
   padding: 1em;
 }
+/* END-SNIPPET */
 
 /*
   Rest of docs styling

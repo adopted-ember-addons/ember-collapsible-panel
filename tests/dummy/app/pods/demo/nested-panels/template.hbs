@@ -4,48 +4,41 @@
   <div class="col-md-4">
     <p>You can put sibling <code>cp-panel</code>s (or a <code>cp-panels</code> wrapper) in the body of a parent panel:</p>
     <p>
-<pre>&lbrace;&lbrace;#cp-panel&rbrace;&rbrace;
-  &lbrace;&lbrace;#cp-panel-toggle&rbrace;&rbrace;
-    ...
-  &lbrace;&lbrace;/cp-panel-toggle&rbrace;&rbrace;
-  &lbrace;&lbrace;#cp-panel-body&rbrace;&rbrace;
-    &lbrace;&lbrace;#cp-panel&rbrace;&rbrace;
-      ...
-    &lbrace;&lbrace;/cp-panel&rbrace;&rbrace;
-  &lbrace;&lbrace;/cp-panel-body&rbrace;&rbrace;
-&lbrace;&lbrace;/cp-panel&rbrace;&rbrace;
-</pre>
+      {{code-snippet name='nested-panels.hbs'}}
     </p>
   </div>
   <div class="col-md-8">
-    {{#cp-panel animate=animate}}
-      {{#cp-panel-toggle}}
-        <p>Parent</p>
-      {{/cp-panel-toggle}}
-      {{#cp-panel-body}}
 
-        {{#cp-panels class='u-margin-bottom' animate=animate}}
-          {{#cp-panel}}
-            {{#cp-panel-toggle}}
-              <p>Child 1</p>
-            {{/cp-panel-toggle}}
-            {{#cp-panel-body}}
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
-            {{/cp-panel-body}}
-          {{/cp-panel}}
+{{!-- BEGIN-SNIPPET nested-panels --}}
+{{#cp-panel animate=animate}}
+  {{#cp-panel-toggle}}
+    <p>Parent</p>
+  {{/cp-panel-toggle}}
+  {{#cp-panel-body}}
 
-          {{#cp-panel}}
-            {{#cp-panel-toggle}}
-              <p>Child 2</p>
-            {{/cp-panel-toggle}}
-            {{#cp-panel-body}}
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
-            {{/cp-panel-body}}
-          {{/cp-panel}}
-        {{/cp-panels}}
+    {{#cp-panels class='u-margin-bottom' animate=animate}}
+      {{#cp-panel}}
+        {{#cp-panel-toggle}}
+          <p>Child 1</p>
+        {{/cp-panel-toggle}}
+        {{#cp-panel-body}}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
+        {{/cp-panel-body}}
+      {{/cp-panel}}
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
-      {{/cp-panel-body}}
-    {{/cp-panel}}
+      {{#cp-panel}}
+        {{#cp-panel-toggle}}
+          <p>Child 2</p>
+        {{/cp-panel-toggle}}
+        {{#cp-panel-body}}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
+        {{/cp-panel-body}}
+      {{/cp-panel}}
+    {{/cp-panels}}
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
+  {{/cp-panel-body}}
+{{/cp-panel}}
+{{!-- END-SNIPPET --}}
   </div>
 </div>
