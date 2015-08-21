@@ -1,16 +1,29 @@
 import Ember from 'ember';
 
+const State = Ember.Object.extend({
+  name: name,
+  boundOpenState: false,
+  apiOpenState: false,
+  apiWasUsed: false,
+
+  isOpen: Ember.computed('boundOpenState', 'apiOpenState', 'apiWasUsed', function() {
+    if (this.get('apiWasUsed')) {
+      return this.get('apiOpenState');
+    } else {
+      return this.get('boundOpenState');
+    }
+  }),
+
+  animate: true,
+  group: null
+});
+
 export default Ember.Service.extend({
   _registry: Ember.Object.create({
     keys: Ember.A([]),
 
     unknownProperty: function(name) {
-      const state = Ember.Object.create({
-        name: name,
-        isOpen: false,
-        animate: true,
-        group: null
-      });
+      const state = State.create();
 
       this.get('keys').addObject(name);
       this.set(name, state);
@@ -59,11 +72,13 @@ export default Ember.Service.extend({
       this.closeAll(group.get('name'));
     }
 
-    panel.set('isOpen', true);
+    panel.set('apiOpenState', true);
+    panel.set('apiWasUsed', true);
   },
 
   close(name) {
-    this._panelFor(name).set('isOpen', false);
+    this._panelFor(name).set('apiOpenState', false);
+    this._panelFor(name).set('apiWasUsed', true);
   },
 
   toggle(name) {
@@ -73,13 +88,15 @@ export default Ember.Service.extend({
 
   openAll(group) {
     this._panelsInGroup(group).forEach((panel) => {
-      panel.set('isOpen', true);
+      panel.set('apiOpenState', true);
+      panel.set('apiWasUsed', true);
     });
   },
 
   closeAll(group) {
     this._panelsInGroup(group).forEach((panel) => {
-      panel.set('isOpen', false);
+      panel.set('apiOpenState', false);
+      panel.set('apiWasUsed', true);
     });
   }
 });

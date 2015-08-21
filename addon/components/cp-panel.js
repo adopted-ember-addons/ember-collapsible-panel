@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  // Your binding to open the panel
+  open: null,
+
   classNameBindings: [
     ':cp-Panel',
     'isOpen:cp-is-open:cp-is-closed',
@@ -21,17 +24,14 @@ export default Ember.Component.extend({
 
   group: Ember.computed.readOnly('panelState.group'),
 
-  isOpen: Ember.computed('open', 'panelState.isOpen', function() {
-    return this.get('open') || this.get('panelState.isOpen');
-  }),
-
+  isOpen: Ember.computed.readOnly('panelState.isOpen'),
   isClosed: Ember.computed.not('isOpen'),
 
   panelsWrapper: null,
   animate: null,
 
   _setup: Ember.on('init', function() {
-    const binding = Ember.Binding.from('open').to('panelState.isOpen').oneWay();
+    const binding = Ember.Binding.from('open').to('panelState.boundOpenState').oneWay();
     binding.connect(this);
   }),
 

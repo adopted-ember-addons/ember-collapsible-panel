@@ -41,6 +41,26 @@ test('it can start out open', function(assert) {
   assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
 });
 
+test('it can start open and toggle closed', function(assert) {
+  this.render(hbs`
+    {{#cp-panel open=true}}
+      {{cp-panel-toggle}}
+      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{/cp-panel}}
+  `);
+
+  var $panel = this.$('.cp-Panel');
+
+  // it starts out open
+  assert.ok($panel.hasClass('cp-is-open'));
+
+  // click it closed
+  $panel.find('.cp-Panel-toggle').click();
+
+  assert.ok($panel.hasClass('cp-is-closed'));
+
+});
+
 test('it will open via binding', function(assert) {
   this.set('openBinding', false);
 
