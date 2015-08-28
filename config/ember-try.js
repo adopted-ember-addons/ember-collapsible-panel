@@ -13,7 +13,7 @@ module.exports = {
         'ember': 'release'
       }
     },
-    {
+     {
       name: 'ember-beta',
       dependencies: {
         'ember': 'components/ember#beta'
