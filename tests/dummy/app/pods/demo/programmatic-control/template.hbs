@@ -19,7 +19,8 @@
   <button class='btn btn-default' {{action 'togglePanelB'}}>Toggle Panel B</button>
 </div>
 
-{{#cp-panels name='group1' animate=animate}}
+{{isAnyOpen}}
+{{#cp-panels name='group1'}}
   {{#cp-panel name='panelA'}}
     {{#cp-panel-toggle}}
       <p>Panel A</p>

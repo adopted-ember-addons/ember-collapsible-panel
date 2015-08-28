@@ -28,7 +28,7 @@ export default Ember.Component.extend({
   isClosed: Ember.computed.not('isOpen'),
 
   panelsWrapper: null,
-  animate: null,
+  animate: true,
 
   _setup: Ember.on('init', function() {
     const binding = Ember.Binding.from('open').to('panelState.boundOpenState').oneWay();
@@ -45,7 +45,7 @@ export default Ember.Component.extend({
     });
   }),
 
-  shouldAnimate: Ember.computed.or('animate', 'group.animate'),
+  shouldAnimate: Ember.computed.alias('animate'),
 
   handleToggle: function() {
     this.get('panelActions').toggle(this.get('name'));
