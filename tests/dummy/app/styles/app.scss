@@ -1,0 +1,63 @@
+@import 'ember-ted-docs/styles';
+
+/*
+  Sample panel styles
+*/
+/* BEGIN-SNIPPET panel-styles */
+.cp-Panel {
+  border: 1px solid #ddd;
+}
+.cp-Panel-toggle {
+  display: block;
+  padding: 1em;
+}
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+.cp-Panel-body-inner {
+  padding: 1em;
+}
+/* END-SNIPPET */
+
+/*
+  Rest of docs styling
+*/
+.Main {
+  padding-top: 40px;
+}
+section {
+  margin-bottom: 3em;
+}
+
+.Demo-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+h3 {
+  /*font-weight: normal;*/
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+}
+
+.code-highlight {
+  color: #337ab7;
+}
+
+
+
+.u-margin-top {
+  margin-top: 1em;
+}
+.u-margin-bottom {
+  margin-bottom: 1em;
+}
+
+pre {
+  word-wrap: normal;
+}
