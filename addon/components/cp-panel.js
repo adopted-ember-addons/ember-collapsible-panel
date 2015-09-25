@@ -2,66 +2,52 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  classNames: 'cp-Panel',
-  classNameBindings: ['isOpen:cp-is-open'],
-  panelsWrapper: null,
-  animate: null,
+  // Your binding to open the panel
+  open: null,
+
+  classNameBindings: [
+    ':cp-Panel',
+    'isOpen:cp-is-open:cp-is-closed',
+  ],
 
   _cpPanel: true,
-  _singlePanelIsOpen: null,
 
-  isOpen: Ember.computed('panelsWrapper.openPanels.[]', '_singlePanelIsOpen', function() {
-    var wrapper = this.get('panelsWrapper');
+  // allow caller to overwrite this property
+  name: Ember.computed.oneWay('elementId'),
 
-    if (wrapper) {
-      return this.get('panelsWrapper.openPanels').contains(this);
-    } else {
-      return this.get('_singlePanelIsOpen');
-    }
+  panelActions: Ember.inject.service(),
+
+  panelState: Ember.computed('nane', function() {
+    const name = this.get('name');
+    return this.get(`panelActions.state.${name}`);
   }),
 
-  shouldAnimate: Ember.computed('animate', 'panelsWrapper.animate', function() {
-    if (this.get('panelsWrapper')) {
-      return this.get('animate') !== null ? this.get('animate') : this.get('panelsWrapper.animate');
-    } else {
-      return this.get('animate') !== null ? this.get('animate') : true; // default for single panels
-    }
+  group: Ember.computed.readOnly('panelState.group'),
+
+  isOpen: Ember.computed.readOnly('panelState.isOpen'),
+  isClosed: Ember.computed.not('isOpen'),
+
+  panelsWrapper: null,
+  animate: true,
+
+  _setup: Ember.on('init', function() {
+    const binding = Ember.Binding.from('open').to('panelState.boundOpenState').oneWay();
+    binding.connect(this);
   }),
 
   // Register with parent panels component
-  setup: Ember.on('didInsertElement', function() {
-    var panelsWrapper = this.nearestWithProperty('_cpPanels');
-    if (panelsWrapper) {
-      this.set('panelsWrapper', panelsWrapper);
-      panelsWrapper.registerPanel(this);
-    }
-
-    // Initial state
-    if (this.get('open')) {
-      this.set('_singlePanelIsOpen', true);
-    }
+  _afterInsert: Ember.on('didInsertElement', function() {
+    Ember.run.scheduleOnce('afterRender', () => {
+      var group = this.nearestWithProperty('_cpPanels');
+      if (group) {
+        this.get('panelState').set('group', group);
+      }
+    });
   }),
 
-  // Unregister with parent panels component
-  teardown: Ember.on('willDestroyElement', function() {
-    var panelsWrapper = this.nearestWithProperty('_cpPanels');
-    if (panelsWrapper) {
-      panelsWrapper.unregisterPanel(this);
-    }
-  }),
-
-  register(type, instance) {
-    this.set(type, instance);
-  },
+  shouldAnimate: Ember.computed.alias('animate'),
 
   handleToggle: function() {
-    var panelsWrapper = this.get('panelsWrapper');
-
-    if (panelsWrapper) {
-      panelsWrapper.togglePanel(this);
-
-    } else {
-      this.toggleProperty('_singlePanelIsOpen');
-    }
+    this.get('panelActions').toggle(this.get('name'));
   }
 });

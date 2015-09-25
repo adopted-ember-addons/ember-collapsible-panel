@@ -1,15 +1,21 @@
-<h3>Start out open</h3>
+<h3>One-way binding + action</h3>
 
 <div class="row">
   <div class="col-md-6">
+    <p>You can pass a binding into the panel, but to respect non-mutation, the panel will never change your binding.</p>
+    <p>Use the <code>didToggle</code> action to respond to a user clicking your panel.</p>
     <p>
-      {{code-snippet name='start-out-open.hbs'}}
+      {{code-snippet name='open-binding.hbs'}}
     </p>
   </div>
-  <div class="col-md-6">
 
-{{!-- BEGIN-SNIPPET start-out-open --}}
-{{#cp-panel open=true}}
+  <div class="col-md-6">
+{{!-- BEGIN-SNIPPET open-binding --}}
+<button {{action 'toggleIsOpen'}} class="btn btn-default u-margin-bottom">Toggle</button>
+
+<span>isOpen: {{isOpen}}</span>
+
+{{#cp-panel click='toggleIsOpen' open=isOpen}}
   {{#cp-panel-toggle}}
     <p>Click me!</p>
   {{/cp-panel-toggle}}
