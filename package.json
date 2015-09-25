@@ -1,6 +1,6 @@
 {
   "name": "ember-collapsible-panel",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
