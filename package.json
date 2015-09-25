@@ -1,7 +1,7 @@
 {
   "name": "ember-collapsible-panel",
   "version": "0.2.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "An unopinionated, zero-dependency panel and accordion",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,18 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tedconf/ember-collapsible-panel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tedconf/ember-collapsible-panel/issues"
+  },
+  "homepage": "https://tedconf.github.io/ember-collapsible-panel/",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "TEDconf and contributors",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
