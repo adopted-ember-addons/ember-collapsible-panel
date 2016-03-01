@@ -44,7 +44,7 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
-    "ember-ted-docs": "1.1.0",
+    "ember-ted-docs": "1.2.1",
     "ember-try": "0.0.6",
     "liquid-fire": "0.21.2"
   },
