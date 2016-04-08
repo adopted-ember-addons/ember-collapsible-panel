@@ -5,6 +5,8 @@ export default Ember.Component.extend({
   dependencyChecker: Ember.inject.service(),
   shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'animate'),
 
+  group: null, // passed in if rendered as part of a {{cp-panels}} group
+
   // Your binding to open the panel
   open: null,
 
@@ -23,7 +25,7 @@ export default Ember.Component.extend({
     return this.get(`panelActions.state.${name}`);
   }),
 
-  group: Ember.computed.readOnly('panelState.group'),
+  // group: Ember.computed.readOnly('panelState.group'),
 
   isOpen: Ember.computed.readOnly('panelState.isOpen'),
   isClosed: Ember.computed.not('isOpen'),
@@ -37,9 +39,10 @@ export default Ember.Component.extend({
   }),
 
   // Register with parent panels component
-  _afterInsert: Ember.on('didInsertElement', function() {
+  maybeRegisterWithStateService: Ember.on('didInsertElement', function() {
     Ember.run.scheduleOnce('afterRender', () => {
-      var group = this.nearestWithProperty('_cpPanels');
+      let group = this.get('group');
+
       if (group) {
         this.get('panelState').set('group', group);
       }

@@ -20,28 +20,28 @@
 </div>
 
 {{isAnyOpen}}
-{{#cp-panels name='group1'}}
-  {{#cp-panel name='panelA'}}
-    {{#cp-panel-toggle}}
+{{#cp-panels name='group1' as |panels|}}
+  {{#panels.panel name='panelA' as |panel|}}
+    {{#panel.toggle}}
       <p>Panel A</p>
-    {{/cp-panel-toggle}}
-    {{#cp-panel-body}}
+    {{/panel.toggle}}
+    {{#panel.body}}
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       </div>
-    {{/cp-panel-body}}
+    {{/panel.body}}
 
-  {{/cp-panel}}
-  {{#cp-panel name='panelB'}}
-    {{#cp-panel-toggle}}
+  {{/panels.panel}}
+  {{#panels.panel name='panelB' as |panel|}}
+    {{#panel.toggle}}
       <p>Panel B</p>
-    {{/cp-panel-toggle}}
-    {{#cp-panel-body}}
+    {{/panel.toggle}}
+    {{#panel.body}}
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       </div>
-    {{/cp-panel-body}}
-  {{/cp-panel}}
+    {{/panel.body}}
+  {{/panels.panel}}
 
 {{/cp-panels}}
 {{!-- END-SNIPPET --}}

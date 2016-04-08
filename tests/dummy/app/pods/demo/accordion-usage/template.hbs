@@ -10,31 +10,31 @@
   <div class="col-md-6">
 
 {{!-- BEGIN-SNIPPET accordion --}}
-{{#cp-panels accordion=true}}
-  {{#cp-panel}}
-    {{#cp-panel-toggle}}
+{{#cp-panels accordion=true as |panels|}}
+  {{#panels.panel as |panel|}}
+    {{#panel.toggle}}
       <p>Panel A</p>
-    {{/cp-panel-toggle}}
-    {{#cp-panel-body}}
+    {{/panel.toggle}}
+    {{#panel.body}}
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
       </div>
-    {{/cp-panel-body}}
+    {{/panel.body}}
+  {{/panels.panel}}
 
-  {{/cp-panel}}
-  {{#cp-panel}}
-    {{#cp-panel-toggle}}
+  {{#panels.panel as |panel|}}
+    {{#panel.toggle}}
       <p>Panel B</p>
-    {{/cp-panel-toggle}}
-    {{#cp-panel-body}}
+    {{/panel.toggle}}
+    {{#panel.body}}
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
       </div>
-    {{/cp-panel-body}}
+    {{/panel.body}}
 
-  {{/cp-panel}}
+  {{/panels.panel}}
 {{/cp-panels}}
 {{!-- END-SNIPPET --}}
   </div>
