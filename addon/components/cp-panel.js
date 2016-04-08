@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  dependencyChecker: Ember.inject.service(),
+  shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'animate'),
+
   // Your binding to open the panel
   open: null,
 
@@ -9,8 +12,6 @@ export default Ember.Component.extend({
     ':cp-Panel',
     'isOpen:cp-is-open:cp-is-closed',
   ],
-
-  _cpPanel: true,
 
   // allow caller to overwrite this property
   name: Ember.computed.oneWay('elementId'),
@@ -45,9 +46,9 @@ export default Ember.Component.extend({
     });
   }),
 
-  shouldAnimate: Ember.computed.alias('animate'),
-
-  handleToggle: function() {
-    this.get('panelActions').toggle(this.get('name'));
+  actions: {
+    toggleIsOpen() {
+      this.get('panelActions').toggle(this.get('name'));
+    }
   }
 });

@@ -18,9 +18,9 @@ moduleForComponent('cp-panel', {
 
 test('it can toggle', function(assert) {
   this.render(hbs`
-    {{#cp-panel}}
-      {{cp-panel-toggle}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -32,8 +32,8 @@ test('it can toggle', function(assert) {
 
 test('it can start out open', function(assert) {
   this.render(hbs`
-    {{#cp-panel open=true}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel open=true as |p|}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -43,9 +43,9 @@ test('it can start out open', function(assert) {
 
 test('it can start open and toggle closed', function(assert) {
   this.render(hbs`
-    {{#cp-panel open=true}}
-      {{cp-panel-toggle}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel open=true as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -65,8 +65,8 @@ test('it will open via binding', function(assert) {
   this.set('openBinding', false);
 
   this.render(hbs`
-    {{#cp-panel open=openBinding}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel open=openBinding as |p|}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -84,8 +84,8 @@ test('it will open via binding', function(assert) {
 
 test('it will open by a service call', function(assert) {
   this.render(hbs`
-    {{#cp-panel name="test"}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel name="test" as |p|}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -111,8 +111,8 @@ test('it will use a binding or the service, but never overwrite the binding', fu
   this.set('openBinding', false);
 
   this.render(hbs`
-    {{#cp-panel open=openBinding name="test"}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel open=openBinding name="test" as |p|}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -138,9 +138,9 @@ test('it will use a binding or a toggle, but never overwrite the binding', funct
   this.set('openBinding', false);
 
   this.render(hbs`
-    {{#cp-panel open=openBinding}}
-      {{cp-panel-toggle}}
-      {{#cp-panel-body}}Hi!{{/cp-panel-body}}
+    {{#cp-panel open=openBinding as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -160,12 +160,12 @@ test('it will use a binding or a toggle, but never overwrite the binding', funct
 
 test('it will have two panels with the same name used a shared state', function(assert) {
   this.render(hbs`
-    {{#cp-panel name="test" class="panel1"}}
-      {{#cp-panel-body}}Hi 1!{{/cp-panel-body}}
+    {{#cp-panel name="test" class="panel1" as |p|}}
+      {{#p.body}}Hi 1!{{/p.body}}
     {{/cp-panel}}
 
-    {{#cp-panel name="test" class="panel2"}}
-      {{#cp-panel-body}}Hi 2!{{/cp-panel-body}}
+    {{#cp-panel name="test" class="panel2" as |p|}}
+      {{#p.body}}Hi 2!{{/p.body}}
     {{/cp-panel}}
   `);
 
@@ -186,18 +186,18 @@ test('it will have two panels with the same name used a shared state', function(
 
 test('it can nest panels', function(assert) {
   this.render(hbs`
-    {{#cp-panel class='Parent'}}
-      {{cp-panel-toggle}}
-      {{#cp-panel-body}}
+    {{#cp-panel class='Parent' as |p|}}
+      {{p.toggle}}
+      {{#p.body}}
 
-        {{#cp-panel class='Child'}}
-          {{cp-panel-toggle}}
-          {{#cp-panel-body}}
+        {{#cp-panel class='Child' as |p|}}
+          {{p.toggle}}
+          {{#p.body}}
             <p>I'm a Child!</p>
-          {{/cp-panel-body}}
+          {{/p.body}}
         {{/cp-panel}}
 
-      {{/cp-panel-body}}
+      {{/p.body}}
     {{/cp-panel}}
   `);
 
