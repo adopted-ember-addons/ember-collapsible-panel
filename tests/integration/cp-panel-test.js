@@ -8,7 +8,7 @@ moduleForComponent('cp-panel', {
   integration: true,
 
   setup() {
-    panelActions = this.container.lookup('service:panel-actions');
+    panelActions = Ember.getOwner(this).lookup('service:panel-actions');
   },
 
   teardown() {
