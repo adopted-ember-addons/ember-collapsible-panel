@@ -7,7 +7,6 @@ sudo: false
 
 cache:
   directories:
-    - node_modules
 
 env:
   - EMBER_TRY_SCENARIO=default
