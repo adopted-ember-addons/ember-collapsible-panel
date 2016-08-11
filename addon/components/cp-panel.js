@@ -17,7 +17,7 @@ export default Ember.Component.extend({
 
   panelActions: Ember.inject.service(),
 
-  panelState: Ember.computed('nane', function() {
+  panelState: Ember.computed('name', function() {
     const name = this.get('name');
     return this.get(`panelActions.state.${name}`);
   }),
