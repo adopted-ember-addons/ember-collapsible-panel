@@ -1,31 +1,28 @@
 import Ember from 'ember';
+import layout from './template';
+
+const { get } = Ember;
 
 export default Ember.Component.extend({
+  layout,
 
+  panelActions: Ember.inject.service(),
   dependencyChecker: Ember.inject.service(),
   shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'animate'),
 
   group: null, // passed in if rendered as part of a {{cp-panels}} group
 
-  // Your binding to open the panel
-  open: null,
+  classNames: ['cp-Panel'],
+  classNameBindings: ['isOpen:cp-is-open:cp-is-closed'],
 
-  classNameBindings: [
-    ':cp-Panel',
-    'isOpen:cp-is-open:cp-is-closed',
-  ],
-
-  // allow caller to overwrite this property
+  // Caller can overwrite
   name: Ember.computed.oneWay('elementId'),
-
-  panelActions: Ember.inject.service(),
 
   panelState: Ember.computed('name', function() {
     const name = this.get('name');
+    // debugger;
     return this.get(`panelActions.state.${name}`);
   }),
-
-  // group: Ember.computed.readOnly('panelState.group'),
 
   isOpen: Ember.computed.readOnly('panelState.isOpen'),
   isClosed: Ember.computed.not('isOpen'),
@@ -33,10 +30,14 @@ export default Ember.Component.extend({
   panelsWrapper: null,
   animate: true,
 
-  _setup: Ember.on('init', function() {
-    const binding = Ember.Binding.from('open').to('panelState.boundOpenState').oneWay();
-    binding.connect(this);
-  }),
+  didReceiveAttrs(attrs) {
+    this._super(...arguments);
+
+    // If caller passes in open=, use it
+    if (get(attrs, 'newAttrs.open') !== undefined) {
+      this.set('panelState.boundOpenState', this.get('open'));
+    }
+  },
 
   // Register with parent panels component
   maybeRegisterWithStateService: Ember.on('didInsertElement', function() {

@@ -1,1 +1,1 @@
-export { default } from 'ember-collapsible-panel/components/cp-panel-toggle';
+export { default } from 'ember-collapsible-panel/components/cp-panel-toggle/component';
