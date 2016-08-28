@@ -8,7 +8,7 @@ moduleForComponent('cp-panels', {
   integration: true,
 
   setup() {
-    panelActions = this.container.lookup('service:panel-actions');
+    panelActions = Ember.getOwner(this).lookup('service:panel-actions');
   },
 
   teardown() {
@@ -18,15 +18,15 @@ moduleForComponent('cp-panels', {
 
 test('it can act as an accordion', function(assert) {
   this.render(hbs`
-    {{#cp-panels accordion=true}}
-      {{#cp-panel}}
-        {{cp-panel-toggle}}
-        {{#cp-panel-body}}Panel A{{/cp-panel-body}}
-      {{/cp-panel}}
-      {{#cp-panel}}
-        {{cp-panel-toggle}}
-        {{#cp-panel-body}}Panel B{{/cp-panel-body}}
-      {{/cp-panel}}
+    {{#cp-panels accordion=true as |panels|}}
+      {{#panels.panel as |panel|}}
+        {{panel.toggle}}
+        {{#panel.body}}Panel A{{/panel.body}}
+      {{/panels.panel}}
+      {{#panels.panel as |panel|}}
+        {{panel.toggle}}
+        {{#panel.body}}Panel B{{/panel.body}}
+      {{/panels.panel}}
     {{/cp-panels}}
   `);
 
@@ -42,13 +42,13 @@ test('it can act as an accordion', function(assert) {
 
 test('all panels in a group can be opened', function(assert) {
   this.render(hbs`
-    {{#cp-panels name="a-group-of-panels"}}
-      {{#cp-panel}}
-        {{#cp-panel-body}}Panel A{{/cp-panel-body}}
-      {{/cp-panel}}
-      {{#cp-panel}}
-        {{#cp-panel-body}}Panel B{{/cp-panel-body}}
-      {{/cp-panel}}
+    {{#cp-panels name="a-group-of-panels" as |panels|}}
+      {{#panels.panel as |panel|}}
+        {{#panel.body}}Panel A{{/panel.body}}
+      {{/panels.panel}}
+      {{#panels.panel as |panel|}}
+        {{#panel.body}}Panel B{{/panel.body}}
+      {{/panels.panel}}
     {{/cp-panels}}
   `);
 

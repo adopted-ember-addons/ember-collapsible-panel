@@ -31,12 +31,13 @@ export default Ember.Service.extend({
       return state;
     },
 
-    // probably not too safe, should only be used in
-    // tests
+    // probably not too safe, should only be used in tests
     reset() {
-      this.get('keys').forEach((key) => {
-        delete this[key];
-      });
+      this.get('keys')
+        .map(i => i) // copy, so we dont mess with binding/loops
+        .forEach((key) => {
+          delete this[key];
+        });
 
       this.get('keys').clear();
     }
@@ -82,7 +83,7 @@ export default Ember.Service.extend({
   },
 
   toggle(name) {
-    const panel = this._panelFor(name);
+    let panel = this._panelFor(name);
     return panel.get('isOpen') ? this.close(name) : this.open(name);
   },
 
