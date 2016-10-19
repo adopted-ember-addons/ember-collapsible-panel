@@ -193,7 +193,7 @@ test('it can nest panels', function(assert) {
         {{#cp-panel class='Child' as |p|}}
           {{p.toggle}}
           {{#p.body}}
-            <p>I'm a Child!</p>
+            <p>Im a Child!</p>
           {{/p.body}}
         {{/cp-panel}}
 
@@ -219,5 +219,5 @@ test('it can nest panels', function(assert) {
   assert.ok($child.hasClass('cp-is-open'));
 
   // make sure the childs text is now showing
-  assert.equal($child.find('.cp-Panel-body').text().match(`I'm a Child!`).length, 1);
+  assert.equal($child.find('.cp-Panel-body').text().match(`Im a Child!`).length, 1);
 });
