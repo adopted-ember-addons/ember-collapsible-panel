@@ -30,6 +30,28 @@ test('it can toggle', function(assert) {
   assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
 });
 
+test('it exposes isOpen', function(assert) {
+  this.render(hbs`
+    {{#cp-panel as |p|}}
+      {{p.toggle}}
+      {{#p.body}}
+        {{#if p.isOpen}}
+          <p>Hi!</p>
+        {{/if}}
+      {{/p.body}}
+    {{/cp-panel}}
+  `);
+
+  var $panel = this.$('.cp-Panel');
+  $panel.find('.cp-Panel-toggle').click();
+
+  assert.ok($panel.find(':contains(Hi!)').length);
+
+  $panel.find('.cp-Panel-toggle').click();
+
+  assert.notOk($panel.find(':contains(Hi!)').length);
+});
+
 test('it can start out open', function(assert) {
   this.render(hbs`
     {{#cp-panel open=true as |p|}}
