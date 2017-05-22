@@ -1,6 +1,6 @@
 {
   "name": "ember-collapsible-panel",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "An unopinionated, zero-dependency panel and accordion",
   "directories": {
     "doc": "doc",
