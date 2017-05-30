@@ -32,10 +32,12 @@ export default Ember.Component.extend({
 
   didReceiveAttrs() {
     this._super(...arguments);
+    
+    let isOpen = get(this, 'open');
 
     // If caller passes in open=, use it
-    if (get(this, 'open') !== undefined) {
-      this.set('panelState.boundOpenState', this.get('open'));
+    if (isOpen !== undefined) {
+      this.set('panelState.boundOpenState', isOpen);
     }
   },
 
