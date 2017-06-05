@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 const State = Ember.Object.extend({
-  name: name,
+  name: null,
   boundOpenState: false,
   apiOpenState: false,
   apiWasUsed: false,
