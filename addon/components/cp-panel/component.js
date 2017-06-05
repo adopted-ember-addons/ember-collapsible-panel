@@ -8,6 +8,8 @@ export default Ember.Component.extend({
   dependencyChecker: Ember.inject.service(),
   shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'animate'),
 
+  clickToOpen: true,
+
   group: null, // passed in if rendered as part of a {{cp-panels}} group
 
   classNames: ['cp-Panel'],
@@ -50,7 +52,9 @@ export default Ember.Component.extend({
 
   actions: {
     toggleIsOpen() {
-      this.get('panelActions').toggle(this.get('name'));
+      if (this.get('clickToOpen')) {
+        this.get('panelActions').toggle(this.get('name'));
+      }
     }
   }
 });
