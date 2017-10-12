@@ -13,10 +13,12 @@
   <div class="col-md-6">
 {{!-- BEGIN-SNIPPET programmatic-control --}}
 <div class="u-margin-bottom">
-  <button class='btn btn-default' {{action 'expandAll'}}>Expand All</button>
-  <button class='btn btn-default' {{action 'collapseAll'}}>Collapse All</button>
-  <button class='btn btn-default' {{action 'togglePanelA'}}>Toggle Panel A</button>
-  <button class='btn btn-default' {{action 'togglePanelB'}}>Toggle Panel B</button>
+  <button class='btn btn-default btn-xs' {{action 'expandAll'}}>Expand All</button>
+  <button class='btn btn-default btn-xs' {{action 'collapseAll'}}>Collapse All</button>
+  <button class='btn btn-default btn-xs' {{action 'togglePanelA'}}>Toggle Panel A</button>
+  <button class='btn btn-default btn-xs' {{action 'togglePanelB'}}>Toggle Panel B</button>
+  <button class='btn btn-default btn-xs' {{action 'openPanelA'}}>Open Panel A</button>
+  <button class='btn btn-default btn-xs' {{action 'closePanelA'}}>Close Panel A</button>
 </div>
 
 {{#cp-panels name='group1' as |panels|}}
