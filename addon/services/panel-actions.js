@@ -1,12 +1,15 @@
-import Ember from 'ember';
+import { readOnly } from '@ember/object/computed';
+import { A } from '@ember/array';
+import Service from '@ember/service';
+import EmberObject, { computed } from '@ember/object';
 
-const State = Ember.Object.extend({
+const State = EmberObject.extend({
   name: null,
   boundOpenState: false,
   apiOpenState: false,
   apiWasUsed: false,
 
-  isOpen: Ember.computed('boundOpenState', 'apiOpenState', 'apiWasUsed', function() {
+  isOpen: computed('boundOpenState', 'apiOpenState', 'apiWasUsed', function() {
     if (this.get('apiWasUsed')) {
       return this.get('apiOpenState');
     } else {
@@ -18,9 +21,9 @@ const State = Ember.Object.extend({
   group: null
 });
 
-export default Ember.Service.extend({
-  _registry: Ember.Object.create({
-    keys: Ember.A([]),
+export default Service.extend({
+  _registry: EmberObject.create({
+    keys: A([]),
 
     unknownProperty: function(name) {
       const state = State.create();
@@ -43,19 +46,19 @@ export default Ember.Service.extend({
     }
   }),
 
-  state: Ember.computed.readOnly('_registry'),
+  state: readOnly('_registry'),
 
   _panelFor(name) {
     return this.get(`state.${name}`);
   },
 
-  _panels: Ember.computed('state.keys.[]', function() {
+  _panels: computed('state.keys.[]', function() {
     const keys = this.get('state.keys'),
           state = this.get('state');
 
     return keys.reduce((result, key) => {
       return result.addObject(state.get(key));
-    }, Ember.A([]));
+    }, A([]));
   }),
 
   _panelsInGroup(name) {

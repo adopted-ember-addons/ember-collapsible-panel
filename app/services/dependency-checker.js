@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Service from '@ember/service';
 import ENV from '../config/environment';
 
-export default Ember.Service.extend({
+export default Service.extend({
 
-  hasLiquidFire: Ember.computed('', function() {
+  hasLiquidFire: computed('', function() {
     return ENV['ember-collapsible-panel'].hasLiquidFire;
   })
 
