@@ -1,6 +1,7 @@
+import { run } from '@ember/runloop';
+import { getOwner } from '@ember/application';
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
 
 let panelActions;
 
@@ -8,7 +9,7 @@ moduleForComponent('cp-panels', {
   integration: true,
 
   setup() {
-    panelActions = Ember.getOwner(this).lookup('service:panel-actions');
+    panelActions = getOwner(this).lookup('service:panel-actions');
   },
 
   teardown() {
@@ -58,7 +59,7 @@ test('all panels in a group can be opened', function(assert) {
   assert.ok($panel1.hasClass('cp-is-closed'));
   assert.ok($panel2.hasClass('cp-is-closed'));
 
-  Ember.run(() => {
+  run(() => {
     panelActions.openAll("a-group-of-panels");
   });
 

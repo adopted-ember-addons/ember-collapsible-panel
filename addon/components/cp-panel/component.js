@@ -1,12 +1,16 @@
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
+import { computed } from '@ember/object';
+import { and, oneWay, readOnly, not } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import layout from './template';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
-  panelActions: Ember.inject.service(),
-  dependencyChecker: Ember.inject.service(),
-  shouldAnimate: Ember.computed.and('dependencyChecker.hasLiquidFire', 'animate'),
+  panelActions: service(),
+  dependencyChecker: service(),
+  shouldAnimate: and('dependencyChecker.hasLiquidFire', 'animate'),
 
   group: null, // passed in if rendered as part of a {{cp-panels}} group
 
@@ -14,16 +18,16 @@ export default Ember.Component.extend({
   classNameBindings: ['isOpen:cp-is-open:cp-is-closed'],
 
   // Caller can overwrite
-  name: Ember.computed.oneWay('elementId'),
+  name: oneWay('elementId'),
 
-  panelState: Ember.computed('name', function() {
+  panelState: computed('name', function() {
     const name = this.get('name');
     // debugger;
     return this.get(`panelActions.state.${name}`);
   }),
 
-  isOpen: Ember.computed.readOnly('panelState.isOpen'),
-  isClosed: Ember.computed.not('isOpen'),
+  isOpen: readOnly('panelState.isOpen'),
+  isClosed: not('isOpen'),
 
   panelsWrapper: null,
   animate: true,
@@ -38,15 +42,16 @@ export default Ember.Component.extend({
   },
 
   // Register with parent panels component
-  maybeRegisterWithStateService: Ember.on('didInsertElement', function() {
-    Ember.run.scheduleOnce('afterRender', () => {
+  didInsertElement() {
+    this._super(...arguments);
+    scheduleOnce('afterRender', () => {
       let group = this.get('group');
 
       if (group) {
         this.get('panelState').set('group', group);
       }
     });
-  }),
+  },
 
   actions: {
     toggleIsOpen() {

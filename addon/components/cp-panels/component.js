@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { oneWay } from '@ember/object/computed';
+import Component from '@ember/component';
 import layout from './template';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   
   classNames: 'cp-Panels',
@@ -10,5 +11,5 @@ export default Ember.Component.extend({
 
   _cpPanels: true,
 
-  name: Ember.computed.oneWay('elementId'),
+  name: oneWay('elementId'),
 });
