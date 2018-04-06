@@ -27,7 +27,7 @@
     "ember-cli-version-checker": "^2.1.0"
   },
   "devDependencies": {
-    "bootstrap": "3",
+    "bootstrap": "^3.3.7",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.1.0",
     "ember-cli": "~2.18.2",
@@ -47,7 +47,7 @@
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.5.5",
     "ember-source": "~2.18.0",
-    "ember-ted-docs": "1.2.1",
+    "ember-ted-docs": "Alonski/ember-ted-docs",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
     "liquid-fire": "0.29.2",
