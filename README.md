@@ -10,6 +10,12 @@ version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fur
 [Interactive documentation](http://tedconf.github.io/ember-collapsible-panel/)
 
 
+## Compatibility
+
+v3.0 of this addon is designed to work with newer versions of Ember/CLI (ones that support new Module Imports).
+
+If you're on an older version of Ember, use the 2.x series.
+
 ## Installation
 
 ```
