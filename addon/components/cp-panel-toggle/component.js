@@ -7,7 +7,7 @@ export default Component.extend({
   classNameBindings: ['isOpen:cp-is-open'],
 
   // So taps register in iOS
-  attributeBindings: ['href'],
+  attributeBindings: ['href', 'isOpen:aria-expanded'],
   href: '#',
 
   click(e) {
