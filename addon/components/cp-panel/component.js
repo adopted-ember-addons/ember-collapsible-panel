@@ -52,10 +52,17 @@ export default Component.extend({
       }
     });
   },
+  
+  // Custom action called when toggling that can be provided by caller
+  didToggle() {},
 
   actions: {
     toggleIsOpen() {
-      this.get('panelActions').toggle(this.get('name'));
+      let name = this.get('name');
+      
+      this.get('panelActions').toggle(name);
+      
+      this.didToggle(name);
     }
   }
 });

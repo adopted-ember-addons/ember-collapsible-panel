@@ -245,3 +245,17 @@ test('it can nest panels', function(assert) {
   // make sure the childs text is now showing
   assert.equal($child.find('.cp-Panel-body').text().match(`Im a Child!`).length, 1);
 });
+
+test('it calls custom didToggle method when toggled', function(assert) {
+  this.set('handleToggle', (panelName) => assert.ok(panelName, `didToggle invoked and passed the panel name: ${panelName}`));
+
+  this.render(hbs`
+    {{#cp-panel didToggle=handleToggle as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
+    {{/cp-panel}}
+  `);
+
+  var $panel = this.$('.cp-Panel');
+  $panel.find('.cp-Panel-toggle').click();
+});
