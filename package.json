@@ -46,7 +46,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.5.5",
-    "ember-source": "~2.18.0",
+    "ember-source": "~3.4.0",
     "ember-ted-docs": "Alonski/ember-ted-docs",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
