@@ -1,5 +1,6 @@
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
+  client_decycle_depth: 12,
   disable_watching: true,
   launch_in_ci: [
     'Chrome'
@@ -12,7 +13,7 @@ module.exports = {
       mode: 'ci',
       args: [
         // --no-sandbox is needed when running Chrome inside a container
-        process.env.TRAVIS ? '--no-sandbox' : null,
+        process.env.CI ? '--no-sandbox' : null,
 
         '--disable-gpu',
         '--headless',
