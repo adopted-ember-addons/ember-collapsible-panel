@@ -259,3 +259,17 @@ test('it calls custom didToggle method when toggled', function(assert) {
   var $panel = this.$('.cp-Panel');
   $panel.find('.cp-Panel-toggle').click();
 });
+
+test('it can be disabled', function(assert) {
+  this.render(hbs`
+    {{#cp-panel disabled=true as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
+    {{/cp-panel}}
+  `);
+
+  var $panel = this.$('.cp-Panel');
+  $panel.find('.cp-Panel-toggle').click();
+
+  assert.ok($panel.find('.cp-Panel-body').text().match('Hi!') === null);
+});
