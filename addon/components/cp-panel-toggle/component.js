@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { computed, get } from "@ember/object";
 
 export default Component.extend({
 
@@ -7,8 +8,12 @@ export default Component.extend({
   classNameBindings: ['isOpen:cp-is-open'],
 
   // So taps register in iOS
-  attributeBindings: ['href', 'isOpen:aria-expanded'],
+  attributeBindings: ['href', 'ariaExpanded:aria-expanded'],
   href: '#',
+
+  ariaExpanded: computed('isOpen', function() {
+    return get(this, 'isOpen') ? 'true' : 'false';
+  }),
 
   click(e) {
     e.preventDefault();
