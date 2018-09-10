@@ -7,7 +7,7 @@ version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fur
 <!--[![Ember Observer-->
 <!--Score](http://emberobserver.com/badges/ember-collapsible-panel.svg)](http://emberobserver.com/addons/ember-collapsible-panel)-->
 
-[Interactive documentation](http://tedconf.github.io/ember-collapsible-panel/)
+[Interactive documentation](http://embermap.github.io/ember-collapsible-panel/)
 
 ## Installation
 
