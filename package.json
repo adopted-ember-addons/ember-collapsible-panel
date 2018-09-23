@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tedconf/ember-collapsible-panel.git"
+    "url": "https://github.com/embermap/ember-collapsible-panel.git"
   },
   "scripts": {
     "build": "ember build",
@@ -57,11 +57,11 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "bugs": {
-    "url": "https://github.com/tedconf/ember-collapsible-panel/issues"
+    "url": "https://github.com/embermap/ember-collapsible-panel/issues"
   },
-  "homepage": "https://tedconf.github.io/ember-collapsible-panel/",
+  "homepage": "https://embermap.github.io/ember-collapsible-panel/",
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://tedconf.github.io/ember-collapsible-panel/"
+    "demoURL": "https://embermap.github.io/ember-collapsible-panel/"
   }
 }
