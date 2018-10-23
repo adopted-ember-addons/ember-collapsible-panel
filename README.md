@@ -1,7 +1,7 @@
 # Ember Collapsible Panel
 
 [![Build
-Status](https://travis-ci.org/tedconf/ember-collapsible-panel.svg?branch=master)](https://travis-ci.org/tedconf/ember-collapsible-panel)
+Status](https://travis-ci.org/embermap/ember-collapsible-panel.svg?branch=master)](https://travis-ci.org/embermap/ember-collapsible-panel)
 [![npm
 version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fury.io/js/ember-collapsible-panel)
 <!--[![Ember Observer-->
