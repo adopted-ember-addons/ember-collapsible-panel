@@ -22,6 +22,14 @@ export default Component.extend({
     togglePanelB() {
       this.get('panelActions').toggle('panelB');
     },
+
+    openPanelA() {
+      this.get('panelActions').open('panelA');
+    },
+
+    closePanelA() {
+      this.get('panelActions').close('panelA');
+    }
   }
 
 });
