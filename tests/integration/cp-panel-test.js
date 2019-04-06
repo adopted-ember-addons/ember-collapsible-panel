@@ -1,6 +1,8 @@
+import { run } from '@ember/runloop';
+import { getOwner } from '@ember/application';
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
+import $ from 'jquery';
 
 let panelActions;
 
@@ -8,7 +10,7 @@ moduleForComponent('cp-panel', {
   integration: true,
 
   setup() {
-    panelActions = Ember.getOwner(this).lookup('service:panel-actions');
+    panelActions = getOwner(this).lookup('service:panel-actions');
   },
 
   teardown() {
@@ -116,7 +118,7 @@ test('it will open by a service call', function(assert) {
   // make sure its closed
   assert.equal($panel.find('.cp-Panel-body-inner').length, 0);
 
-  Ember.run(() => {
+  run(() => {
     panelActions.open('test');
   });
 
@@ -144,7 +146,7 @@ test('it will use a binding or the service, but never overwrite the binding', fu
   assert.equal(this.get('openBinding'), false, 'overwrote 1');
 
   // use the service to open the panel
-  Ember.run(() => {
+  run(() => {
     panelActions.open('test');
   });
 
@@ -197,7 +199,7 @@ test('it will have two panels with the same name used a shared state', function(
   assert.ok($panel2.hasClass('cp-is-closed'));
 
   // use the service to open both panels
-  Ember.run(() => {
+  run(() => {
     panelActions.open('test');
   });
 
@@ -242,4 +244,32 @@ test('it can nest panels', function(assert) {
 
   // make sure the childs text is now showing
   assert.equal($child.find('.cp-Panel-body').text().match(`Im a Child!`).length, 1);
+});
+
+test('it calls custom didToggle method when toggled', function(assert) {
+  this.set('handleToggle', (panelName) => assert.ok(panelName, `didToggle invoked and passed the panel name: ${panelName}`));
+
+  this.render(hbs`
+    {{#cp-panel didToggle=handleToggle as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
+    {{/cp-panel}}
+  `);
+
+  var $panel = this.$('.cp-Panel');
+  $panel.find('.cp-Panel-toggle').click();
+});
+
+test('it can be disabled', function(assert) {
+  this.render(hbs`
+    {{#cp-panel disabled=true as |p|}}
+      {{p.toggle}}
+      {{#p.body}}Hi!{{/p.body}}
+    {{/cp-panel}}
+  `);
+
+  var $panel = this.$('.cp-Panel');
+  $panel.find('.cp-Panel-toggle').click();
+
+  assert.ok($panel.find('.cp-Panel-body').text().match('Hi!') === null);
 });

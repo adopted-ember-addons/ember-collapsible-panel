@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
 // BEGIN-SNIPPET programmatic-control
-export default Ember.Component.extend({
+export default Component.extend({
 
-  panelActions: Ember.inject.service(),
+  panelActions: service(),
 
   actions: {
     expandAll() {
