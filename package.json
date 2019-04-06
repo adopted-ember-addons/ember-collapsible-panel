@@ -7,13 +7,19 @@
   ],
   "license": "MIT",
   "author": "TEDconf and contributors",
+  "contributors": [
+    {
+      "email": "alonzorz@gmail.com",
+      "name": "Alon Bukai"
+    }
+  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/embermap/ember-collapsible-panel.git"
+    "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel.git"
   },
   "scripts": {
     "build": "ember build",
@@ -46,7 +52,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.5.5",
-    "ember-source": "~2.18.0",
+    "ember-source": "~2.12.0",
     "ember-ted-docs": "Alonski/ember-ted-docs",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
@@ -57,11 +63,11 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "bugs": {
-    "url": "https://github.com/embermap/ember-collapsible-panel/issues"
+    "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel/issues"
   },
-  "homepage": "https://embermap.github.io/ember-collapsible-panel/",
+  "homepage": "https://adopted-ember-addons.github.io/ember-collapsible-panel/",
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://embermap.github.io/ember-collapsible-panel/"
+    "demoURL": "https://adopted-ember-addons.github.io/ember-collapsible-panel/"
   }
 }
