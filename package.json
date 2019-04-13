@@ -1,19 +1,25 @@
 {
   "name": "ember-collapsible-panel",
-  "version": "3.1.1",
+  "version": "3.2.1",
   "description": "An unopinionated, zero-dependency panel and accordion",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
   "author": "TEDconf and contributors",
+  "contributors": [
+    {
+      "email": "alonzorz@gmail.com",
+      "name": "Alon Bukai"
+    }
+  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tedconf/ember-collapsible-panel.git"
+    "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel.git"
   },
   "scripts": {
     "build": "ember build",
@@ -48,6 +54,7 @@
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.4.0",
     "ember-ted-docs": "Alonski/ember-ted-docs",
+    "eslint": "^3.1.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
     "liquid-fire": "0.29.5",
@@ -57,11 +64,11 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "bugs": {
-    "url": "https://github.com/tedconf/ember-collapsible-panel/issues"
+    "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel/issues"
   },
-  "homepage": "https://tedconf.github.io/ember-collapsible-panel/",
+  "homepage": "https://adopted-ember-addons.github.io/ember-collapsible-panel/",
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://tedconf.github.io/ember-collapsible-panel/"
+    "demoURL": "https://adopted-ember-addons.github.io/ember-collapsible-panel/"
   }
 }

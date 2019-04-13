@@ -1,35 +1,35 @@
 language: node_js
 node_js:
-- '4'
+  - "4"
 sudo: false
 dist: trusty
 addons:
   chrome: stable
 cache:
   directories:
-  - "$HOME/.npm"
+    - "$HOME/.npm"
 env:
   global:
-  - JOBS=1
+    - JOBS=1
   matrix:
-  - EMBER_TRY_SCENARIO=ember-lts-2.12
-  - EMBER_TRY_SCENARIO=ember-lts-2.16
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-  - EMBER_TRY_SCENARIO=ember-default
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
 matrix:
   fast_finish: true
   allow_failures:
-  - env: EMBER_TRY_SCENARIO=ember-beta
-  - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
-- npm config set spin false
-- npm install -g npm@4
-- npm --version
+  - npm config set spin false
+  - npm install -g npm@4
+  - npm --version
 script:
-- npm run lint:js
-- node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+  - npm run lint:js
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
 deploy:
   provider: npm
   email: sam.selikoff@gmail.com
@@ -37,4 +37,4 @@ deploy:
     secure: nI+uiyx5ANUBSbGeTugfpoEb6QSrQtL25Gr/CQDivGh2gEVNx24KJYtUG10CjFzyuxM65dKW/hgldZIdnQS4vosuWPqYob6iO/DqgLnQRz+j1EuiAwuLbEoCtnFyOWVNr/kdaHP65QU7QakL6mIWV9gIFFHJv9HWvSntpEXALzn/6u4RTZwqdMQBM2dHChc8++AdFGHLpE7DKXJ8sutil/9FpqQ31GMApzd/t7JBkTNPdEDA/Jcc2Eb0GtuRn5XdUZRTxmn2vPSmxsVf3LIMdhjPV3nxp+hGB17uyTdFfULz7DM4BfhQPfuqLGRVVvOyjRB/01KgBTR+lMvq/nyry63XTwHw40YGUPTjvThgcQeZsxhZqBu0+/CvGLwBRkFE8iEjcEeMIBZhZ4C1MM6eCxJ6gJniQYlS8vXBKAsh3xLZY1Qnqpcr9BrtJ6vg4Ftc/3Nz/MbUIbRe3vgIGJTS3/1qdggY1eEspIHdYQzcG2+ZEF4Jli+9TLmD3ildwP0v71vVpmh+JzNtc2Of87/hRk7JMDl2ZgtzDS60bTnlIF+llXSgPPx9faWdexnjHH5+NeDpL4FzGYzVDHNq+vBU4FPIMluY1KsFtKAFXX436OT0SLmA1YroUyB35hcEDhZ4JGFzeyBx62Y0a7NDh0NGX5Qg+QZte9mNPgWbxkDokrM=
   on:
     tags: true
-    repo: tedconf/ember-collapsible-panel
+    repo: adopted-ember-addons/ember-collapsible-panel

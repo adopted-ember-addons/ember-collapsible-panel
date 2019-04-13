@@ -12,17 +12,18 @@ export default Component.extend({
   dependencyChecker: service(),
   shouldAnimate: and('dependencyChecker.hasLiquidFire', 'animate'),
 
+  disabled: false,
+
   group: null, // passed in if rendered as part of a {{cp-panels}} group
 
   classNames: ['cp-Panel'],
-  classNameBindings: ['isOpen:cp-is-open:cp-is-closed'],
+  classNameBindings: ['isOpen:cp-is-open:cp-is-closed', 'disabled:cp-is-disabled'],
 
   // Caller can overwrite
   name: oneWay('elementId'),
 
   panelState: computed('name', function() {
     const name = this.get('name');
-    // debugger;
     return this.get(`panelActions.state.${name}`);
   }),
 
@@ -58,6 +59,9 @@ export default Component.extend({
 
   actions: {
     toggleIsOpen() {
+      if (this.get("disabled")) {
+        return;
+      }
       let name = this.get('name');
       
       this.get('panelActions').toggle(name);
