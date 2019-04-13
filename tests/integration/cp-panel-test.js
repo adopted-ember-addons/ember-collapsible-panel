@@ -20,9 +20,9 @@ moduleForComponent('cp-panel', {
 
 test('it can toggle', function(assert) {
   this.render(hbs`
-    {{#cp-panel as |p|}}
-      {{p.toggle}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel as |panel|}}
+      {{panel.toggle}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -34,13 +34,13 @@ test('it can toggle', function(assert) {
 
 test('it exposes isOpen', function(assert) {
   this.render(hbs`
-    {{#cp-panel as |p|}}
-      {{p.toggle}}
-      {{#p.body}}
-        {{#if p.isOpen}}
+    {{#cp-panel as |panel|}}
+      {{panel.toggle}}
+      {{#panel.body}}
+        {{#if panel.isOpen}}
           <p>Hi!</p>
         {{/if}}
-      {{/p.body}}
+      {{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -56,8 +56,8 @@ test('it exposes isOpen', function(assert) {
 
 test('it can start out open', function(assert) {
   this.render(hbs`
-    {{#cp-panel open=true as |p|}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel open=true as |panel|}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -67,9 +67,9 @@ test('it can start out open', function(assert) {
 
 test('it can start open and toggle closed', function(assert) {
   this.render(hbs`
-    {{#cp-panel open=true as |p|}}
-      {{p.toggle}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel open=true as |panel|}}
+      {{panel.toggle}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -89,8 +89,8 @@ test('it will open via binding', function(assert) {
   this.set('openBinding', false);
 
   this.render(hbs`
-    {{#cp-panel open=openBinding as |p|}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel open=openBinding as |panel|}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -108,8 +108,8 @@ test('it will open via binding', function(assert) {
 
 test('it will open by a service call', function(assert) {
   this.render(hbs`
-    {{#cp-panel name="test" as |p|}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel name="test" as |panel|}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -135,8 +135,8 @@ test('it will use a binding or the service, but never overwrite the binding', fu
   this.set('openBinding', false);
 
   this.render(hbs`
-    {{#cp-panel open=openBinding name="test" as |p|}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel open=openBinding name="test" as |panel|}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -162,9 +162,9 @@ test('it will use a binding or a toggle, but never overwrite the binding', funct
   this.set('openBinding', false);
 
   this.render(hbs`
-    {{#cp-panel open=openBinding as |p|}}
-      {{p.toggle}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel open=openBinding as |panel|}}
+      {{panel.toggle}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -184,12 +184,12 @@ test('it will use a binding or a toggle, but never overwrite the binding', funct
 
 test('it will have two panels with the same name used a shared state', function(assert) {
   this.render(hbs`
-    {{#cp-panel name="test" class="panel1" as |p|}}
-      {{#p.body}}Hi 1!{{/p.body}}
+    {{#cp-panel name="test" class="panel1" as |panel|}}
+      {{#panel.body}}Hi 1!{{/panel.body}}
     {{/cp-panel}}
 
-    {{#cp-panel name="test" class="panel2" as |p|}}
-      {{#p.body}}Hi 2!{{/p.body}}
+    {{#cp-panel name="test" class="panel2" as |panel|}}
+      {{#panel.body}}Hi 2!{{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -210,18 +210,18 @@ test('it will have two panels with the same name used a shared state', function(
 
 test('it can nest panels', function(assert) {
   this.render(hbs`
-    {{#cp-panel class='Parent' as |p|}}
-      {{p.toggle}}
-      {{#p.body}}
+    {{#cp-panel class='Parent' as |panel|}}
+      {{panel.toggle}}
+      {{#panel.body}}
 
-        {{#cp-panel class='Child' as |p|}}
-          {{p.toggle}}
-          {{#p.body}}
+        {{#cp-panel class='Child' as |panel|}}
+          {{panel.toggle}}
+          {{#panel.body}}
             <p>Im a Child!</p>
-          {{/p.body}}
+          {{/panel.body}}
         {{/cp-panel}}
 
-      {{/p.body}}
+      {{/panel.body}}
     {{/cp-panel}}
   `);
 
@@ -250,9 +250,9 @@ test('it calls custom didToggle method when toggled', function(assert) {
   this.set('handleToggle', (panelName) => assert.ok(panelName, `didToggle invoked and passed the panel name: ${panelName}`));
 
   this.render(hbs`
-    {{#cp-panel didToggle=handleToggle as |p|}}
-      {{p.toggle}}
-      {{#p.body}}Hi!{{/p.body}}
+    {{#cp-panel didToggle=handleToggle as |panel|}}
+      {{panel.toggle}}
+      {{#panel.body}}Hi!{{/panel.body}}
     {{/cp-panel}}
   `);
 
