@@ -21,29 +21,33 @@ const State = EmberObject.extend({
   group: null
 });
 
+const Registry = EmberObject.create({
+  keys: A([]),
+
+  unknownProperty: function(name) {
+    const state = State.create();
+
+    this.get('keys').addObject(name);
+    this.set(name, state);
+
+    return state;
+  },
+
+  // probably not too safe, should only be used in tests
+  reset() {
+    this.get('keys')
+      .map(i => i) // copy, so we dont mess with binding/loops
+      .forEach((key) => {
+        delete this[key];
+      });
+
+    this.get('keys').clear();
+  }
+});
+
 export default Service.extend({
-  _registry: EmberObject.create({
-    keys: A([]),
-
-    unknownProperty: function(name) {
-      const state = State.create();
-
-      this.get('keys').addObject(name);
-      this.set(name, state);
-
-      return state;
-    },
-
-    // probably not too safe, should only be used in tests
-    reset() {
-      this.get('keys')
-        .map(i => i) // copy, so we dont mess with binding/loops
-        .forEach((key) => {
-          delete this[key];
-        });
-
-      this.get('keys').clear();
-    }
+  _registry: computed(function() {
+    return Registry.create()
   }),
 
   state: readOnly('_registry'),
