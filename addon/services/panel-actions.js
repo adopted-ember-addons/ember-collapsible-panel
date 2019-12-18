@@ -45,7 +45,7 @@ export default Service.extend({
         const state = State.create();
 
         this.get('keys').addObject(name);
-        this.set(name, state);
+        this.set(name, state); // eslint-disable-line ember/no-side-effects
 
         return state;
       },
