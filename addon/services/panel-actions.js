@@ -21,8 +21,10 @@ const State = EmberObject.extend({
   group: null
 });
 
-const Registry = EmberObject.create({
-  keys: A([]),
+const Registry = EmberObject.extend({
+  keys: computed(function() {
+    return A([]);
+  }),
 
   unknownProperty: function(name) {
     const state = State.create();
