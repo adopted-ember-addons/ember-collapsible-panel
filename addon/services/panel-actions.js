@@ -39,7 +39,7 @@ const Registry = EmberObject.extend({
   // probably not too safe, should only be used in tests
   reset() {
     this.get('keys')
-      .map(i => i) // copy, so we dont mess with binding/loops
+      .slice() // copy, so we dont mess with binding/loops
       .forEach((key) => {
         delete this[key];
       });
