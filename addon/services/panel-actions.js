@@ -27,15 +27,6 @@ const Registry = EmberObject.extend({
     this.keys = A([]);
   },
 
-  unknownProperty(name) {
-    const state = State.create();
-
-    this.get('keys').addObject(name);
-    this.set(name, state); // eslint-disable-line ember/no-side-effects
-
-    return state;
-  },
-
   // probably not too safe, should only be used in tests
   reset() {
     this.get('keys')
@@ -51,7 +42,16 @@ const Registry = EmberObject.extend({
 export default Service.extend({
   init() {
     this._super(...arguments);
-    this._registry = Registry.create();
+    this._registry = Registry.create({
+      unknownProperty(name) {
+        const state = State.create();
+
+        this.get('keys').addObject(name);
+        this.set(name, state); // eslint-disable-line ember/no-side-effects
+
+        return state;
+      },
+    });
   },
 
   state: readOnly('_registry'),
