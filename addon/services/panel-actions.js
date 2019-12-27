@@ -21,30 +21,42 @@ const State = EmberObject.extend({
   group: null
 });
 
-export default Service.extend({
-  _registry: EmberObject.create({
-    keys: A([]),
+const Registry = EmberObject.extend({
+  init() {
+    this._super(...arguments);
+    this.keys = A([]);
+  },
 
-    unknownProperty: function(name) {
-      const state = State.create();
-
-      this.get('keys').addObject(name);
-      this.set(name, state);
-
-      return state;
-    },
-
-    // probably not too safe, should only be used in tests
-    reset() {
-      this.get('keys')
-        .map(i => i) // copy, so we dont mess with binding/loops
-        .forEach((key) => {
-          delete this[key];
-        });
-
-      this.get('keys').clear();
+  unknownProperty(name) {
+    if (name === 'setUnknownProperty') {
+      // For failing ember-default testing scenario
+      // https://travis-ci.org/adopted-ember-addons/ember-collapsible-panel/builds/626881977
+      return;
     }
-  }),
+    const state = State.create();
+    this.get('keys').addObject(name);
+    this.set(name, state); // eslint-disable-line ember/no-side-effects
+
+    return state;
+  },
+
+  // probably not too safe, should only be used in tests
+  reset() {
+    this.get('keys')
+      .slice() // copy, so we dont mess with binding/loops
+      .forEach((key) => {
+        delete this[key];
+      });
+
+    this.get('keys').clear();
+  },
+});
+
+export default Service.extend({
+  init() {
+    this._super(...arguments);
+    this._registry = Registry.create();
+  },
 
   state: readOnly('_registry'),
 
