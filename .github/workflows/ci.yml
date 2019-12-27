@@ -37,38 +37,6 @@ jobs:
       - name: lint
         run: yarn lint
 
-  test:
-    name: Node Tests
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node-version: [8.x, 10.x, 12.x]
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: get yarn cache dir
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-test-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: install dependencies
-        run: yarn install
-
-      - name: node tests
-        run: yarn test:node
-
   ember-try-scenarios:
     name: Ember Tests (${{ matrix.test-suite }})
 
@@ -77,8 +45,7 @@ jobs:
     strategy:
       matrix:
         test-suite:
-          - test:strip
-          - test:keep
+          - test:default
 
     steps:
       - uses: actions/checkout@v1
@@ -103,4 +70,4 @@ jobs:
       - name: test
         env:
           TEST_SUITE: ${{ matrix.test-suite }}
-        run: yarn test:all --skip-cleanup
+        run: yarn test --skip-cleanup
