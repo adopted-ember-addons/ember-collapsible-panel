@@ -55,7 +55,7 @@
     "ember-source": "~3.4.0",
     "ember-source-channel-url": "^1.0.1",
     "ember-ted-docs": "Alonski/ember-ted-docs",
-    "ember-try": "^0.2.23",
+    "ember-try": "1.4.0",
     "eslint": "^4.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
