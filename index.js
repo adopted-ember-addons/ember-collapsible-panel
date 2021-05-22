@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 module.exports = {
-  name: 'ember-collapsible-panel',
+  name: require('./package').name,
 
   config: function (env, baseConfig) {
     var configPath = path.join(this.root, 'config', 'environment.js');
