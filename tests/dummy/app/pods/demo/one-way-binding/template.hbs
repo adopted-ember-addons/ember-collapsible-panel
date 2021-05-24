@@ -15,6 +15,7 @@
 
 <span>isOpen: {{this.isOpen}}</span>
 
+{{!-- template-lint-disable no-passed-in-event-handlers --}}
 <CpPanel @click={{this.toggleIsOpen}} @open={{this.isOpen}} as |cp|>
   <cp.toggle>
     <p>Click me!</p>
