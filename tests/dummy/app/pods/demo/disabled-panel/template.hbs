@@ -3,25 +3,25 @@
 <div class="row">
   <div class="col-md-6">
     <p>
-      {{code-snippet name='disabled-panel.hbs'}}
+      <CodeSnippet @name="disabled-panel.hbs" />
     </p>
   </div>
 
   <div class="col-md-6">
 
 {{!-- BEGIN-SNIPPET disabled-panel --}}
-{{#cp-panel disabled=true as |panel|}}
-  {{#panel.toggle}}
+<CpPanel @disabled={{true}} as |panel|>
+  <panel.toggle>
     <p>Can't Click me!</p>
-  {{/panel.toggle}}
+  </panel.toggle>
 
-  {{#panel.body}}
+  <panel.body>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
     </div>
-  {{/panel.body}}
-{{/cp-panel}}
+  </panel.body>
+</CpPanel>
 {{!-- END-SNIPPET --}}
   </div>
 </div>

@@ -1,23 +1,28 @@
-import Component from '@ember/component';
-import { computed, get } from "@ember/object";
+import classic from "ember-classic-decorator";
+import {
+  classNames,
+  attributeBindings,
+  classNameBindings,
+  tagName,
+} from "@ember-decorators/component";
+import Component from "@ember/component";
+import { computed } from "@ember/object";
 
-export default Component.extend({
+@classic
+@tagName("a")
+@classNames("cp-Panel-toggle")
+@classNameBindings("isOpen:cp-is-open")
+@attributeBindings("href", "ariaExpanded:aria-expanded")
+export default class CpPanelToggle extends Component {
+  href = "#";
 
-  tagName: 'a',
-  classNames: ['cp-Panel-toggle'],
-  classNameBindings: ['isOpen:cp-is-open'],
-
-  // So taps register in iOS
-  attributeBindings: ['href', 'ariaExpanded:aria-expanded'],
-  href: '#',
-
-  ariaExpanded: computed('isOpen', function() {
-    return get(this, 'isOpen') ? 'true' : 'false';
-  }),
+  @computed("isOpen")
+  get ariaExpanded() {
+    return this.isOpen ? "true" : "false";
+  }
 
   click(e) {
     e.preventDefault();
-    this.get('on-click')();
+    this["on-click"]();
   }
-
-});
+}

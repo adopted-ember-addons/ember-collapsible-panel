@@ -1,6 +1,6 @@
-{{#if shouldAnimate}}
+{{#if @shouldAnimate}}
 
-  {{#liquid-if isOpen use='crossFade'}}
+  {{#liquid-if @isOpen use='crossFade'}}
     <div class="cp-Panel-body-inner">
       {{yield}}
     </div>
@@ -8,7 +8,7 @@
 
 {{else}}
 
-  {{#if isOpen}}
+  {{#if @isOpen}}
     <div class="cp-Panel-body-inner">
       {{yield}}
     </div>

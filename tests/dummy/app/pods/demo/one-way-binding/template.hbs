@@ -5,28 +5,28 @@
     <p>You can pass a binding into the panel, but to respect non-mutation, the panel will never change your binding.</p>
     <p>Use the <code>didToggle</code> action to respond to a user clicking your panel.</p>
     <p>
-      {{code-snippet name='open-binding.hbs'}}
+      <CodeSnippet @name="open-binding.hbs" />
     </p>
   </div>
 
   <div class="col-md-6">
 {{!-- BEGIN-SNIPPET open-binding --}}
-<button {{action 'toggleIsOpen'}} class="btn btn-default u-margin-bottom">Toggle</button>
+<button {{on 'click' this.toggleIsOpen}} class="btn btn-default u-margin-bottom" type="button">Toggle</button>
 
-<span>isOpen: {{isOpen}}</span>
+<span>isOpen: {{this.isOpen}}</span>
 
-{{#cp-panel click=(action 'toggleIsOpen') open=isOpen as |p|}}
-  {{#p.toggle}}
+<CpPanel @click={{this.toggleIsOpen}} @open={{this.isOpen}} as |cp|>
+  <cp.toggle>
     <p>Click me!</p>
-  {{/p.toggle}}
-  {{#p.body}}
+  </cp.toggle>
+  <cp.body>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
     </div>
-  {{/p.body}}
+  </cp.body>
 
-{{/cp-panel}}
+</CpPanel>
 {{!-- END-SNIPPET --}}
   </div>
 </div>

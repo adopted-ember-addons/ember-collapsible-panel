@@ -1,65 +1,65 @@
-'use strict';
+"use strict";
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
-      legacyDecorators: true
-    }
+      legacyDecorators: true,
+    },
   },
-  plugins: [
-    'ember'
-  ],
+  plugins: ["ember", "prettier"],
   extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
+    "eslint:recommended",
+    "plugin:ember/recommended",
+    "plugin:prettier/recommended",
   ],
   env: {
-    browser: true
+    browser: true,
   },
   rules: {
-    'ember/no-jquery': 'error'
+    "ember/no-jquery": "error",
+    "prettier/prettier": "error",
   },
   overrides: [
     // node files
     {
       files: [
-        '.eslintrc.js',
-        '.template-lintrc.js',
-        'index.js',
-        'testem.js',
-        'ember-cli-build.js',
-        'config/**/*.js',
-        'tests/dummy/config/**/*.js'
+        ".eslintrc.js",
+        ".template-lintrc.js",
+        "index.js",
+        "testem.js",
+        "ember-cli-build.js",
+        "config/**/*.js",
+        "tests/dummy/config/**/*.js",
       ],
-      excludedFiles: [
-        'app/**',
-        'addon/**',
-        'tests/dummy/app/**'
-      ],
+      excludedFiles: ["app/**", "addon/**", "tests/dummy/app/**"],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: "script",
       },
       env: {
         browser: false,
-        node: true
+        node: true,
       },
-      plugins: ['node'],
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
-        // add your custom rules and overrides for node files here
-      })
+      plugins: ["node"],
+      rules: Object.assign(
+        {},
+        require("eslint-plugin-node").configs.recommended.rules,
+        {
+          // add your custom rules and overrides for node files here
+        }
+      ),
     },
 
     // test files
     {
-      files: ['tests/**/*.js'],
-      excludedFiles: ['tests/dummy/**/*.js'],
+      files: ["tests/**/*.js"],
+      excludedFiles: ["tests/dummy/**/*.js"],
       env: {
-        embertest: true
-      }
-    }
-  ]
+        embertest: true,
+      },
+    },
+  ],
 };

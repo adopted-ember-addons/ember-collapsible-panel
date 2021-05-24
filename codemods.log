@@ -1,0 +1,10 @@
+2021-05-22T18:30:56.446Z [info] [addon/components/cp-panels/component.js]: SUCCESS
+2021-05-22T18:30:56.573Z [info] [addon/components/cp-panel/component.js]: SUCCESS
+2021-05-22T18:30:56.627Z [info] [addon/services/dependency-checker.js]: SUCCESS
+2021-05-22T18:30:56.686Z [info] [addon/components/cp-panel-toggle/component.js]: SUCCESS
+2021-05-22T18:30:56.846Z [info] [addon/components/cp-panel-body/component.js]: SUCCESS
+2021-05-22T18:30:57.004Z [info] [addon/services/panel-actions.js]: SUCCESS
+2021-05-22T18:34:29.818Z [warn] [tests/dummy/app/app.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2021-05-22T18:34:29.829Z [info] [tests/dummy/app/pods/demo/component.js]: SUCCESS
+2021-05-22T18:34:29.936Z [info] [tests/dummy/app/pods/demo/one-way-binding/component.js]: SUCCESS
+2021-05-22T18:34:30.091Z [info] [tests/dummy/app/pods/demo/programmatic-control/component.js]: SUCCESS

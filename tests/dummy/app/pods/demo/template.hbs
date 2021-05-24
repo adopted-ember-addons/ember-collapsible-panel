@@ -1,9 +1,4 @@
-{{ted-page-header
-  subheading='Ember'
-  slim-heading='Collapsible'
-  strong-heading='Panel'
-  byline='An unopinionated, zero-dependency panel and accordion'
-  github='https://github.com/adopted-ember-addons/ember-collapsible-panel'}}
+<TedPageHeader @subheading="Ember" @slim-heading="Collapsible" @strong-heading="Panel" @byline="An unopinionated, zero-dependency panel and accordion" @github="https://github.com/adopted-ember-addons/ember-collapsible-panel" />
 
 <div class="Main container">
   <section>
@@ -25,23 +20,23 @@
   <section>
     <h2>Usage</h2>
 
-    <div class="Demo-section">{{demo/basic-usage}}</div>
+    <div class="Demo-section"><Demo::BasicUsage /></div>
 
-    <div class="Demo-section">{{demo/start-out-open}}</div>
+    <div class="Demo-section"><Demo::StartOutOpen /></div>
 
-    <div class="Demo-section">{{demo/disabled-panel}}</div>
+    <div class="Demo-section"><Demo::DisabledPanel /></div>
 
     {{!-- <div class="Demo-section">{{demo/two-way-binding}}</div> --}}
 
     {{!-- <div class="Demo-section">{{demo/one-way-binding}}</div> --}}
 
-    <div class="Demo-section">{{demo/accordion-usage}}</div>
+    <div class="Demo-section"><Demo::AccordionUsage /></div>
 
-    <div class="Demo-section">{{demo/nested-panels}}</div>
+    <div class="Demo-section"><Demo::NestedPanels /></div>
 
-    <div class="Demo-section">{{demo/programmatic-control}}</div>
+    <div class="Demo-section"><Demo::ProgrammaticControl /></div>
 
-    <div class="Demo-section" id="animations">{{demo/animation-usage}}</div>
+    <div class="Demo-section" id="animations"><Demo::AnimationUsage /></div>
   </section>
 
   <section>
@@ -82,7 +77,7 @@
 
       </div>
       <div class="col-md-6">
-        <p>{{code-snippet name='panel-styles.scss'}}</p>
+        <p><CodeSnippet @name="panel-styles.scss" /></p>
       </div>
     </div>
   </section>

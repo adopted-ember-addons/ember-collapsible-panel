@@ -1,13 +1,13 @@
-import Component from '@ember/component';
+import classic from "ember-classic-decorator";
+import { action } from "@ember/object";
+import Component from "@ember/component";
 
-export default Component.extend({
+@classic
+export default class OneWayBinding extends Component {
+  isOpen = false;
 
-  isOpen: false,
-
-  actions: {
-    toggleIsOpen() {
-      this.toggleProperty('isOpen');
-    }
+  @action
+  toggleIsOpen() {
+    this.toggleProperty("isOpen");
   }
-
-});
+}

@@ -1,15 +1,20 @@
-import { oneWay } from '@ember/object/computed';
-import Component from '@ember/component';
-import layout from './template';
+import classic from "ember-classic-decorator";
+import {
+  classNames,
+  layout as templateLayout,
+} from "@ember-decorators/component";
+import { oneWay } from "@ember/object/computed";
+import Component from "@ember/component";
+import layout from "./template";
 
-export default Component.extend({
-  layout,
-  
-  classNames: 'cp-Panels',
-  accordion: false,
-  animate: true,
+@classic
+@templateLayout(layout)
+@classNames("cp-Panels")
+export default class CpPanels extends Component {
+  accordion = false;
+  animate = true;
+  _cpPanels = true;
 
-  _cpPanels: true,
-
-  name: oneWay('elementId'),
-});
+  @oneWay("elementId")
+  name;
+}

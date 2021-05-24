@@ -4,38 +4,38 @@
   <div class="col-md-6">
     <p>Wrap a list of panels in a <code>cp-panels</code> component with <code>accordion=true</code>:</p>
     <p>
-      {{code-snippet name='accordion.hbs'}}
+      <CodeSnippet @name="accordion.hbs" />
     </p>
   </div>
   <div class="col-md-6">
 
 {{!-- BEGIN-SNIPPET accordion --}}
-{{#cp-panels accordion=true as |panels|}}
-  {{#panels.panel as |panel|}}
-    {{#panel.toggle}}
+<CpPanels @accordion={{true}} as |panels|>
+  <panels.panel as |panel|>
+    <panel.toggle>
       <p>Panel A</p>
-    {{/panel.toggle}}
-    {{#panel.body}}
+    </panel.toggle>
+    <panel.body>
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
       </div>
-    {{/panel.body}}
-  {{/panels.panel}}
+    </panel.body>
+  </panels.panel>
 
-  {{#panels.panel as |panel|}}
-    {{#panel.toggle}}
+  <panels.panel as |panel|>
+    <panel.toggle>
       <p>Panel B</p>
-    {{/panel.toggle}}
-    {{#panel.body}}
+    </panel.toggle>
+    <panel.body>
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus neque magnam, hic quis beatae repellendus harum modi pariatur minus quidem alias! Eius incidunt impedit eaque, est, illo officiis expedita molestiae.</p>
       </div>
-    {{/panel.body}}
+    </panel.body>
 
-  {{/panels.panel}}
-{{/cp-panels}}
+  </panels.panel>
+</CpPanels>
 {{!-- END-SNIPPET --}}
   </div>
 </div>

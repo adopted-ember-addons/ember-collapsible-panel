@@ -1,19 +1,18 @@
-'use strict';
+"use strict";
 
-var fs = require('fs');
-var path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
-  name: require('./package').name,
+  name: require("./package").name,
 
-  config: function (env, baseConfig) {
-    var configPath = path.join(this.root, 'config', 'environment.js');
+  config(env, baseConfig) {
+    let configPath = path.join(this.root, "config", "environment.js");
 
     if (fs.existsSync(configPath)) {
-      var configGenerator = require(configPath);
+      let configGenerator = require(configPath);
 
       return configGenerator(env, baseConfig, this);
     }
-  }
-
+  },
 };

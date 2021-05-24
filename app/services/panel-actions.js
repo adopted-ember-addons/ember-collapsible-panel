@@ -1,1 +1,1 @@
-export { default } from 'ember-collapsible-panel/services/panel-actions';
+export { default } from "ember-collapsible-panel/services/panel-actions";

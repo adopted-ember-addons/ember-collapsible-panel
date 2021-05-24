@@ -6,46 +6,46 @@
     <p>To save you the trouble, we've brought along a <code>panelActions</code> service, which can manage the state of your panels, and gives you a nice API for interacting with them.</p>
     <p>Now, other components in your UI can open and close panels without the need for you to pass around actions or manage state. It's like the simplicity of <code>$('.panel').toggle()</code>, without any of the downsides!</p>
     <p>
-      {{code-snippet name='programmatic-control.js'}}
-      {{code-snippet name='programmatic-control.hbs'}}
+      <CodeSnippet @name="programmatic-control.js" />
+      <CodeSnippet @name="programmatic-control.hbs" />
     </p>
   </div>
   <div class="col-md-6">
 {{!-- BEGIN-SNIPPET programmatic-control --}}
 <div class="u-margin-bottom">
-  <button class='btn btn-default' {{action 'expandAll'}}>Expand All</button>
-  <button class='btn btn-default' {{action 'collapseAll'}}>Collapse All</button>
-  <button class='btn btn-default' {{action 'togglePanelA'}}>Toggle Panel A</button>
-  <button class='btn btn-default' {{action 'togglePanelB'}}>Toggle Panel B</button>
-  <button class='btn btn-default' {{action 'openPanelA'}}>Open Panel A</button>
-  <button class='btn btn-default' {{action 'closePanelA'}}>Close Panel A</button>
+  <button class='btn btn-default' {{on 'click' this.expandAll}} type="button">Expand All</button>
+  <button class='btn btn-default' {{on 'click' this.collapseAll}} type="button">Collapse All</button>
+  <button class='btn btn-default' {{on 'click' this.togglePanelA}} type="button">Toggle Panel A</button>
+  <button class='btn btn-default' {{on 'click' this.togglePanelB}} type="button">Toggle Panel B</button>
+  <button class='btn btn-default' {{on 'click' this.openPanelA}} type="button">Open Panel A</button>
+  <button class='btn btn-default' {{on 'click' this.closePanelA}} type="button">Close Panel A</button>
 </div>
 
-{{#cp-panels name='group1' as |panels|}}
+<CpPanels @name="group1" as |panels|>
 
-  {{#panels.panel name='panelA' as |panel|}}
-    {{#panel.toggle}}
+  <panels.panel @name="panelA" as |panel|>
+    <panel.toggle>
       <p>Panel A</p>
-    {{/panel.toggle}}
-    {{#panel.body}}
+    </panel.toggle>
+    <panel.body>
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       </div>
-    {{/panel.body}}
-  {{/panels.panel}}
+    </panel.body>
+  </panels.panel>
 
-  {{#panels.panel name='panelB' as |p|}}
-    {{#panel.toggle}}
+  <panels.panel @name="panelB">
+    <panel.toggle>
       <p>Panel B</p>
-    {{/panel.toggle}}
-    {{#panel.body}}
+    </panel.toggle>
+    <panel.body>
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo repellendus nisi asperiores esse aperiam aliquid nulla ad dolor autem neque, nihil inventore temporibus delectus earum facere corporis, quam ipsum maxime.</p>
       </div>
-    {{/panel.body}}
-  {{/panels.panel}}
+    </panel.body>
+  </panels.panel>
 
-{{/cp-panels}}
+</CpPanels>
 {{!-- END-SNIPPET --}}
   </div>
 </div>

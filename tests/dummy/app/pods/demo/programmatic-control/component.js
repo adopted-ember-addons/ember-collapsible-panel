@@ -1,36 +1,42 @@
-import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import classic from "ember-classic-decorator";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Component from "@ember/component";
 
 // BEGIN-SNIPPET programmatic-control
-export default Component.extend({
+@classic
+export default class ProgrammaticControl extends Component {
+  @service
+  panelActions;
 
-  panelActions: service(),
-
-  actions: {
-    expandAll() {
-      this.get('panelActions').openAll('group1');
-    },
-
-    collapseAll() {
-      this.get('panelActions').closeAll('group1');
-    },
-
-    togglePanelA() {
-      this.get('panelActions').toggle('panelA');
-    },
-
-    togglePanelB() {
-      this.get('panelActions').toggle('panelB');
-    },
-
-    openPanelA() {
-      this.get('panelActions').open('panelA');
-    },
-
-    closePanelA() {
-      this.get('panelActions').close('panelA');
-    }
+  @action
+  expandAll() {
+    this.panelActions.openAll("group1");
   }
 
-});
+  @action
+  collapseAll() {
+    this.panelActions.closeAll("group1");
+  }
+
+  @action
+  togglePanelA() {
+    this.panelActions.toggle("panelA");
+  }
+
+  @action
+  togglePanelB() {
+    this.panelActions.toggle("panelB");
+  }
+
+  @action
+  openPanelA() {
+    this.panelActions.open("panelA");
+  }
+
+  @action
+  closePanelA() {
+    this.panelActions.close("panelA");
+  }
+}
 // END-SNIPPET

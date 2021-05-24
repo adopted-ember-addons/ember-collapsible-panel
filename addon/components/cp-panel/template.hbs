@@ -1,6 +1,6 @@
 {{yield (hash
-  toggle=(component 'cp-panel-toggle' on-click=(action 'toggleIsOpen') isOpen=isOpen)
-  body=(component 'cp-panel-body' shouldAnimate=shouldAnimate isOpen=isOpen)
-  name=name
-  isOpen=isOpen
+  toggle=(component 'cp-panel-toggle' on-click=this.toggleIsOpen isOpen=this.isOpen)
+  body=(component 'cp-panel-body' shouldAnimate=this.shouldAnimate isOpen=this.isOpen)
+  name=this.name
+  isOpen=this.isOpen
 )}}

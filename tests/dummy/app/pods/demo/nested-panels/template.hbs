@@ -4,42 +4,42 @@
   <div class="col-md-6">
     <p>You can put sibling <code>cp-panel</code>s (or a <code>cp-panels</code> wrapper) in the body of a parent panel:</p>
     <p>
-      {{code-snippet name='nested-panels.hbs'}}
+      <CodeSnippet @name="nested-panels.hbs" />
     </p>
   </div>
   <div class="col-md-6">
 
 {{!-- BEGIN-SNIPPET nested-panels --}}
-{{#cp-panel as |panel|}}
-  {{#panel.toggle}}
+<CpPanel as |panel|>
+  <panel.toggle>
     <p>Parent</p>
-  {{/panel.toggle}}
-  {{#panel.body}}
+  </panel.toggle>
+  <panel.body>
 
-    {{#cp-panels class='u-margin-bottom' accordion=true as |panels|}}
-      {{#panels.panel as |panel|}}
-        {{#panel.toggle}}
+    <CpPanels @class="u-margin-bottom" @accordion={{true}} as |panels|>
+      <panels.panel as |panel|>
+        <panel.toggle>
           <p>Child 1</p>
-        {{/panel.toggle}}
-        {{#panel.body}}
+        </panel.toggle>
+        <panel.body>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
-        {{/panel.body}}
-      {{/panels.panel}}
+        </panel.body>
+      </panels.panel>
 
-      {{#panels.panel as |panel|}}
-        {{#panel.toggle}}
+      <panels.panel as |panel|>
+        <panel.toggle>
           <p>Child 2</p>
-        {{/panel.toggle}}
-        {{#panel.body}}
+        </panel.toggle>
+        <panel.body>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate veniam facere consectetur, aperiam nostrum, praesentium nisi. Quae fuga, maiores, hic atque velit, omnis explicabo dolore a quaerat, harum perferendis voluptate.</p>
-        {{/panel.body}}
-      {{/panels.panel}}
-    {{/cp-panels}}
+        </panel.body>
+      </panels.panel>
+    </CpPanels>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat error enim, quae pariatur atque possimus aliquam, beatae saepe veritatis natus alias nostrum! Atque aliquid, fugit esse dolor ducimus. Ab, labore.</p>
 
-  {{/panel.body}}
-{{/cp-panel}}
+  </panel.body>
+</CpPanel>
 {{!-- END-SNIPPET --}}
   </div>
 </div>
