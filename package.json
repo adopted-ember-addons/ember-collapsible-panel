@@ -59,7 +59,7 @@
     "eslint": "^4.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
-    "liquid-fire": "0.29.5",
+    "liquid-fire": "0.32.0",
     "loader.js": "^4.7.0"
   },
   "engines": {
