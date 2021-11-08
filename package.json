@@ -25,7 +25,8 @@
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
     "start": "ember serve",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "test:ember": "ember test"
   },
   "dependencies": {
     "ember-cli-babel": "^6.12.0",
