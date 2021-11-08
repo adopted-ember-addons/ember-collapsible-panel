@@ -44,7 +44,7 @@
     "ember-cli-htmlbars-inline-precompile": "^1.0.2",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^4.3.2",
-    "ember-cli-sass": "7.1.7",
+    "ember-cli-sass": "^10.0.1",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.1.0",
@@ -61,7 +61,9 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
     "liquid-fire": "0.29.5",
-    "loader.js": "^4.7.0"
+    "loader.js": "^4.7.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.43.4"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
