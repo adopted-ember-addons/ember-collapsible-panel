@@ -6,8 +6,16 @@
     <p>To save you the trouble, we've brought along a <code>panelActions</code> service, which can manage the state of your panels, and gives you a nice API for interacting with them.</p>
     <p>Now, other components in your UI can open and close panels without the need for you to pass around actions or manage state. It's like the simplicity of <code>$('.panel').toggle()</code>, without any of the downsides!</p>
     <p>
-      {{code-snippet name='programmatic-control.js'}}
-      {{code-snippet name='programmatic-control.hbs'}}
+      {{#let (get-code-snippet "programmatic-control.js") as |snippet|}}
+        <pre class={{snippet.language}}>
+          {{snippet.source}}
+        </pre>
+      {{/let}}
+      {{#let (get-code-snippet "programmatic-control.hbs") as |snippet|}}
+        <pre class={{snippet.language}}>
+          {{snippet.source}}
+        </pre>
+      {{/let}}
     </p>
   </div>
   <div class="col-md-6">

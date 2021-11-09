@@ -3,7 +3,11 @@
 <div class="row">
   <div class="col-md-6">
     <p>
-      {{code-snippet name='start-out-open.hbs'}}
+      {{#let (get-code-snippet "start-out-open.hbs") as |snippet|}}
+        <pre class={{snippet.language}}>
+          {{snippet.source}}
+        </pre>
+      {{/let}}
     </p>
   </div>
   <div class="col-md-6">
