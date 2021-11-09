@@ -14,11 +14,11 @@ module('Integration | Component | cp panel toggle', function(hooks) {
       {{/cp-panel-toggle}}
     `);
 
-    const panel = this.$('.cp-Panel-toggle');
+    const panel = this.element.querySelector('.cp-Panel-toggle');
 
-    assert.equal(panel.attr('aria-expanded'), 'true', 'panel is opened and aria-expanded is true');
+    assert.equal(panel.getAttribute('aria-expanded'), 'true', 'panel is opened and aria-expanded is true');
 
     this.set('isPanelOpen', false);
-    assert.equal(panel.attr('aria-expanded'), 'false', 'panel is closed and aria-expanded is false');
+    assert.equal(panel.getAttribute('aria-expanded'), 'false', 'panel is closed and aria-expanded is false');
   });
 });

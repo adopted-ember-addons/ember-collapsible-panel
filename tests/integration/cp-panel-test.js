@@ -1,25 +1,10 @@
-import { run } from '@ember/runloop';
-import { getOwner } from '@ember/application';
 import hbs from 'htmlbars-inline-precompile';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import $ from 'jquery';
-
-let panelActions;
+import { click, render, settled } from '@ember/test-helpers';
 
 module('cp-panel', function(hooks) {
   setupRenderingTest(hooks);
-
-  hooks.beforeEach(function() {
-    this.setup = function() {
-      panelActions = this.owner.lookup('service:panel-actions');
-    };
-
-    this.teardown = function() {
-      panelActions.get('state').reset();
-    };
-  });
 
   test('it can toggle', async function(assert) {
     await render(hbs`
@@ -29,10 +14,11 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    $panel.find('.cp-Panel-toggle').click();
+    await click(this.element.querySelector('.cp-Panel .cp-Panel-toggle'));
 
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
+    let panelBody = this.element.querySelector('.cp-Panel .cp-Panel-body');
+
+    assert.ok(panelBody.textContent.includes("Hi!"));
   });
 
   test('it exposes isOpen', async function(assert) {
@@ -47,14 +33,14 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    $panel.find('.cp-Panel-toggle').click();
+    await click(this.element.querySelector('.cp-Panel .cp-Panel-toggle'));
 
-    assert.ok($panel.find(':contains(Hi!)').length);
+    let panelBody = this.element.querySelector('.cp-Panel .cp-Panel-body');
+    assert.ok(panelBody.textContent.includes("Hi!"));
 
-    $panel.find('.cp-Panel-toggle').click();
+    await click(this.element.querySelector('.cp-Panel .cp-Panel-toggle'));
 
-    assert.notOk($panel.find(':contains(Hi!)').length);
+    assert.notOk(panelBody.textContent.includes("Hi!"));
   });
 
   test('it can start out open', async function(assert) {
@@ -64,8 +50,8 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
+    let panelBody = this.element.querySelector('.cp-Panel .cp-Panel-body');
+    assert.ok(panelBody.textContent.includes("Hi!"));
   });
 
   test('it can start open and toggle closed', async function(assert) {
@@ -76,15 +62,15 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
+    let panel = this.element.querySelector('.cp-Panel');
 
     // it starts out open
-    assert.ok($panel.hasClass('cp-is-open'));
+    assert.ok(panel.classList.contains('cp-is-open'));
 
     // click it closed
-    $panel.find('.cp-Panel-toggle').click();
+    await click(panel.querySelector('.cp-Panel-toggle'));
 
-    assert.ok($panel.hasClass('cp-is-closed'));
+    assert.ok(panel.classList.contains('cp-is-closed'));
 
   });
 
@@ -97,16 +83,16 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
+    let panel = this.element.querySelector('.cp-Panel');
 
     // make sure its closed
-    assert.equal($panel.find('.cp-Panel-body-inner').length, 0);
+    assert.ok(panel.classList.contains('cp-is-closed'));
 
     this.set('openBinding', true);
 
     // ok now its open
-    assert.equal($panel.find('.cp-Panel-body-inner').length, 1);
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
+    assert.ok(panel.classList.contains('cp-is-open'));
+    assert.ok(panel.querySelector('.cp-Panel-body').textContent.includes("Hi!"));
   });
 
   test('it will open by a service call', async function(assert) {
@@ -116,18 +102,19 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
+    let panel = this.element.querySelector('.cp-Panel');
 
     // make sure its closed
-    assert.equal($panel.find('.cp-Panel-body-inner').length, 0);
+    assert.ok(panel.classList.contains('cp-is-closed'));
 
-    run(() => {
-      panelActions.open('test');
-    });
+    let panelActions = this.owner.lookup('service:panel-actions');
+    panelActions.open('test');
+
+    await settled();
 
     // ok now its open
-    assert.equal($panel.find('.cp-Panel-body-inner').length, 1);
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
+    assert.ok(panel.classList.contains('cp-is-open'));
+    assert.ok(panel.querySelector('.cp-Panel-body').textContent.includes("Hi!"));
   });
 
   test('it will use a binding or the service, but never overwrite the binding', async function(assert) {
@@ -143,22 +130,26 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    assert.ok($panel.hasClass('cp-is-closed'));
+    let panel = this.element.querySelector('.cp-Panel');
+
+    // make sure its closed
+    assert.ok(panel.classList.contains('cp-is-closed'));
 
     assert.equal(this.get('openBinding'), false, 'overwrote 1');
 
+    let panelActions = this.owner.lookup('service:panel-actions');
     // use the service to open the panel
-    run(() => {
-      panelActions.open('test');
-    });
+    panelActions.open('test');
+
+    // allow a rerender
+    await settled();
 
     // binding doesnt change
     assert.equal(this.get('openBinding'), false, 'overwrote 2');
 
     // but panel is open
-    assert.equal($panel.find('.cp-Panel-body-inner').length, 1);
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
+    assert.ok(panel.classList.contains('cp-is-open'));
+    assert.ok(panel.querySelector('.cp-Panel-body').textContent.includes("Hi!"));
   });
 
   test('it will use a binding or a toggle, but never overwrite the binding', async function(assert) {
@@ -171,18 +162,22 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    assert.ok($panel.hasClass('cp-is-closed'));
+    let panel = this.element.querySelector('.cp-Panel');
+
+    // make sure its closed
+    assert.ok(panel.classList.contains('cp-is-closed'));
+
+    assert.equal(this.get('openBinding'), false, 'overwrote 1');
 
     // click toggle to open the panel
-    $panel.find('.cp-Panel-toggle').click();
+    await click(panel.querySelector('.cp-Panel-toggle'));
 
     // binding doesnt change
     assert.equal(this.get('openBinding'), false, 'overwrote');
 
     // but panel is open
-    assert.equal($panel.find('.cp-Panel-body-inner').length, 1);
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!').length);
+    assert.ok(panel.classList.contains('cp-is-open'));
+    assert.ok(panel.querySelector('.cp-Panel-body').textContent.includes("Hi!"));
   });
 
   test('it will have two panels with the same name used a shared state', async function(assert) {
@@ -196,19 +191,24 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    let $panel1 = $('.cp-Panel.panel1');
-    let $panel2 = $('.cp-Panel.panel2');
-    assert.ok($panel1.hasClass('cp-is-closed'));
-    assert.ok($panel2.hasClass('cp-is-closed'));
+    let panel1 = this.element.querySelector('.cp-Panel.panel1');
+    let panel2 = this.element.querySelector('.cp-Panel.panel2');
 
-    // use the service to open both panels
-    run(() => {
-      panelActions.open('test');
-    });
+    assert.ok(panel1.classList.contains('cp-is-closed'));
+    assert.ok(panel2.classList.contains('cp-is-closed'));
+
+    let panelActions = this.owner.lookup('service:panel-actions');
+    // use the service to open the panel
+    panelActions.open('test');
+
+    // allow a rerender
+    await settled();
 
     // and both panels are now open
-    assert.equal($panel1.text().match('Hi 1!').length, 1);
-    assert.equal($panel2.text().match('Hi 2!').length, 1);
+    assert.ok(panel1.classList.contains('cp-is-open'));
+    assert.ok(panel1.querySelector('.cp-Panel-body').textContent.includes("Hi 1!"));
+    assert.ok(panel2.classList.contains('cp-is-open'));
+    assert.ok(panel2.querySelector('.cp-Panel-body').textContent.includes("Hi 2!"));
   });
 
   test('it can nest panels', async function(assert) {
@@ -228,25 +228,25 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $parent = this.$('.Parent');
+    let parent = this.element.querySelector('.Parent');
 
     // open the parent
-    $parent.find('.cp-Panel-toggle').click();
+    await click(parent.querySelector('.cp-Panel-toggle'));
 
-    var $child = this.$('.Child');
+    let child = this.element.querySelector('.Child');
 
     // make sure the child isnt open
-    assert.ok($child.hasClass('cp-is-closed'));
+    assert.ok(child.classList.contains('cp-is-closed'));
 
     // now open the child
-    $child.find('.cp-Panel-toggle').click();
+    await click(child.querySelector('.cp-Panel-toggle'));
 
     // and we should see 2 panel showing (child and parent)
-    assert.ok($parent.hasClass('cp-is-open'));
-    assert.ok($child.hasClass('cp-is-open'));
+    assert.ok(parent.classList.contains('cp-is-open'));
+    assert.ok(child.classList.contains('cp-is-open'));
 
     // make sure the childs text is now showing
-    assert.equal($child.find('.cp-Panel-body').text().match(`Im a Child!`).length, 1);
+    assert.ok(child.querySelector('.cp-Panel-body').textContent.includes('Im a Child!'));
   });
 
   test('it calls custom didToggle method when toggled', async function(assert) {
@@ -259,8 +259,7 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    $panel.find('.cp-Panel-toggle').click();
+    await click('.cp-Panel .cp-Panel-toggle');
   });
 
   test('it can be disabled', async function(assert) {
@@ -271,9 +270,9 @@ module('cp-panel', function(hooks) {
       {{/cp-panel}}
     `);
 
-    var $panel = this.$('.cp-Panel');
-    $panel.find('.cp-Panel-toggle').click();
+    let panel = this.element.querySelector('.cp-Panel');
+    await click(panel.querySelector('.cp-Panel-toggle'));
 
-    assert.ok($panel.find('.cp-Panel-body').text().match('Hi!') === null);
+    assert.ok(panel.classList.contains('cp-is-closed'));
   });
 });
