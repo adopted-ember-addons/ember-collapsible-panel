@@ -1,7 +1,5 @@
 'use strict';
 
-/* eslint-disable node/no-unsupported-features */
-
 const getChannelURL = require('ember-source-channel-url');
 
 module.exports = async function () {
