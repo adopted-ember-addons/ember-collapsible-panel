@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@ember/test-helpers": "^2.6.0",
+    "@embroider/test-setup": "^0.47.1",
     "bootstrap": "^3.3.7",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.2.3",

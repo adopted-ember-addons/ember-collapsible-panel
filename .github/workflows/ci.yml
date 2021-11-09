@@ -58,7 +58,7 @@ jobs:
           #- ember-canary
           #- ember-classic
           - ember-default-with-jquery
-          #- embroider-safe
+          - embroider-safe
           #- embroider-optimized
 
     steps:
