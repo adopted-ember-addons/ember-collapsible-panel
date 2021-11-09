@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2019,
     sourceType: 'module'
   },
   plugins: [
@@ -20,6 +20,7 @@ module.exports = {
     // node files
     {
       files: [
+        '.eslintrc.js',
         'index.js',
         'testem.js',
         'ember-cli-build.js',
@@ -33,7 +34,7 @@ module.exports = {
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015
+        ecmaVersion: 2019
       },
       env: {
         browser: false,
