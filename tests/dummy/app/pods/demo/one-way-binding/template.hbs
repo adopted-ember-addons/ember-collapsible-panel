@@ -5,7 +5,11 @@
     <p>You can pass a binding into the panel, but to respect non-mutation, the panel will never change your binding.</p>
     <p>Use the <code>didToggle</code> action to respond to a user clicking your panel.</p>
     <p>
-      {{code-snippet name='open-binding.hbs'}}
+      {{#let (get-code-snippet "open-binding.hbs") as |snippet|}}
+        <pre class={{snippet.language}}>
+          {{snippet.source}}
+        </pre>
+      {{/let}}
     </p>
   </div>
 

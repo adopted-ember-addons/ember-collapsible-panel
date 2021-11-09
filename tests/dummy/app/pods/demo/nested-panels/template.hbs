@@ -4,7 +4,11 @@
   <div class="col-md-6">
     <p>You can put sibling <code>cp-panel</code>s (or a <code>cp-panels</code> wrapper) in the body of a parent panel:</p>
     <p>
-      {{code-snippet name='nested-panels.hbs'}}
+      {{#let (get-code-snippet "nested-panels.hbs") as |snippet|}}
+        <pre class={{snippet.language}}>
+          {{snippet.source}}
+        </pre>
+      {{/let}}
     </p>
   </div>
   <div class="col-md-6">

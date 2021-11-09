@@ -82,7 +82,13 @@
 
       </div>
       <div class="col-md-6">
-        <p>{{code-snippet name='panel-styles.scss'}}</p>
+        <p>
+          {{#let (get-code-snippet "panel-styles.scss") as |snippet|}}
+            <pre class={{snippet.language}}>
+              {{snippet.source}}
+            </pre>
+          {{/let}}
+        </p>
       </div>
     </div>
   </section>
