@@ -1,18 +1,26 @@
 import { scheduleOnce } from '@ember/runloop';
 import { computed } from '@ember/object';
 import { and, oneWay, readOnly, not } from '@ember/object/computed';
+import { macroCondition, dependencySatisfies } from '@embroider/macros';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import layout from './template';
+
+let hasLiquidFireDep;
+if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
+  hasLiquidFireDep = true;
+} else {
+  hasLiquidFireDep = false;
+}
 
 export default Component.extend({
   layout,
 
   panelActions: service(),
-  dependencyChecker: service(),
-  shouldAnimate: and('dependencyChecker.hasLiquidFire', 'animate'),
+  shouldAnimate: and('hasLiquidFireDep', 'animate'),
 
   disabled: false,
+  hasLiquidFireDep,
 
   group: null, // passed in if rendered as part of a {{cp-panels}} group
 
@@ -53,7 +61,7 @@ export default Component.extend({
       }
     });
   },
-  
+
   // Custom action called when toggling that can be provided by caller
   didToggle() {},
 
@@ -63,9 +71,9 @@ export default Component.extend({
         return;
       }
       let name = this.get('name');
-      
+
       this.get('panelActions').toggle(name);
-      
+
       this.didToggle(name);
     }
   }

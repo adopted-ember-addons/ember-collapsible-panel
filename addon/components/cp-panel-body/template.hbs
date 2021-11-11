@@ -1,10 +1,10 @@
 {{#if shouldAnimate}}
 
-  {{#liquid-if isOpen use='crossFade'}}
+  {{#this.liquidif isOpen use='crossFade'}}
     <div class="cp-Panel-body-inner">
       {{yield}}
     </div>
-  {{/liquid-if}}
+  {{/this.liquidif}}
 
 {{else}}
 
