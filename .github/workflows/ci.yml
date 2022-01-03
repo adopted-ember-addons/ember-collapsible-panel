@@ -54,9 +54,9 @@ jobs:
           - ember-lts-3.24
           - ember-lts-3.28
           - ember-release
-          #- ember-beta
-          #- ember-canary
-          #- ember-classic
+          - ember-beta
+          - ember-canary
+          - ember-classic
           - liquid-fire
           - embroider-safe
           - embroider-optimized
