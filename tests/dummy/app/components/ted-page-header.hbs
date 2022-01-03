@@ -1,0 +1,23 @@
+<div class='tph-Banner container'>
+  <a href='https://tedconf.github.io/' class='tph-Banner__link'>
+    <img class='tph-Banner__ted-logo' src='ember-ted-docs/images/ted.png'>
+    <span class='tph-Banner__slim-logo'>Open</span><span class='tph-Banner__strong-logo'>Source</span>
+  </a>
+
+  {{#if github}}
+  <a href="{{github}}" class='tph-Banner__link pull-right'>
+    GitHub
+  </a>
+  {{/if}}
+
+</div>
+<header class='tph-Header'>
+  <div class="container">
+    <h1 class="tph-Header__subheading">{{subheading}}</h1>
+    <h1 class="tph-Header__heading">
+      <span class='tph-Header__slim-heading'>{{slim-heading}}</span><span class="tph-Header__strong-heading">{{strong-heading}}</span>
+    </h1>
+    <p class='tph-Header__text'>{{byline}}</p>
+    {{yield}}
+  </div>
+</header>
