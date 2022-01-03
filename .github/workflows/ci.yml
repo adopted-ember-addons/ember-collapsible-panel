@@ -57,7 +57,7 @@ jobs:
           #- ember-beta
           #- ember-canary
           #- ember-classic
-          - ember-default-with-jquery
+          - liquid-fire
           - embroider-safe
           - embroider-optimized
 

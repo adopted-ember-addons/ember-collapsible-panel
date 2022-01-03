@@ -56,15 +56,12 @@ module.exports = async function () {
         },
       },
       {
-        name: 'ember-default-with-jquery',
-        env: {
-          EMBER_OPTIONAL_FEATURES: JSON.stringify({
-            'jquery-integration': true,
-          }),
-        },
+        name: 'liquid-fire',
         npm: {
           devDependencies: {
-            '@ember/jquery': '^1.1.0',
+            '@ember/jquery': '^2.0.0',
+            'jquery': '^3.6.0',
+            'liquid-fire': '^0.32.0',
           },
         },
       },
