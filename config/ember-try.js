@@ -61,7 +61,7 @@ module.exports = async function () {
           devDependencies: {
             '@ember/jquery': '^2.0.0',
             'jquery': '^3.6.0',
-            'liquid-fire': '^0.32.0',
+            'liquid-fire': '^0.33.0',
           },
         },
       },
