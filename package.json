@@ -67,12 +67,19 @@
     "eslint": "^7.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^11.1.0",
-    "liquid-fire": "^0.32.0",
     "loader.js": "^4.7.0",
     "node-sass": "^5.0.0",
     "qunit": "^2.17.2",
     "sass": "^1.43.4",
     "webpack": "^5.63.0"
+  },
+  "peerDependencies": {
+    "liquid-fire": ">= 0.32.0"
+  },
+  "peerDependenciesMeta": {
+    "liquid-fire": {
+      "optional": true
+    }
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
