@@ -78,7 +78,7 @@ module('cp-panel', function(hooks) {
     this.set('openBinding', false);
 
     await render(hbs`
-      {{#cp-panel open=openBinding as |panel|}}
+      {{#cp-panel open=this.openBinding as |panel|}}
         {{#panel.body}}Hi!{{/panel.body}}
       {{/cp-panel}}
     `);
@@ -125,7 +125,7 @@ module('cp-panel', function(hooks) {
     this.set('openBinding', false);
 
     await render(hbs`
-      {{#cp-panel open=openBinding name="test" as |panel|}}
+      {{#cp-panel open=this.openBinding name="test" as |panel|}}
         {{#panel.body}}Hi!{{/panel.body}}
       {{/cp-panel}}
     `);
@@ -156,7 +156,7 @@ module('cp-panel', function(hooks) {
     this.set('openBinding', false);
 
     await render(hbs`
-      {{#cp-panel open=openBinding as |panel|}}
+      {{#cp-panel open=this.openBinding as |panel|}}
         {{panel.toggle}}
         {{#panel.body}}Hi!{{/panel.body}}
       {{/cp-panel}}
@@ -253,7 +253,7 @@ module('cp-panel', function(hooks) {
     this.set('handleToggle', (panelName) => assert.ok(panelName, `didToggle invoked and passed the panel name: ${panelName}`));
 
     await render(hbs`
-      {{#cp-panel didToggle=handleToggle as |panel|}}
+      {{#cp-panel didToggle=this.handleToggle as |panel|}}
         {{panel.toggle}}
         {{#panel.body}}Hi!{{/panel.body}}
       {{/cp-panel}}
