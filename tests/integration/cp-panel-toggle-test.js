@@ -9,7 +9,7 @@ module('Integration | Component | cp panel toggle', function(hooks) {
   test('it sets the proper aria-expanded state', async function(assert) {
     this.set('isPanelOpen', true);
     await render(hbs`
-      {{#cp-panel-toggle isOpen=isPanelOpen}}
+      {{#cp-panel-toggle isOpen=this.isPanelOpen}}
         Panel Test
       {{/cp-panel-toggle}}
     `);
