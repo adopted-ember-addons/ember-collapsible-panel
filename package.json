@@ -39,6 +39,7 @@
     "ember-cli-htmlbars": "^6.0.0"
   },
   "devDependencies": {
+    "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
     "@embroider/test-setup": "^0.47.2",
     "bootstrap": "^3.3.7",
@@ -75,6 +76,9 @@
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
+  },
+  "ember": {
+    "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
