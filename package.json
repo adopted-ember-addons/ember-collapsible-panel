@@ -33,15 +33,15 @@
     "test:ember": "ember test"
   },
   "dependencies": {
-    "@embroider/macros": "^0.47.2",
-    "@embroider/util": "^0.47.2",
+    "@embroider/macros": "^0.50.0",
+    "@embroider/util": "^0.50.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^6.0.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
-    "@embroider/test-setup": "^0.47.2",
+    "@embroider/test-setup": "^0.50.0",
     "bootstrap": "^3.3.7",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "2.2.4",
