@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import hbs from 'htmlbars-inline-precompile';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';

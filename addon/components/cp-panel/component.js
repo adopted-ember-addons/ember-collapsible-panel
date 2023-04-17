@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-actions-hash, ember/no-classic-classes, ember/no-classic-components, ember/no-component-lifecycle-hooks, ember/no-get, ember/no-incorrect-calls-with-inline-anonymous-functions, ember/require-tagless-components, prettier/prettier */
 import { scheduleOnce } from '@ember/runloop';
 import { computed } from '@ember/object';
 import { and, oneWay, readOnly, not } from '@ember/object/computed';
