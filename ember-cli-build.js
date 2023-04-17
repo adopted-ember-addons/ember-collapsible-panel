@@ -2,13 +2,10 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
     snippetSearchPaths: ['app', 'tests'],
-    sassOptions: {
-      extension: 'scss'
-    }
   });
 
   /*
@@ -20,5 +17,11 @@ module.exports = function(defaults) {
   app.import('node_modules/bootstrap/dist/css/bootstrap.css');
 
   const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(app);
+  return maybeEmbroider(app, {
+    skipBabel: [
+      {
+        package: 'qunit',
+      },
+    ],
+  });
 };
