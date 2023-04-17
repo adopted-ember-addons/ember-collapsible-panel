@@ -1,0 +1,254 @@
+.tph-Banner {
+  line-height: 40px;
+  font-size: 16px;
+}
+.tph-Banner__link {
+  position: relative;
+  display: inline-block;
+  color: #555;
+  padding: 4px 0;
+  border-radius: 4px;
+  opacity: 0.85;
+  -moz-transition: all, 0.2s;
+  -o-transition: all, 0.2s;
+  -webkit-transition: all, 0.2s;
+  transition: all, 0.2s;
+}
+.tph-Banner__link:hover, .tph-Banner__link:focus {
+  color: #444;
+  text-decoration: none;
+  opacity: 1;
+}
+.tph-Banner__link--animated {
+  padding: 4px 6px;
+}
+.tph-Banner__link--animated:hover, .tph-Banner__link--animated:focus {
+  -moz-transform: translate(-5px);
+  -o-transform: translate(-5px);
+  -ms-transform: translate(-5px);
+  -webkit-transform: translate(-5px);
+  transform: translate(-5px);
+}
+.tph-Banner__ted-logo {
+  height: 40px;
+  vertical-align: top;
+}
+.tph-Banner__slim-logo {
+  text-transform: uppercase;
+  font-weight: 200;
+}
+.tph-Banner__strong-logo {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.tph-Banner__arrow {
+  font-size: 13px;
+  vertical-align: top;
+  opacity: 0;
+  -moz-transition: all, 0.2s;
+  -o-transition: all, 0.2s;
+  -webkit-transition: all, 0.2s;
+  transition: all, 0.2s;
+}
+.tph-Banner__link:hover .tph-Banner__arrow, .tph-Banner__link:focus .tph-Banner__arrow {
+  opacity: 1;
+}
+
+.tph-Header {
+  padding: 60px 0 60px;
+  background-color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00b7ea+0,f9332d+100 */
+  background: #441678;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #441678 10%, #E62B1E 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(10%, #441678), color-stop(100%, #E62B1E));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #441678 10%, #E62B1E 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #441678 10%, #E62B1E 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #441678 10%, #E62B1E 100%);
+  /* IE10+ */
+  background: linear-gradient(135deg, #441678 10%, #E62B1E 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$from", endColorstr="$to",GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  border-bottom: 1px solid #999;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  color: white;
+  font-smooth: auto;
+  -webkit-font-smoothing: auto;
+}
+.tph-Header__subheading {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 200;
+  font-size: 22px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+@media only screen and (min-width: 700px) {
+  .tph-Header__subheading {
+    font-size: 30px;
+  }
+}
+.tph-Header__heading {
+  line-height: 51px;
+  font-size: 53px;
+  font-weight: bold;
+  margin-top: 0;
+  overflow: hidden;
+}
+@media only screen and (min-width: 700px) {
+  .tph-Header__heading {
+    line-height: 1.2;
+    font-size: 63px;
+  }
+}
+.tph-Header__slim-heading {
+  display: inline-block;
+  font-weight: 100;
+}
+.tph-Header__strong-heading {
+  display: inline-block;
+}
+.tph-Header__text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 21px;
+  font-weight: 200;
+}
+
+/*
+  Sample panel styles
+*/
+/* BEGIN-SNIPPET panel-styles */
+.cp-Panel {
+  border: 1px solid #ddd;
+}
+
+.cp-Panel-toggle {
+  display: block;
+  padding: 1em;
+}
+
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+
+.cp-Panel-body-inner {
+  padding: 1em;
+}
+
+.cp-is-disabled {
+  background-color: gainsboro;
+}
+
+/* END-SNIPPET */
+/*
+  Rest of docs styling
+*/
+.Main {
+  padding-top: 40px;
+}
+
+section {
+  margin-bottom: 3em;
+}
+
+.Demo-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+h3 {
+  /*font-weight: normal;*/
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+}
+
+.code-highlight {
+  color: #337ab7;
+}
+
+.u-margin-top {
+  margin-top: 1em;
+}
+
+.u-margin-bottom {
+  margin-bottom: 1em;
+}
+
+pre {
+  word-wrap: normal;
+}
+
+/*
+  Sample panel styles
+*/
+/* BEGIN-SNIPPET panel-styles */
+.cp-Panel {
+  border: 1px solid #ddd;
+}
+.cp-Panel-toggle {
+  display: block;
+  padding: 1em;
+}
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+.cp-Panel-body-inner {
+  padding: 1em;
+}
+.cp-is-disabled {
+  background-color: gainsboro;
+}
+/* END-SNIPPET */
+
+/*
+  Rest of docs styling
+*/
+.Main {
+  padding-top: 40px;
+}
+section {
+  margin-bottom: 3em;
+}
+
+.Demo-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+h3 {
+  /*font-weight: normal;*/
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+}
+
+.code-highlight {
+  color: #337ab7;
+}
+
+
+
+.u-margin-top {
+  margin-top: 1em;
+}
+.u-margin-bottom {
+  margin-bottom: 1em;
+}
+
+pre {
+  word-wrap: normal;
+}
