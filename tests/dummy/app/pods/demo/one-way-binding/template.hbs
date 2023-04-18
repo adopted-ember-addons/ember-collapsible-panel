@@ -1,4 +1,4 @@
-{{! template-lint-disable no-action no-implicit-this no-shadowed-elements require-button-type }}
+{{! template-lint-disable no-action no-implicit-this no-passed-in-event-handlers no-shadowed-elements require-button-type }}
 <h3>One-way binding + action</h3>
 
 <div class="row">
@@ -18,9 +18,10 @@
 {{!-- BEGIN-SNIPPET open-binding --}}
 <button {{action 'toggleIsOpen'}} class="btn btn-default u-margin-bottom">Toggle</button>
 
-<span>isOpen: {{isOpen}}</span>
+<span>isOpen: {{this.isOpen}}</span>
 
-<CpPanel @click={{action "toggleIsOpen"}} @open={{isOpen}} as |p|>
+
+<CpPanel @click={{action "toggleIsOpen"}} @open={{this.isOpen}} as |p|>
   <p.toggle>
     <p>Click me!</p>
   </p.toggle>
