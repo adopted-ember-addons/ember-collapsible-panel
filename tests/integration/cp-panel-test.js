@@ -9,10 +9,10 @@ module('cp-panel', function(hooks) {
 
   test('it can toggle', async function(assert) {
     await render(hbs`
-      {{#cp-panel as |panel|}}
+      <CpPanel as |panel|>
         {{panel.toggle}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     await click(this.element.querySelector('.cp-Panel .cp-Panel-toggle'));
@@ -24,14 +24,14 @@ module('cp-panel', function(hooks) {
 
   test('it exposes isOpen', async function(assert) {
     await render(hbs`
-      {{#cp-panel as |panel|}}
+      <CpPanel as |panel|>
         {{panel.toggle}}
-        {{#panel.body}}
+        <panel.body>
           {{#if panel.isOpen}}
             <p>Hi!</p>
           {{/if}}
-        {{/panel.body}}
-      {{/cp-panel}}
+        </panel.body>
+      </CpPanel>
     `);
 
     await click(this.element.querySelector('.cp-Panel .cp-Panel-toggle'));
@@ -46,9 +46,9 @@ module('cp-panel', function(hooks) {
 
   test('it can start out open', async function(assert) {
     await render(hbs`
-      {{#cp-panel open=true as |panel|}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+      <CpPanel @open={{true}} as |panel|>
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     let panelBody = this.element.querySelector('.cp-Panel .cp-Panel-body');
@@ -57,10 +57,10 @@ module('cp-panel', function(hooks) {
 
   test('it can start open and toggle closed', async function(assert) {
     await render(hbs`
-      {{#cp-panel open=true as |panel|}}
+      <CpPanel @open={{true}} as |panel|>
         {{panel.toggle}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     let panel = this.element.querySelector('.cp-Panel');
@@ -79,9 +79,9 @@ module('cp-panel', function(hooks) {
     this.set('openBinding', false);
 
     await render(hbs`
-      {{#cp-panel open=this.openBinding as |panel|}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+      <CpPanel @open={{this.openBinding}} as |panel|>
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     let panel = this.element.querySelector('.cp-Panel');
@@ -98,9 +98,9 @@ module('cp-panel', function(hooks) {
 
   test('it will open by a service call', async function(assert) {
     await render(hbs`
-      {{#cp-panel name="test" as |panel|}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+      <CpPanel @name="test" as |panel|>
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     let panel = this.element.querySelector('.cp-Panel');
@@ -126,9 +126,9 @@ module('cp-panel', function(hooks) {
     this.set('openBinding', false);
 
     await render(hbs`
-      {{#cp-panel open=this.openBinding name="test" as |panel|}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+      <CpPanel @open={{this.openBinding}} @name="test" as |panel|>
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     let panel = this.element.querySelector('.cp-Panel');
@@ -157,10 +157,10 @@ module('cp-panel', function(hooks) {
     this.set('openBinding', false);
 
     await render(hbs`
-      {{#cp-panel open=this.openBinding as |panel|}}
+      <CpPanel @open={{this.openBinding}} as |panel|>
         {{panel.toggle}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     let panel = this.element.querySelector('.cp-Panel');
@@ -183,13 +183,13 @@ module('cp-panel', function(hooks) {
 
   test('it will have two panels with the same name used a shared state', async function(assert) {
     await render(hbs`
-      {{#cp-panel name="test" class="panel1" as |panel|}}
-        {{#panel.body}}Hi 1!{{/panel.body}}
-      {{/cp-panel}}
+      <CpPanel @name="test" @class="panel1" as |panel|>
+        <panel.body>Hi 1!</panel.body>
+      </CpPanel>
 
-      {{#cp-panel name="test" class="panel2" as |panel|}}
-        {{#panel.body}}Hi 2!{{/panel.body}}
-      {{/cp-panel}}
+      <CpPanel @name="test" @class="panel2" as |panel|>
+        <panel.body>Hi 2!</panel.body>
+      </CpPanel>
     `);
 
     let panel1 = this.element.querySelector('.cp-Panel.panel1');
@@ -214,19 +214,19 @@ module('cp-panel', function(hooks) {
 
   test('it can nest panels', async function(assert) {
     await render(hbs`
-      {{#cp-panel class='Parent' as |panel|}}
+      <CpPanel @class="Parent" as |panel|>
         {{panel.toggle}}
-        {{#panel.body}}
+        <panel.body>
 
-          {{#cp-panel class='Child' as |panel|}}
+          <CpPanel @class="Child" as |panel|>
             {{panel.toggle}}
-            {{#panel.body}}
+            <panel.body>
               <p>Im a Child!</p>
-            {{/panel.body}}
-          {{/cp-panel}}
+            </panel.body>
+          </CpPanel>
 
-        {{/panel.body}}
-      {{/cp-panel}}
+        </panel.body>
+      </CpPanel>
     `);
 
     let parent = this.element.querySelector('.Parent');
@@ -254,10 +254,10 @@ module('cp-panel', function(hooks) {
     this.set('handleToggle', (panelName) => assert.ok(panelName, `didToggle invoked and passed the panel name: ${panelName}`));
 
     await render(hbs`
-      {{#cp-panel didToggle=this.handleToggle as |panel|}}
+      <CpPanel @didToggle={{this.handleToggle}} as |panel|>
         {{panel.toggle}}
-        {{#panel.body}}Hi!{{/panel.body}}
-      {{/cp-panel}}
+        <panel.body>Hi!</panel.body>
+      </CpPanel>
     `);
 
     await click('.cp-Panel .cp-Panel-toggle');
@@ -265,10 +265,10 @@ module('cp-panel', function(hooks) {
 
   test('it can be disabled', async function(assert) {
     await render(hbs`
-      {{#cp-panel disabled=true as |p|}}
+      <CpPanel @disabled={{true}} as |p|>
         {{p.toggle}}
-        {{#p.body}}Hi!{{/p.body}}
-      {{/cp-panel}}
+        <p.body>Hi!</p.body>
+      </CpPanel>
     `);
 
     let panel = this.element.querySelector('.cp-Panel');
