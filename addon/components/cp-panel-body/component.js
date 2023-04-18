@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-classes, ember/no-classic-components, ember/require-tagless-components, prettier/prettier */
 import { macroCondition, dependencySatisfies, importSync } from '@embroider/macros';
 import { ensureSafeComponent } from '@embroider/util';
 import Component from '@ember/component';

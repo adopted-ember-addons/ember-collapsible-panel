@@ -1,3 +1,4 @@
+/* stylelint-disable prettier/prettier, alpha-value-notation, at-rule-empty-line-before, color-function-notation, comment-empty-line-before, comment-whitespace-inside, declaration-block-no-shorthand-property-overrides, function-name-case, function-no-unknown, media-feature-range-notation, no-descending-specificity, no-duplicate-selectors, property-no-unknown, property-no-vendor-prefix, rule-empty-line-before, selector-class-pattern, shorthand-property-no-redundant-values, value-keyword-case, value-no-vendor-prefix */
 .tph-Banner {
   line-height: 40px;
   font-size: 16px;

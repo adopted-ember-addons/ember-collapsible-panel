@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier, qunit/no-assert-equal */
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
@@ -9,9 +10,9 @@ module('Integration | Component | cp panel toggle', function(hooks) {
   test('it sets the proper aria-expanded state', async function(assert) {
     this.set('isPanelOpen', true);
     await render(hbs`
-      {{#cp-panel-toggle isOpen=this.isPanelOpen}}
+      <CpPanelToggle @isOpen={{this.isPanelOpen}}>
         Panel Test
-      {{/cp-panel-toggle}}
+      </CpPanelToggle>
     `);
 
     const panel = this.element.querySelector('.cp-Panel-toggle');

@@ -1,14 +1,18 @@
 # Ember Collapsible Panel
 
-[![Build
-Status](https://travis-ci.org/adopted-ember-addons/ember-collapsible-panel.svg?branch=master)](https://travis-ci.org/adopted-ember-addons/ember-collapsible-panel)
+[![CI](https://github.com/adopted-ember-addons/ember-collapsible-panel/actions/workflows/ci.yml/badge.svg)](https://github.com/adopted-ember-addons/ember-collapsible-panel/actions/workflows/ci.yml)
 [![npm
 version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fury.io/js/ember-collapsible-panel)
-
-<!--[![Ember Observer-->
-<!--Score](http://emberobserver.com/badges/ember-collapsible-panel.svg)](http://emberobserver.com/addons/ember-collapsible-panel)-->
+[![Ember Observer Score](http://emberobserver.com/badges/ember-collapsible-panel.svg)](http://emberobserver.com/addons/ember-collapsible-panel)
 
 [Interactive documentation](http://adopted-ember-addons.github.io/ember-collapsible-panel/)
+
+## Compatibility
+
+* Ember.js v3.20 or above
+* Ember CLI v3.20 or above
+* Node.js v14 or above
+
 
 ## Installation
 
@@ -16,13 +20,12 @@ version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fur
 ember install ember-collapsible-panel
 ```
 
-## Development
 
-**Documentation**
+## Contributing
 
-The docs are simply this addon's dummy app. To deploy, run
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
-```
-git checkout master
-ember github-pages:commit --message "Update gh-pages"
-```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).

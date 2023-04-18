@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-assignment-of-untracked-properties-used-in-tracking-contexts, ember/no-classic-classes, ember/no-get, prettier/prettier */
 import { readOnly } from '@ember/object/computed';
 import { A } from '@ember/array';
 import Service from '@ember/service';
