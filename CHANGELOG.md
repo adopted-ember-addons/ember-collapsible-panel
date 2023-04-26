@@ -1,4 +1,18 @@
 
+
+## v6.0.0 (2023-04-26)
+
+#### :boom: Breaking Change
+* [#122](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/122) breaking: drop support for node 12 ([@mansona](https://github.com/mansona))
+
+#### :house: Internal
+* [#126](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/126) Update Ember using ember-cli-update ([@mansona](https://github.com/mansona))
+* [#123](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/123) Update embroider dependencies ([@mansona](https://github.com/mansona))
+* [#121](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/121) remove ember-cli-sass from dummy app ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## v5.0.0 (2022-01-03)
 
 #### :boom: Breaking Change
