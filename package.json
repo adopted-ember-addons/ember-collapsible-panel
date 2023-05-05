@@ -95,7 +95,7 @@
     "webpack": "^5.78.0"
   },
   "peerDependencies": {
-    "ember-source": "^4.0.0",
+    "ember-source": "^3.20 || ^4.0.0",
     "liquid-fire": ">= 0.32.0"
   },
   "peerDependenciesMeta": {
