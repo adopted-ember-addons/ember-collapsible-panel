@@ -1,5 +1,14 @@
 
 
+
+## v6.0.1 (2023-05-05)
+
+#### :bug: Bug Fix
+* [#133](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/133) fix ember-source peerDependency ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## v6.0.0 (2023-04-26)
 
 #### :boom: Breaking Change

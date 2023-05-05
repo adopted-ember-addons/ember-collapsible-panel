@@ -1,6 +1,6 @@
 {
   "name": "ember-collapsible-panel",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "An unopinionated, zero-dependency panel and accordion",
   "keywords": [
     "ember-addon"
