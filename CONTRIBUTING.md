@@ -4,12 +4,12 @@
 
 * `git clone <repository-url>`
 * `cd ember-collapsible-panel`
-* `yarn install`
+* `pnpm install`
 
 ## Linting
 
-* `yarn lint`
-* `yarn lint:fix`
+* `pnpm run lint`
+* `pnpm run lint:fix`
 
 ## Running tests
 
