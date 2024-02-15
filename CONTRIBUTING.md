@@ -8,8 +8,8 @@
 
 ## Linting
 
-* `pnpm run lint`
-* `pnpm run lint:fix`
+* `pnpm lint`
+* `pnpm lint:fix`
 
 ## Running tests
 
