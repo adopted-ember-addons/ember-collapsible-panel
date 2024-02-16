@@ -1,0 +1,21 @@
+{
+  "solution": {
+    "ember-collapsible-panel": {
+      "impact": "minor",
+      "oldVersion": "6.0.1",
+      "newVersion": "6.1.0",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2024-02-16)\n\nember-collapsible-panel 6.1.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-collapsible-panel`\n  * [#145](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/145) update to v5.4 with ember-cli-update and add Ember 5 support ([@mansona](https://github.com/mansona))\n\n#### :house: Internal\n* `ember-collapsible-panel`\n  * [#162](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/162) fix workflow file format ([@mansona](https://github.com/mansona))\n  * [#161](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/161) fix release-plan label dispatch ([@mansona](https://github.com/mansona))\n  * [#159](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/159) don't remove stderr.log if release-plan fails ([@mansona](https://github.com/mansona))\n  * [#158](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/158) fix error-handling for release-plan ([@mansona](https://github.com/mansona))\n  * [#157](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/157) fix exit code for release-plan ([@mansona](https://github.com/mansona))\n  * [#156](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/156) testing error-handling in release-plan ([@mansona](https://github.com/mansona))\n  * [#155](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/155) update release-plan ([@mansona](https://github.com/mansona))\n  * [#151](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/151) try to setup renovate to batch updates ([@mansona](https://github.com/mansona))\n  * [#149](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/149) start using release-plan ([@mansona](https://github.com/mansona))\n  * [#142](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/142) switch to pnpm ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+}
