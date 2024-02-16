@@ -69,7 +69,6 @@ jobs:
             echo 'text<<EOF' >> $GITHUB_OUTPUT
             cat stderr.log >> $GITHUB_OUTPUT
             echo 'EOF' >> $GITHUB_OUTPUT
-            rm stderr.log
           else
             echo 'text<<EOF' >> $GITHUB_OUTPUT
             jq .description .release-plan.json -r >> $GITHUB_OUTPUT
