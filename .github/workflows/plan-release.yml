@@ -61,7 +61,7 @@ jobs:
       - name: "Generate Explanation and Prep Changelogs"
         id: explanation
         run: |
-          set -x
+          set +e
 
           pnpm release-plan prepare 2> >(tee -a stderr.log >&2)
 
@@ -69,13 +69,12 @@ jobs:
             echo 'text<<EOF' >> $GITHUB_OUTPUT
             cat stderr.log >> $GITHUB_OUTPUT
             echo 'EOF' >> $GITHUB_OUTPUT
+            rm stderr.log
           else
             echo 'text<<EOF' >> $GITHUB_OUTPUT
             jq .description .release-plan.json -r >> $GITHUB_OUTPUT
             echo 'EOF' >> $GITHUB_OUTPUT
           fi
-
-          exit 0
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
 
