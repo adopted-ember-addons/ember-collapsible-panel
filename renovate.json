@@ -1,6 +1,7 @@
 {
   "extends": [
-    "config:js-lib"
+    "config:js-lib",
+    ":preserveSemverRanges"
   ],
   "ignoreDeps": [
     "@ember/jquery",
@@ -28,5 +29,12 @@
     "eslint-plugin-ember",
     "loader.js",
     "qunit-dom"
+  ],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "devDependencies"
+    }
   ]
 }
