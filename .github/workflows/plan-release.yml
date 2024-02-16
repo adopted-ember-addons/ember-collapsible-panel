@@ -62,12 +62,18 @@ jobs:
         id: explanation
         run: |
           set -x
-          
-          pnpm release-plan prepare
-          
-          echo 'text<<EOF' >> $GITHUB_OUTPUT
-          jq .description .release-plan.json -r >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+
+          pnpm release-plan prepare 2> >(tee -a stderr.log >&2)
+
+          if [ $? -ne 0 ]; then
+            echo 'text<<EOF' >> $GITHUB_OUTPUT
+            cat stderr.log >> $GITHUB_OUTPUT
+            echo 'EOF' >> $GITHUB_OUTPUT
+          else
+            echo 'text<<EOF' >> $GITHUB_OUTPUT
+            jq .description .release-plan.json -r >> $GITHUB_OUTPUT
+            echo 'EOF' >> $GITHUB_OUTPUT
+          fi
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
 
