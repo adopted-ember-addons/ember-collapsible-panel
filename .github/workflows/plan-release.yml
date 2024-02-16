@@ -74,6 +74,8 @@ jobs:
             jq .description .release-plan.json -r >> $GITHUB_OUTPUT
             echo 'EOF' >> $GITHUB_OUTPUT
           fi
+
+          exit 0
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
 
