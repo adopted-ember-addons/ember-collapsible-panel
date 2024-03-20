@@ -146,8 +146,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0
   release-plan:
-    specifier: ^0.8.0
-    version: 0.8.0
+    specifier: ^0.9.0
+    version: 0.9.0
   stylelint:
     specifier: ^15.11.0
     version: 15.11.0
@@ -1421,25 +1421,6 @@ packages:
       postcss-selector-parser: 6.0.15
     dev: true
 
-  /@ef4/lerna-changelog@2.2.1:
-    resolution: {integrity: sha512-x0SkFpfvNj6l4LV6UnvnWIohmt8bC+i/P3ybmPc8X92KVMP6X/rkPeOxa2hI8BfDEHJMNXLJrDgQrJawI57aGQ==}
-    engines: {node: 12.* || 14.* || >= 16}
-    hasBin: true
-    dependencies:
-      '@manypkg/get-packages': 2.2.0
-      chalk: 4.1.2
-      cli-highlight: 2.1.11
-      execa: 5.1.1
-      hosted-git-info: 4.1.0
-      make-fetch-happen: 9.1.0
-      p-map: 3.0.0
-      progress: 2.0.3
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
-    dev: true
-
   /@ember-data/rfc395-data@0.0.4:
     resolution: {integrity: sha512-tGRdvgC9/QMQSuSuJV45xoyhI0Pzjm7A9o/MVVA3HakXIImJbbzx/k/6dO9CUEQXIyS2y0fW6C1XaYOG7rY0FQ==}
 
@@ -2557,9 +2538,6 @@ packages:
 
   /ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependenciesMeta:
-      ajv:
-        optional: true
     dependencies:
       ajv: 8.12.0
 
@@ -6609,6 +6587,25 @@ packages:
     engines: {node: '>= 4.0'}
     dev: true
 
+  /github-changelog@1.0.0:
+    resolution: {integrity: sha512-8roCgUIEH6DDKHuywYKTk/TOSS7UxlmEbgQMevpSjF3Umf5067W2ihkmbuZmvH3m0MsM1DUiPJ27yzYbo4Fkaw==}
+    engines: {node: 12.* || 14.* || >= 16}
+    hasBin: true
+    dependencies:
+      '@manypkg/get-packages': 2.2.0
+      chalk: 4.1.2
+      cli-highlight: 2.1.11
+      execa: 5.1.1
+      hosted-git-info: 4.1.0
+      make-fetch-happen: 9.1.0
+      p-map: 3.0.0
+      progress: 2.0.3
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+    dev: true
+
   /glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -9483,11 +9480,10 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /release-plan@0.8.0:
-    resolution: {integrity: sha512-kOR8rjuSD4ljH/BOoWeX5ECjQ0Wf0jl0xLFeKQpOCx2Qoo2Y+A+is4t2GRMtFUGjoA5Wp+j7aJaIFFbZNEC+oA==}
+  /release-plan@0.9.0:
+    resolution: {integrity: sha512-ckD2hwbnmrLEA325ndC5nQcxtuqm5Lp1Y05sa2yWAvgbN9SFG3F90n0VaHXj5JzQ6oAWDz88r0IRStHYOHXGOw==}
     hasBin: true
     dependencies:
-      '@ef4/lerna-changelog': 2.2.1
       '@manypkg/get-packages': 2.2.0
       '@npmcli/package-json': 5.0.0
       '@octokit/rest': 19.0.13
@@ -9500,6 +9496,7 @@ packages:
       cli-highlight: 2.1.11
       execa: 4.1.0
       fs-extra: 10.1.0
+      github-changelog: 1.0.0
       js-yaml: 4.1.0
       latest-version: 5.1.0
       parse-github-repo-url: 1.4.1
@@ -10106,6 +10103,7 @@ packages:
   /socks@2.7.3:
     resolution: {integrity: sha512-vfuYK48HXCTFD03G/1/zkIls3Ebr2YNa4qU9gHDZdblHLiqhJrJGkY3+0Nx0JpN9qBhJbVObc1CNciT1bIZJxw==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
+    deprecated: please use 2.7.4 or 2.8.1 to fix package-lock issue
     dependencies:
       ip-address: 9.0.5
       smart-buffer: 4.2.0
