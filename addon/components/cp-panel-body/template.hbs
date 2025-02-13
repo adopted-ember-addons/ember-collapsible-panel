@@ -1,6 +1,6 @@
 {{#if @shouldAnimate}}
 
-  {{#this.liquidif @isOpen use='crossFade'}}
+  {{#this.liquidif predicate=@isOpen use='crossFade'}}
     <div class="cp-Panel-body-inner">
       {{yield}}
     </div>
