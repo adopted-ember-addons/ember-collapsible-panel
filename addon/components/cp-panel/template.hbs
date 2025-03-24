@@ -1,6 +1,6 @@
 {{! template-lint-disable no-action }}
 {{yield (hash
-  toggle=(component 'cp-panel-toggle' on-click=(action 'toggleIsOpen') isOpen=this.isOpen)
+  toggle=(component 'cp-panel-toggle' on-click=this.toggleIsOpen isOpen=this.isOpen)
   body=(component 'cp-panel-body' shouldAnimate=this.shouldAnimate isOpen=this.isOpen)
   name=this.name
   isOpen=this.isOpen
