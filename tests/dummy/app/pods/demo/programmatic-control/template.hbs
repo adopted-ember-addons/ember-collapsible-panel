@@ -22,12 +22,12 @@
   <div class="col-md-6">
 {{!-- BEGIN-SNIPPET programmatic-control --}}
 <div class="u-margin-bottom">
-  <button class='btn btn-default' {{action 'expandAll'}}>Expand All</button>
-  <button class='btn btn-default' {{action 'collapseAll'}}>Collapse All</button>
-  <button class='btn btn-default' {{action 'togglePanelA'}}>Toggle Panel A</button>
-  <button class='btn btn-default' {{action 'togglePanelB'}}>Toggle Panel B</button>
-  <button class='btn btn-default' {{action 'openPanelA'}}>Open Panel A</button>
-  <button class='btn btn-default' {{action 'closePanelA'}}>Close Panel A</button>
+  <button class='btn btn-default' type="button" {{on 'click' this.expandAll}}>Expand All</button>
+  <button class='btn btn-default' type="button" {{on 'click' this.collapseAll}}>Collapse All</button>
+  <button class='btn btn-default' type="button" {{on 'click' this.togglePanelA}}>Toggle Panel A</button>
+  <button class='btn btn-default' type="button" {{on 'click' this.togglePanelB}}>Toggle Panel B</button>
+  <button class='btn btn-default' type="button" {{on 'click' this.openPanelA}}>Open Panel A</button>
+  <button class='btn btn-default' type="button" {{on 'click' this.closePanelA}}>Close Panel A</button>
 </div>
 
 <CpPanels @name="group1" as |panels|>
