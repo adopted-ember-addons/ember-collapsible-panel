@@ -16,12 +16,12 @@
 
   <div class="col-md-6">
 {{!-- BEGIN-SNIPPET open-binding --}}
-<button {{action 'toggleIsOpen'}} class="btn btn-default u-margin-bottom">Toggle</button>
+<button {{on 'click' this.toggleIsOpen}} class="btn btn-default u-margin-bottom">Toggle</button>
 
 <span>isOpen: {{this.isOpen}}</span>
 
 
-<CpPanel @click={{action "toggleIsOpen"}} @open={{this.isOpen}} as |p|>
+<CpPanel @click={{this.toggleIsOpen}} @open={{this.isOpen}} as |p|>
   <p.toggle>
     <p>Click me!</p>
   </p.toggle>
