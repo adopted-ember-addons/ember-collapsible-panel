@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-06-30)
+
+ember-collapsible-panel 6.1.1 (patch)
+
+#### :house: Internal
+* `ember-collapsible-panel`
+  * [#174](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/174) [template-action] fix deprecation ([@lifeart](https://github.com/lifeart))
+
+#### Committers: 1
+- Alex Kanunnikov ([@lifeart](https://github.com/lifeart))
+
 ## Release (2024-02-16)
 
 ember-collapsible-panel 6.1.0 (minor)
