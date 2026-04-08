@@ -10,7 +10,7 @@ module('cp-panel', function(hooks) {
   test('it can toggle', async function(assert) {
     await render(hbs`
       <CpPanel as |panel|>
-        {{panel.toggle}}
+        <panel.toggle />
         <panel.body>Hi!</panel.body>
       </CpPanel>
     `);
@@ -25,7 +25,7 @@ module('cp-panel', function(hooks) {
   test('it exposes isOpen', async function(assert) {
     await render(hbs`
       <CpPanel as |panel|>
-        {{panel.toggle}}
+        <panel.toggle />
         <panel.body>
           {{#if panel.isOpen}}
             <p>Hi!</p>
