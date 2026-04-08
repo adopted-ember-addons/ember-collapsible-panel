@@ -4,7 +4,6 @@ import { ensureSafeComponent } from '@embroider/util';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { assert } from '@ember/debug';
-import layout from './template';
 
 let LiquidIf, hasRealLiquidIf;
 if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
@@ -15,8 +14,6 @@ if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
 }
 
 export default Component.extend({
-  layout,
-
   classNames: ['cp-Panel-body'],
   classNameBindings: ['isOpen:cp-is-open'],
 

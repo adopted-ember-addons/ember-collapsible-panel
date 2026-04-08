@@ -3,7 +3,6 @@ import Component from '@ember/component';
 import { computed, get } from "@ember/object";
 
 export default Component.extend({
-
   tagName: 'a',
   classNames: ['cp-Panel-toggle'],
   classNameBindings: ['isOpen:cp-is-open'],
@@ -18,6 +17,7 @@ export default Component.extend({
 
   click(e) {
     e.preventDefault();
+    debugger;
     this.get('on-click')();
   }
 

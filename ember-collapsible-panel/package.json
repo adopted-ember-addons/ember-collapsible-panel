@@ -72,7 +72,14 @@
   "ember-addon": {
     "version": 2,
     "type": "addon",
-    "main": "addon-main.cjs"
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./components/cp-panel-body.js": "./dist/_app_/components/cp-panel-body.js",
+      "./components/cp-panel-toggle.js": "./dist/_app_/components/cp-panel-toggle.js",
+      "./components/cp-panel.js": "./dist/_app_/components/cp-panel.js",
+      "./components/cp-panels.js": "./dist/_app_/components/cp-panels.js",
+      "./services/panel-actions.js": "./dist/_app_/services/panel-actions.js"
+    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
