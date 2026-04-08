@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-components, ember/no-computed-properties-in-native-classes, ember/require-tagless-components, ember/no-component-lifecycle-hooks, ember/no-runloop, ember/no-incorrect-calls-with-inline-anonymous-functions */
 import { scheduleOnce } from '@ember/runloop';
 import { computed, action, get, set } from '@ember/object';
 import { and, oneWay, readOnly, not } from '@ember/object/computed';
@@ -38,7 +39,7 @@ export default class CpPanel extends Component {
 
   @computed('name')
   get panelState() {
-    const name = get(this, 'name');
+    const name = this.name;
     return get(this, `panelActions.state.${name}`);
   }
 
@@ -52,8 +53,8 @@ export default class CpPanel extends Component {
     super.didReceiveAttrs(...arguments);
 
     // If caller passes in open=, use it
-    if (get(this, 'open') !== undefined) {
-      set(this, 'panelState.boundOpenState', get(this, 'open'));
+    if (this.open !== undefined) {
+      set(this, 'panelState.boundOpenState', this.open);
     }
   }
 
@@ -61,10 +62,10 @@ export default class CpPanel extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
     scheduleOnce('afterRender', () => {
-      let group = get(this, 'group');
+      let group = this.group;
 
       if (group) {
-        set(get(this, 'panelState'), 'group', group);
+        set(this.panelState, 'group', group);
       }
     });
   }
@@ -74,12 +75,12 @@ export default class CpPanel extends Component {
 
   @action
   toggleIsOpen() {
-    if (get(this, 'disabled')) {
+    if (this.disabled) {
       return;
     }
-    let name = get(this, 'name');
+    let name = this.name;
 
-    get(this, 'panelActions').toggle(name);
+    this.panelActions.toggle(name);
 
     this.didToggle(name);
   }

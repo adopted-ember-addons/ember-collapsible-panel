@@ -23,10 +23,8 @@
   ],
   "scripts": {
     "build": "rollup --config",
-    "lint": "concurrently \":lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \":lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
-    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint": "pnpm run lint:js",
+    "lint:fix": "pnpm run lint:js:fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "prepack": "pnpm run build",
@@ -36,10 +34,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.9",
-    "decorator-transforms": "^2.2.2",
-    "@babel/core": "^7.23.2",
-    "@embroider/macros": "^1.10.0",
-    "@embroider/util": "^1.10.0"
+    "decorator-transforms": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -48,7 +43,6 @@
     "@embroider/addon-dev": "^7.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "babel-plugin-ember-template-compilation": "^2.2.5",
-    "concurrently": "^9.0.1",
     "ember-source": "^5.4.0",
     "ember-template-lint": "^6.0.0",
     "eslint": "^8.56.0",
@@ -63,13 +57,7 @@
     "rollup-plugin-copy": "^3.5.0"
   },
   "peerDependencies": {
-    "ember-source": "^3.20.0 || >= 4.0.0",
-    "liquid-fire": ">= 0.32.0"
-  },
-  "peerDependenciesMeta": {
-    "liquid-fire": {
-      "optional": true
-    }
+    "ember-source": "^3.20.0 || >= 4.0.0"
   },
   "ember": {
     "edition": "octane"

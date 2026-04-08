@@ -24,6 +24,14 @@ module.exports = async function () {
         },
       },
       {
+        name: 'liquid-fire',
+        npm: {
+          devDependencies: {
+            'liquid-fire': '^0.36.0',
+          },
+        },
+      },
+      {
         name: 'ember-release',
         npm: {
           devDependencies: {

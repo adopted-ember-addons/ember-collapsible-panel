@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-components, ember/no-computed-properties-in-native-classes, ember/require-tagless-components, no-unused-vars */
 import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 
@@ -12,7 +13,7 @@ export default class CpPanelToggle extends Component {
 
   @computed('isOpen')
   get ariaExpanded() {
-    return get(this, 'isOpen') ? 'true' : 'false';
+    return this.isOpen ? 'true' : 'false';
   }
 
   click(e) {

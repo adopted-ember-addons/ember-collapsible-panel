@@ -8,24 +8,19 @@
   "author": "TEDconf and contributors",
   "scripts": {
     "build": "pnpm --filter ember-collapsible-panel build",
-    "lint": "pnpm --filter '*' lint",
+    "lint": "pnpm -F test-app -F ember-collapsible-panel lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "pnpm build",
-    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start": "pnpm run \"/(start:addon|start:test-app)/\"",
     "start:addon": "pnpm --filter ember-collapsible-panel start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
-    "test": "pnpm --filter '*' test",
-    "test:ember": "pnpm --filter '*' test:ember"
+    "test": "pnpm -F test-app test",
+    "test:ember": "pnpm -F test-app test:ember",
+    "test:ember-compatibility": "pnpm -F test-app test:ember-compatibility"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
     "prettier": "^3.0.3",
     "prettier-plugin-ember-template-tag": "^2.0.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/eslint": "^7.0.0"
-    }
   },
   "engines": {
     "node": "14.* || 16.* || 18.* || >= 20"
