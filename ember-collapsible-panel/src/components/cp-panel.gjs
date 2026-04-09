@@ -68,9 +68,6 @@ export default class CpPanel extends Component {
     });
   }
 
-  // Custom action called when toggling that can be provided by caller
-  didToggle() {}
-
   @action
   toggleIsOpen() {
     if (this.disabled) {
@@ -80,7 +77,7 @@ export default class CpPanel extends Component {
 
     this.panelActions.toggle(name);
 
-    this.didToggle(name);
+    this.didToggle?.(name);
   }
 
   <template>
