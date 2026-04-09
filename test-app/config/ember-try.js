@@ -5,7 +5,7 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 module.exports = async function () {
   return {
-    usePnpm: true,
+    packageManager: 'pnpm',
     scenarios: [
       {
         name: 'ember-lts-4.12',
@@ -20,6 +20,14 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~5.4.0',
+          },
+        },
+      },
+      {
+        name: 'ember-lts-6.8',
+        npm: {
+          devDependencies: {
+            'ember-source': '~6.8.0',
           },
         },
       },
@@ -41,6 +49,7 @@ module.exports = async function () {
       },
       {
         name: 'ember-beta',
+        allowedToFail: true,
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('beta'),
@@ -49,6 +58,7 @@ module.exports = async function () {
       },
       {
         name: 'ember-canary',
+        allowedToFail: true,
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),

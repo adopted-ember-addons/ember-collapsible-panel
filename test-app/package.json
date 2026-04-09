@@ -55,10 +55,10 @@
     "ember-page-title": "^8.2.3",
     "ember-qunit": "^8.1.0",
     "ember-resolver": "^12.0.1",
-    "ember-source": "~4.12.0",
+    "ember-source": "~5.4.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^6.0.0",
-    "ember-try": "^3.0.0",
+    "ember-try": "^4.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^12.2.1",
@@ -88,10 +88,5 @@
   },
   "dependencies": {
     "ember-collapsible-panel": "workspace:*"
-  },
-  "dependenciesMeta": {
-    "ember-collapsible-panel": {
-      "injected": true
-    }
   }
 }
