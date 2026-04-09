@@ -36,6 +36,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'liquid-fire': '^0.36.0',
+            'velocity-animate': '^1.5.2',
           },
         },
       },

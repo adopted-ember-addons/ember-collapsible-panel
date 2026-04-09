@@ -88,5 +88,10 @@
   },
   "dependencies": {
     "ember-collapsible-panel": "workspace:*"
+  },
+  "dependenciesMeta": {
+    "ember-collapsible-panel": {
+      "injected": true
+    }
   }
 }

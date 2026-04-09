@@ -16,8 +16,6 @@ if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
   hasLiquidFireDep = false;
 }
 
-console.log(hasLiquidFireDep);
-
 export default class CpPanel extends Component {
   @service panelActions;
 
