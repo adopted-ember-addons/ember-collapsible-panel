@@ -31,7 +31,7 @@ jobs:
       - name: Lint
         run: pnpm lint
       - name: Run Tests
-        run: pnpm test
+        run: pnpm test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
