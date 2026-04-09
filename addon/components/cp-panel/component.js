@@ -14,6 +14,7 @@ if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
   hasLiquidFireDep = false;
 }
 
+console.log('hasLiquidFireDep', hasLiquidFireDep);
 export default Component.extend({
   layout,
 
