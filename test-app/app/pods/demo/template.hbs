@@ -2,8 +2,8 @@
 
 {{ted-page-header
   subheading='Ember'
-  slim-heading='Collapsible'
-  strong-heading='Panel'
+  slimheading='Collapsible'
+  strongheading='Panel'
   byline='An unopinionated, zero-dependency panel and accordion'
   github='https://github.com/adopted-ember-addons/ember-collapsible-panel'}}
 
@@ -86,9 +86,7 @@
       <div class="col-md-6">
         <p>
           {{#let (get-code-snippet "panel-styles.css") as |snippet|}}
-            <pre class={{snippet.language}}>
-              {{snippet.source}}
-            </pre>
+            <pre class={{snippet.language}}>{{snippet.source}}</pre>
           {{/let}}
         </p>
       </div>

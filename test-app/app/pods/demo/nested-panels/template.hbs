@@ -5,9 +5,7 @@
     <p>You can put sibling <code>cp-panel</code>s (or a <code>cp-panels</code> wrapper) in the body of a parent panel:</p>
     <p>
       {{#let (get-code-snippet "nested-panels.hbs") as |snippet|}}
-        <pre class={{snippet.language}}>
-          {{snippet.source}}
-        </pre>
+        <pre class={{snippet.language}}>{{snippet.source}}</pre>
       {{/let}}
     </p>
   </div>

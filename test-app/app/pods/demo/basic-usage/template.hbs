@@ -4,9 +4,7 @@
   <div class="col-md-6">
     <p>
       {{#let (get-code-snippet "basic-usage.hbs") as |snippet|}}
-        <pre class={{snippet.language}}>
-          {{snippet.source}}
-        </pre>
+        <pre class={{snippet.language}}>{{snippet.source}}</pre>
       {{/let}}
     </p>
   </div>

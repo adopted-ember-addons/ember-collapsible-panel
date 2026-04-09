@@ -8,14 +8,10 @@
     <p>Now, other components in your UI can open and close panels without the need for you to pass around actions or manage state. It's like the simplicity of <code>$('.panel').toggle()</code>, without any of the downsides!</p>
     <p>
       {{#let (get-code-snippet "programmatic-control.js") as |snippet|}}
-        <pre class={{snippet.language}}>
-          {{snippet.source}}
-        </pre>
+        <pre class={{snippet.language}}>{{snippet.source}}</pre>
       {{/let}}
       {{#let (get-code-snippet "programmatic-control.hbs") as |snippet|}}
-        <pre class={{snippet.language}}>
-          {{snippet.source}}
-        </pre>
+        <pre class={{snippet.language}}>{{snippet.source}}</pre>
       {{/let}}
     </p>
   </div>

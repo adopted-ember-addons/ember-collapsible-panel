@@ -7,9 +7,7 @@
     <p>Use the <code>didToggle</code> action to respond to a user clicking your panel.</p>
     <p>
       {{#let (get-code-snippet "open-binding.hbs") as |snippet|}}
-        <pre class={{snippet.language}}>
-          {{snippet.source}}
-        </pre>
+        <pre class={{snippet.language}}>{{snippet.source}}</pre>
       {{/let}}
     </p>
   </div>
