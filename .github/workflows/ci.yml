@@ -46,7 +46,7 @@ jobs:
           - ember-lts-4.12
           - ember-lts-5.4
           - ember-lts-6.8
-          - liquid-fire
+          - without-liquid-fire
           - ember-release
           - ember-beta
           - ember-canary

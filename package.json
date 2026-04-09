@@ -7,7 +7,7 @@
   "license": "MIT",
   "author": "TEDconf and contributors",
   "scripts": {
-    "build": "pnpm --filter ember-collapsible-panel build",
+    "build": "pnpm -F test-app build -o ../dist",
     "lint": "pnpm -F test-app -F ember-collapsible-panel lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "pnpm build",

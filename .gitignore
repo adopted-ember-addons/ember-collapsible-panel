@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# compiled output
+dist/
+
 # misc
 .env*
 .pnp*

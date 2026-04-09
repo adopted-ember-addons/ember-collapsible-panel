@@ -41,11 +41,11 @@ module.exports = async function () {
         },
       },
       {
-        name: 'liquid-fire',
+        name: 'without-liquid-fire',
         npm: {
           devDependencies: {
-            'liquid-fire': '^0.36.0',
-            'velocity-animate': '^1.5.2',
+            'liquid-fire': null,
+            'velocity-animate': null,
           },
         },
       },

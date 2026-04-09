@@ -50,6 +50,7 @@
     "ember-code-snippet": "^3.0.0",
     "ember-data": "~5.3.8",
     "ember-fetch": "^8.1.2",
+    "liquid-fire": "^0.36.0",
     "ember-load-initializers": "^2.1.2",
     "ember-modifier": "^4.2.0",
     "ember-page-title": "^8.2.3",
@@ -78,6 +79,7 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
     "tracked-built-ins": "^3.3.0",
+    "velocity-animate": "^1.5.2",
     "webpack": "^5.95.0"
   },
   "engines": {
