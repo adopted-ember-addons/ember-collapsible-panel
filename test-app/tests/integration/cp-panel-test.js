@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-get, prettier/prettier, qunit/no-assert-equal, qunit/no-assert-equal-boolean, qunit/require-expect */
+/* eslint-disable ember/no-get, qunit/no-assert-equal, qunit/no-assert-equal-boolean */
 import hbs from 'htmlbars-inline-precompile';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';

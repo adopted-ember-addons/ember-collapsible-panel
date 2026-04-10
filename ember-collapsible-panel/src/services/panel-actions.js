@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-assignment-of-untracked-properties-used-in-tracking-contexts, ember/no-classic-classes, ember/no-get, prettier/prettier */
+/* eslint-disable ember/no-assignment-of-untracked-properties-used-in-tracking-contexts, ember/no-classic-classes, ember/no-get */
 import { readOnly } from '@ember/object/computed';
 import { A } from '@ember/array';
 import Service from '@ember/service';
@@ -10,7 +10,7 @@ const State = EmberObject.extend({
   apiOpenState: false,
   apiWasUsed: false,
 
-  isOpen: computed('boundOpenState', 'apiOpenState', 'apiWasUsed', function() {
+  isOpen: computed('boundOpenState', 'apiOpenState', 'apiWasUsed', function () {
     if (this.get('apiWasUsed')) {
       return this.get('apiOpenState');
     } else {
@@ -19,7 +19,7 @@ const State = EmberObject.extend({
   }),
 
   animate: true,
-  group: null
+  group: null,
 });
 
 const Registry = EmberObject.extend({
@@ -36,7 +36,7 @@ const Registry = EmberObject.extend({
     }
     const state = State.create();
     this.get('keys').addObject(name);
-    this.set(name, state); // eslint-disable-line ember/no-side-effects
+    this.set(name, state);
 
     return state;
   },
@@ -65,9 +65,9 @@ export default Service.extend({
     return this.get(`state.${name}`);
   },
 
-  _panels: computed('state.keys.[]', function() {
+  _panels: computed('state.keys.[]', function () {
     const keys = this.get('state.keys'),
-          state = this.get('state');
+      state = this.get('state');
 
     return keys.reduce((result, key) => {
       return result.addObject(state.get(key));
@@ -75,13 +75,12 @@ export default Service.extend({
   }),
 
   _panelsInGroup(name) {
-    return this.get('_panels')
-      .filterBy('group.name', name);
+    return this.get('_panels').filterBy('group.name', name);
   },
 
   open(name) {
     const panel = this._panelFor(name),
-          group = panel.get('group');
+      group = panel.get('group');
 
     if (group && group.get('accordion')) {
       // if this is part of an accordion close
@@ -115,5 +114,5 @@ export default Service.extend({
       panel.set('apiOpenState', false);
       panel.set('apiWasUsed', true);
     });
-  }
+  },
 });

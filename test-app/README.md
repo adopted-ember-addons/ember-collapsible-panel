@@ -1,56 +1,24 @@
 # test-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is the test application for ember-collapsible-panel addon.
+It doubles as a documentation app deployed to Netlify. See `test-app/pods/demo/` for details.
 
-## Prerequisites
+## Linting
 
-You will need the following things properly installed on your computer.
+- `pnpm lint`
+- `pnpm lint:fix`
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) (with npm)
-- [Ember CLI](https://cli.emberjs.com/release/)
-- [Google Chrome](https://google.com/chrome/)
+## Building the addon
 
-## Installation
+- `pnpm build`
 
-- `git clone <repository-url>` this repository
-- `cd test-app`
-- `npm install`
+## Running tests
 
-## Running / Development
+- `pnpm test` – Runs the test suite on the current Ember version
 
-- `npm run start`
-- Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+## Running the test application
 
-### Code Generators
+- `pnpm start`
+- Visit the test application at [http://localhost:4200](http://localhost:4200).
 
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-- `npm run test`
-- `npm run test:ember -- --server`
-
-### Linting
-
-- `npm run lint`
-- `npm run lint:fix`
-
-### Building
-
-- `npm exec ember build` (development)
-- `npm run build` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://cli.emberjs.com/release/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).

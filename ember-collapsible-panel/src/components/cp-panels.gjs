@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-computed-properties-in-native-classes, ember/require-tagless-components, ember/no-component-lifecycle-hooks, ember/no-runloop, ember/no-incorrect-calls-with-inline-anonymous-functions, ember/no-classic-components */
+/* eslint-disable ember/no-computed-properties-in-native-classes, ember/require-tagless-components, ember/no-classic-components */
 
 import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';

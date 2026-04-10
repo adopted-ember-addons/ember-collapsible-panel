@@ -1,11 +1,16 @@
 import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
+import { fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
+
+const rootDirectory = dirname(fileURLToPath(import.meta.url));
+const babelConfig = resolve(rootDirectory, './babel.publish.config.cjs');
 
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
@@ -20,7 +25,7 @@ export default {
     // up your addon's public API. Also make sure your package.json#exports
     // is aligned to the config here.
     // See https://github.com/embroider-build/embroider/blob/main/docs/v2-faq.md#how-can-i-define-the-public-exports-of-my-addon
-    addon.publicEntrypoints(["index.js", "**/*.js", "**/*.gjs"]),
+    addon.publicEntrypoints(['index.js', '**/*.js', '**/*.gjs']),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -47,6 +52,7 @@ export default {
     babel({
       extensions: ['.js', '.gjs'],
       babelHelpers: 'bundled',
+      configFile: babelConfig,
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.

@@ -15,7 +15,6 @@ if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
 } else {
   hasRealLiquidIf = false;
 }
-
 export default class CpPanelBody extends Component {
   classNames = ['cp-Panel-body'];
   classNameBindings = ['isOpen:cp-is-open'];
@@ -26,14 +25,14 @@ export default class CpPanelBody extends Component {
 
   <template>
     {{#if this.canAnimate}}
-      <LiquidIf @predicate={{@isOpen}} @use='crossFade'>
-        <div class='cp-Panel-body-inner'>
+      <LiquidIf @predicate={{@isOpen}} @use="crossFade">
+        <div class="cp-Panel-body-inner">
           {{yield}}
         </div>
       </LiquidIf>
     {{else}}
       {{#if @isOpen}}
-        <div class='cp-Panel-body-inner'>
+        <div class="cp-Panel-body-inner">
           {{yield}}
         </div>
       {{/if}}
