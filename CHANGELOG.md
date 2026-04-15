@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2026-04-15)
+
+* ember-collapsible-panel 7.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-collapsible-panel`
+  * [#179](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/179) Drop support for Ember < 3.28 and migrate to a v2 addon ([@BobrImperator](https://github.com/BobrImperator))
+
+#### :house: Internal
+* [#180](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/180) update release-plan with create-release-plan-setup ([@mansona](https://github.com/mansona))
+
+#### Committers: 2
+- Bartlomiej Dudzik ([@BobrImperator](https://github.com/BobrImperator))
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## Release (2025-06-30)
 
 ember-collapsible-panel 6.1.1 (patch)
