@@ -1,0 +1,102 @@
+{
+  "name": "ember-collapsible-panel",
+  "version": "7.0.0",
+  "description": "An unopinionated, zero-dependency panel and accordion",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel.git"
+  },
+  "license": "MIT",
+  "author": "TEDconf and contributors",
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./addon-main.js": "./addon-main.cjs",
+    "./components/*.js": "./dist/components/*.js",
+    "./components/*": "./dist/components/*.js",
+    "./services/*.js": "./dist/services/*.js",
+    "./services/*": "./dist/services/*.js"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "format": "prettier . --cache --write",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
+    "lint:format": "prettier . --cache --check",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:publish": "pnpm build && publint run --level error",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
+    "prepare": "pnpm run build"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.9",
+    "decorator-transforms": "^2.2.2"
+  },
+  "devDependencies": {
+    "@embroider/macros": "^1.16.12",
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/runtime": "^7.25.6",
+    "@embroider/addon-dev": "^8.1.0",
+    "@embroider/compat": "^4.1.0",
+    "@embroider/core": "^4.1.0",
+    "@eslint/js": "^9.17.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "babel-plugin-ember-template-compilation": "^4.0.0",
+    "concurrently": "^9.0.1",
+    "ember-source": "^5.4.0",
+    "ember-template-lint": "^7.9.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-ember": "^12.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "globals": "^16.1.0",
+    "publint": "^0.3.16",
+    "prettier": "^3.3.3",
+    "prettier-plugin-ember-template-tag": "^2.0.2",
+    "rollup": "^4.22.5",
+    "rollup-plugin-copy": "^3.5.0"
+  },
+  "peerDependencies": {
+    "liquid-fire": "^0.36.0"
+  },
+  "peerDependenciesMeta": {
+    "liquid-fire": {
+      "optional": true
+    }
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./components/cp-panel-body.js": "./dist/_app_/components/cp-panel-body.js",
+      "./components/cp-panel-toggle.js": "./dist/_app_/components/cp-panel-toggle.js",
+      "./components/cp-panel.js": "./dist/_app_/components/cp-panel.js",
+      "./components/cp-panels.js": "./dist/_app_/components/cp-panels.js",
+      "./services/panel-actions.js": "./dist/_app_/services/panel-actions.js"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
