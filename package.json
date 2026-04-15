@@ -1,120 +1,29 @@
 {
-  "name": "ember-collapsible-panel",
-  "version": "6.1.1",
-  "description": "An unopinionated, zero-dependency panel and accordion",
-  "keywords": [
-    "ember-addon"
-  ],
-  "homepage": "https://adopted-ember-addons.github.io/ember-collapsible-panel/",
-  "bugs": {
-    "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel/issues"
-  },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/adopted-ember-addons/ember-collapsible-panel.git"
   },
   "license": "MIT",
   "author": "TEDconf and contributors",
-  "contributors": [
-    {
-      "name": "Alon Bukai",
-      "email": "alonzorz@gmail.com"
-    }
-  ],
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
   "scripts": {
-    "build": "ember build --environment=production",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
-    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
-  },
-  "dependencies": {
-    "@babel/core": "^7.23.2",
-    "@embroider/macros": "^1.10.0",
-    "@embroider/util": "^1.10.0",
-    "ember-cli-babel": "^8.2.0",
-    "ember-cli-htmlbars": "^6.3.0"
+    "build": "pnpm -F test-app build -o ../dist",
+    "lint": "pnpm -F test-app -F ember-collapsible-panel lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build",
+    "start": "pnpm run \"/(start:addon|start:test-app)/\"",
+    "start:addon": "pnpm --filter ember-collapsible-panel start --no-watch.clearScreen",
+    "start:test-app": "pnpm --filter test-app start",
+    "test": "pnpm -F test-app test",
+    "test:ember": "pnpm -F test-app test:ember",
+    "test:ember-compatibility": "pnpm -F test-app test:ember-compatibility"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.15",
-    "@babel/plugin-proposal-decorators": "^7.23.2",
-    "@ember/optional-features": "^2.0.0",
-    "@ember/string": "^3.1.1",
-    "@ember/test-helpers": "^3.2.0",
-    "@embroider/test-setup": "^3.0.2",
-    "@glimmer/component": "^1.1.2",
-    "@glimmer/tracking": "^1.1.2",
-    "bootstrap": "^3.3.7",
-    "broccoli-asset-rev": "^3.0.0",
-    "concurrently": "^8.2.2",
-    "ember-auto-import": "^2.6.3",
-    "ember-cli": "~5.4.1",
-    "ember-cli-clean-css": "^3.0.0",
-    "ember-cli-dependency-checker": "^3.3.2",
-    "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-sri": "^2.1.1",
-    "ember-cli-terser": "^4.0.2",
-    "ember-code-snippet": "^3.0.0",
-    "ember-load-initializers": "^2.1.2",
-    "ember-page-title": "^8.0.0",
-    "ember-qunit": "^8.0.1",
-    "ember-resolver": "^11.0.1",
-    "ember-source": "~5.4.0",
-    "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^5.11.2",
-    "ember-try": "^3.0.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-ember": "^11.11.1",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-qunit": "^8.0.1",
-    "lint-to-the-future": "^2.0.0",
-    "lint-to-the-future-ember-template": "^1.2.0",
-    "lint-to-the-future-eslint": "^2.0.1",
-    "lint-to-the-future-stylelint": "^1.0.0",
-    "loader.js": "^4.7.0",
     "prettier": "^3.0.3",
-    "qunit": "^2.20.0",
-    "qunit-dom": "^2.0.0",
-    "release-plan": "^0.8.0",
-    "stylelint": "^15.11.0",
-    "stylelint-config-standard": "^34.0.0",
-    "stylelint-prettier": "^4.0.2",
-    "webpack": "^5.89.0"
-  },
-  "peerDependencies": {
-    "ember-source": "^3.20.0 || >= 4.0.0",
-    "liquid-fire": ">= 0.32.0"
-  },
-  "peerDependenciesMeta": {
-    "liquid-fire": {
-      "optional": true
-    }
+    "prettier-plugin-ember-template-tag": "^2.0.2",
+    "release-plan": "^0.17.4"
   },
   "engines": {
     "node": "14.* || 16.* || 18.* || >= 20"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "demoURL": "https://adopted-ember-addons.github.io/ember-collapsible-panel/"
   }
 }
