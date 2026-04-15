@@ -11,8 +11,6 @@ version](https://badge.fury.io/js/ember-collapsible-panel.svg)](http://badge.fur
 
 * Ember.js v3.28 or above
 - Embroider or ember-auto-import v2
-* Ember CLI v3.28 or above
-* Node.js v18 or above
 
 
 ## Installation
