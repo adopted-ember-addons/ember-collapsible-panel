@@ -85,7 +85,8 @@
   },
   "dependencies": {
     "ember-collapsible-panel": "workspace:*",
-    "liquid-fire": "^0.36.2"
+    "liquid-fire": "^0.36.2",
+    "velocity-animate": "^1.5.2"
   },
   "dependenciesMeta": {
     "ember-collapsible-panel": {

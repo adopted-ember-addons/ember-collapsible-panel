@@ -10,10 +10,13 @@ importers:
     dependencies:
       ember-collapsible-panel:
         specifier: workspace:*
-        version: file:../ember-collapsible-panel(@babel/core@7.29.0)(liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5)))
+        version: file:../ember-collapsible-panel(@babel/core@7.29.0)(liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2))
       liquid-fire:
         specifier: ^0.36.2
-        version: 0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
+        version: 0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2)
+      velocity-animate:
+        specifier: ^1.5.2
+        version: 1.5.2
     dependenciesMeta:
       ember-collapsible-panel:
         injected: true
@@ -4876,6 +4879,9 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  velocity-animate@1.5.2:
+    resolution: {integrity: sha512-m6EXlCAMetKztO1ppBhGU1/1MR3IiEevO6ESq6rcrSQ3Q77xYSW13jkfXW88o4xMrkXJhy/U7j4wFR/twMB0Eg==}
+
   vite@8.0.11:
     resolution: {integrity: sha512-Jz1mxtUBR5xTT65VOdJZUUeoyLtqljmFkiUXhPTLZka3RDc9vpi/xXkyrnsdRcm2lIi3l3GPMnAidTsEGIj3Ow==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -7911,12 +7917,12 @@ snapshots:
       - walrus
       - whiskers
 
-  ember-collapsible-panel@file:../ember-collapsible-panel(@babel/core@7.29.0)(liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))):
+  ember-collapsible-panel@file:../ember-collapsible-panel(@babel/core@7.29.0)(liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2)):
     dependencies:
       '@embroider/addon-shim': 1.10.2
       decorator-transforms: 2.3.2(@babel/core@7.29.0)
     optionalDependencies:
-      liquid-fire: 0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
+      liquid-fire: 0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -9262,7 +9268,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5)):
+  liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2):
     dependencies:
       '@ember/render-modifiers': 2.1.0(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
       '@embroider/addon-shim': 1.10.2
@@ -9271,6 +9277,7 @@ snapshots:
       broccoli-merge-trees: 4.2.0
       broccoli-stew: 3.0.0
       ember-source: 6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5)
+      velocity-animate: 1.5.2
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
@@ -10679,6 +10686,8 @@ snapshots:
   validate-npm-package-name@7.0.2: {}
 
   vary@1.1.2: {}
+
+  velocity-animate@1.5.2: {}
 
   vite@8.0.11(@types/node@25.6.0)(terser@5.47.1)(yaml@2.8.4):
     dependencies:
