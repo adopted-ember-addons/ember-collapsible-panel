@@ -4,7 +4,11 @@
 
 # compiled output
 /dist/
-/declarations/
 
 # misc
 /coverage/
+!.*
+.*/
+/pnpm-lock.yaml
+ember-cli-update.json
+*.html

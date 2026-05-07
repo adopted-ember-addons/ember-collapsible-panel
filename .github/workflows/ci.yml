@@ -26,17 +26,42 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+      - run: |
+          # Force build and re-sync injected dependencies
+          pnpm install --frozen-lockfile
+          pnpm install -f
+
       - name: Lint
         run: pnpm lint
       - name: Run Tests
         run: pnpm test:ember
 
+  test_vite:
+    name: "Tests (Vite)"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: |
+          # Force build and re-sync injected dependencies
+          pnpm install --frozen-lockfile
+          pnpm install -f
+      - name: Run Tests
+        run: pnpm test:ember
+        working-directory: test-app-vite
+
   try-scenarios:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
-    needs: 'test'
+    needs: "test"
     timeout-minutes: 10
 
     strategy:
@@ -63,8 +88,10 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+      - run: |
+          # Force build and re-sync injected dependencies
+          pnpm install --frozen-lockfile
+          pnpm install -f
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: test-app
