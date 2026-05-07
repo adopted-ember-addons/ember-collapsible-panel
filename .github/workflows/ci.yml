@@ -26,8 +26,12 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+      - run: |
+          # Force build and re-sync injected dependencies
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm install -f
+
       - name: Lint
         run: pnpm lint
       - name: Run Tests
@@ -47,8 +51,11 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+      - run: |
+          # Force build and re-sync injected dependencies
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm install -f
       - name: Run Tests
         run: pnpm test:ember
         working-directory: test-app-vite
@@ -83,8 +90,11 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+      - run: |
+          # Force build and re-sync injected dependencies
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm install -f
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: test-app
