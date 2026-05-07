@@ -29,7 +29,6 @@ jobs:
       - run: |
           # Force build and re-sync injected dependencies
           pnpm install --frozen-lockfile
-          pnpm build
           pnpm install -f
 
       - name: Lint
@@ -54,7 +53,6 @@ jobs:
       - run: |
           # Force build and re-sync injected dependencies
           pnpm install --frozen-lockfile
-          pnpm build
           pnpm install -f
       - name: Run Tests
         run: pnpm test:ember
@@ -93,7 +91,6 @@ jobs:
       - run: |
           # Force build and re-sync injected dependencies
           pnpm install --frozen-lockfile
-          pnpm build
           pnpm install -f
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
