@@ -10,7 +10,7 @@
     "build": "pnpm -F test-app build -o ../dist",
     "lint": "pnpm -F test-app -F ember-collapsible-panel lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "prepare": "pnpm build",
+    "prepare": "pnpm --filter ember-collapsible-panel build",
     "start": "pnpm run \"/(start:addon|start:test-app)/\"",
     "start:addon": "pnpm --filter ember-collapsible-panel start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
