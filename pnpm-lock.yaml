@@ -283,6 +283,9 @@ importers:
       ember-collapsible-panel:
         specifier: workspace:*
         version: file:ember-collapsible-panel(@babel/core@7.29.0)(liquid-fire@0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2))
+      liquid-fire:
+        specifier: ^0.36.2
+        version: 0.36.2(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))(velocity-animate@1.5.2)
     dependenciesMeta:
       ember-collapsible-panel:
         injected: true
@@ -9371,7 +9374,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
-    optional: true
 
   '@ember/string@4.0.1': {}
 
@@ -15451,7 +15453,6 @@ snapshots:
       - '@babel/core'
       - '@glint/template'
       - supports-color
-    optional: true
 
   livereload-js@3.4.1: {}
 

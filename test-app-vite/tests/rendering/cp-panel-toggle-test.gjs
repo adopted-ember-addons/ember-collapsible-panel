@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, settled } from '@ember/test-helpers';
-import { trackedObject } from '@ember/reactive/collection';
+import { trackedObject } from '@ember/reactive/collections';
 
 import { CpPanelToggle } from 'ember-collapsible-panel';
 
