@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-11-27)
+
+* ember-collapsible-panel 7.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-collapsible-panel`
+  * [#183](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/183) Add vite app for testing, and fix incorrect pacakge.json ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2026-04-15)
 
 * ember-collapsible-panel 7.0.0 (major)
