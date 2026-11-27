@@ -17,6 +17,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./addon-main.js": "./addon-main.cjs",
+    "./_app_/*": "./dist/_app_/*.js",
     "./components/*.js": "./dist/components/*.js",
     "./components/*": "./dist/components/*.js",
     "./services/*.js": "./dist/services/*.js",

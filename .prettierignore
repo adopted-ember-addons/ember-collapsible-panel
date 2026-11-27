@@ -4,6 +4,7 @@
 # misc
 !.*
 .lint-todo/
+*.yaml
 
 # ember-try
 /.node_modules.ember-try/

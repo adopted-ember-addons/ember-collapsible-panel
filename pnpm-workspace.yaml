@@ -1,3 +1,6 @@
 packages:
-  - 'ember-collapsible-panel'
-  - 'test-app'
+  - "ember-collapsible-panel"
+  - "test-app"
+  - "test-app-vite"
+
+sharedWorkspaceLockfile: false
