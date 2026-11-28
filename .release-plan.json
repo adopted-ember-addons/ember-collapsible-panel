@@ -2,8 +2,8 @@
   "solution": {
     "ember-collapsible-panel": {
       "impact": "patch",
-      "oldVersion": "7.0.0",
-      "newVersion": "7.0.1",
+      "oldVersion": "7.0.1",
+      "newVersion": "7.0.2",
       "tagName": "latest",
       "constraints": [
         {
@@ -14,5 +14,5 @@
       "pkgJSONPath": "./ember-collapsible-panel/package.json"
     }
   },
-  "description": "## Release (2026-11-27)\n\n* ember-collapsible-panel 7.0.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-collapsible-panel`\n  * [#183](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/183) Add vite app for testing, and fix incorrect pacakge.json ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2026-11-28)\n\n* ember-collapsible-panel 7.0.2 (patch)\n\n#### :bug: Bug Fix\n* `ember-collapsible-panel`\n  * [#190](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/190) Import service, not inject, from @ember/service ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))\n\n#### Committers: 1\n- @NullVoxPopuli's reduced-access machine account for AI usage ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))\n"
 }
