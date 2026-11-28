@@ -3,11 +3,16 @@ import { scheduleOnce } from '@ember/runloop';
 import { computed, action, get, set } from '@ember/object';
 import { and, oneWay, readOnly, not } from '@ember/object/computed';
 import { macroCondition, dependencySatisfies } from '@embroider/macros';
-import { inject as service } from '@ember/service';
+import * as emberService from '@ember/service';
 import Component from '@ember/component';
 import { hash } from '@ember/helper';
 import CpPanelToggle from './cp-panel-toggle.gjs';
 import CpPanelBody from './cp-panel-body.gjs';
+
+/**
+ * ember-source 4.1 added `service`, and ember-source 7 removed `inject`.
+ */
+const service = emberService.service ?? emberService.inject;
 
 let hasLiquidFireDep;
 if (macroCondition(dependencySatisfies('liquid-fire', '*'))) {
