@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-11-28)
+
+* ember-collapsible-panel 7.0.2 (patch)
+
+#### :bug: Bug Fix
+* `ember-collapsible-panel`
+  * [#190](https://github.com/adopted-ember-addons/ember-collapsible-panel/pull/190) Import service, not inject, from @ember/service ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+
+#### Committers: 1
+- @NullVoxPopuli's reduced-access machine account for AI usage ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+
 ## Release (2026-11-27)
 
 * ember-collapsible-panel 7.0.1 (patch)
